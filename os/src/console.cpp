@@ -1,8 +1,12 @@
 #include "os/console.h"
 
 namespace os::console {
+    char getc(){
+        return os::uart::getc();
+    }
+
     void putc(const char ch){
-        // TODO: print character
+        return os::uart::putc(ch);
     }
 
     void puts(const char* str){

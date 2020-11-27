@@ -2,5 +2,10 @@
     "C_Cpp.default.includePath": [
         "os",
         "os/include",
-    ]
+        "include"
+    ],
+    "files.associations": {
+        "cinttypes": "cpp",
+        "stddef.h": "c"
+    }
 }
