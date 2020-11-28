@@ -42,16 +42,15 @@ extern "C" int entry(int r1, int r2, int atags){
     os::kernel::init(r1, r2, atags);
 
     os::console::puts("Kernel Started");
-    while (1){
-        os::console::putc(os::console::getc());
-        os::console::putc('\n');
+    while (true){
+        os::console::getc();
     }
 
     os::kernel::destroy();
 }
 ```
 
-**Explanation:** On top we've included the kernel and console from os. Next we've created entry function. This is the function which bootloader will load. In the entry function, first thing we need to do is to initialize the kernel. `kernel::init` function initializes the `uart` which is used for i/o. Next we've printed a string to console. After that we've setup a loop in which we wait for user to enter a character and then print it to console along with a new character.
+**Explanation:** On top we've included the kernel and console from os. Next we've created entry function. This is the function which bootloader will load. In the entry function, first thing we need to do is to initialize the kernel. `kernel::init` function initializes the `uart` which is used for i/o. Next we've printed a string to console. After that we've setup a loop in which we take charaters typed by user as input.
 
 **Makefile**
 ```Makefile
