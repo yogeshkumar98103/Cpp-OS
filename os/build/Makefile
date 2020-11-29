@@ -1,5 +1,3 @@
-export RASPI_MODEL = 4
-
 include constants.mk
 
 OS_INC_DIR = ../include
@@ -29,7 +27,7 @@ link: ${OS_ELF}
 # Link Object Files
 ${OS_ELF}: ${OS_OBJ_FILES} ${OS_INC_FILES} ${EXT_OBJ_FILES}
 	@echo "Linking..."
-	@${CXX} ${ARCHFLAGS} -T linker.ld -o ${OS_ELF} -I${OS_INC_DIR} ${LFLAGS} ${OS_OBJ_FILES} ${EXT_OBJ_FILES}
+	@${CXX} ${ARCHFLAGS} -T linker_${AARCH}.ld -o ${OS_ELF} -I${OS_INC_DIR} ${LFLAGS} ${OS_OBJ_FILES} ${EXT_OBJ_FILES}
 
 # Compile .cpp Files
 ${OS_OBJ_DIR}/%.o: ${OS_SRC_DIR}/%.cpp

@@ -33,4 +33,6 @@ _start:
 4:  bl      entry
 
     // for failsafe, halt this core too
-    b 1b
+halt: 
+    wfe
+    b halt
