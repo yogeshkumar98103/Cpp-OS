@@ -13,10 +13,12 @@ extern "C" int entry(int r1, int r2, int atags){
     char* str = (char*)heap.malloc(100);
 
     os::console::puts("Kernel Started\n");
-    while (true){
+    for(uint32_t i = 0; ; ++i){
         os::console::puts("Enter Text: ");
         os::console::getline(str, 99);
-        os::console::puts("You typed: ");
+        os::console::putc('[');
+        os::console::putu32(i);
+        os::console::puts("] You typed: ");
         os::console::puts(str);
         os::console::putc('\n');
     }
