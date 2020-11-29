@@ -1,4 +1,4 @@
-OS_DIR  = ../os
+OS_DIR  = ../os_64
 OS_BUILD_DIR = ${OS_DIR}/build
 
 include ${OS_BUILD_DIR}/constants.mk
@@ -18,7 +18,8 @@ CUR_DIR = ${shell pwd}
 export OS_ELF = ${CUR_DIR}/${BIN_DIR}/os.elf 
 export EXT_OBJ_FILES = ${patsubst %.o, ${CUR_DIR}/%.o, ${OBJ_FILES}}
 
-link: ${OS_ELF}
+link: ${BIN_DIR} ${OBJ_DIR} ${OBJ_FILES} ${INC_FILES}
+	@${MAKE} -C ${OS_BUILD_DIR} link
 	
 compile: ${BIN_DIR} ${OBJ_DIR} ${OBJ_FILES} ${INC_FILES}
 	@${MAKE} -C ${OS_BUILD_DIR} compile
@@ -28,9 +29,10 @@ ${OBJ_DIR}/%.o: ${SRC_DIR}/%.cpp
 	@${CXX} ${CXXFLAGS} -I${OS_DIR}/${OS_INC_DIR} -I${INC_DIR} -c $< -o $@ ${CXXSRCFLAGS}
 
 run: ${OS_ELF}
-	@${QEMU} -append 'console=ttyS0' -nographic -m 1G -M raspi2 -serial mon:stdio -kernel ${OS_ELF}
+	@${QEMU} -append 'console=ttyS0' -nographic -m 1G -M raspi4b+ -serial mon:stdio -kernel ${OS_ELF}
 
 ${OS_ELF}: ${BIN_DIR} ${OBJ_DIR} ${OBJ_FILES} ${INC_FILES}
+	@echo Creating ELF
 	@${MAKE} -C ${OS_BUILD_DIR} link
 
 ${OBJ_DIR}:

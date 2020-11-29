@@ -3,6 +3,9 @@
         "os",
         "os/include",
         "include"
+        // "64-bit/os",
+        // "64-bit/os/include",
+        // "64-bit/include"
     ],
     "files.associations": {
         "cinttypes": "cpp",

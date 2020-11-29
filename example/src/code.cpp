@@ -5,8 +5,8 @@
 extern "C" int entry(int r1, int r2, int atags){
     os::kernel::init(r1, r2, atags);
 
-    void* heap_start = os::memory::get_kernel_end();
-    uint32_t heap_size   = os::memory::get_memory_size(atags);
+    void* heap_start   = os::memory::get_kernel_end();
+    uint32_t heap_size = os::memory::get_memory_size(atags);
 
     os::memory::best_fit_heap heap(heap_start, heap_size);
 

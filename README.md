@@ -77,3 +77,11 @@ run: ${OS_ELF}
 
 ### Notes
 There is no concept of processes here as there will be only single process. However that one process will support multiple threads.
+
+### Links
+
+https://github.com/jsandler18/raspi-kernel
+https://wiki.osdev.org/Raspberry_Pi_Bare_Bones#Pi_3.2C_4
+https://elinux.org/Device_Tree_Reference
+https://github.com/BrianSidebotham/arm-tutorial-rpi/tree/master/part-1
+https://static.docs.arm.com/den0024/a/DEN0024A_v8_architecture_PG.pdf

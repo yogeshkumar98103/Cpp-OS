@@ -2,17 +2,18 @@
 #define __OS__MEMORY_H
 
 #include <stdint.h>
+#include <stddef.h>
 
 namespace os::memory{
-    void bzero(void* addr, uint32_t len);
+    void bzero(void* addr, size_t len);
     void*  get_kernel_end();
-    uint32_t get_memory_size(uint32_t atags);
+    size_t get_memory_size();
 
     /// This is the header stored at beginning of each heap segment
     struct heap_segment_t {
         heap_segment_t* next;
         heap_segment_t* prev;
-        uint32_t seg_size;          // This includes header size also
+        size_t seg_size;          // This includes header size also
         bool allocated;
     };
 
@@ -27,13 +28,13 @@ namespace os::memory{
 
     public:
 
-        heap(void* start, uint32_t heap_size){
+        heap(void* start, size_t heap_size){
             heap_head = reinterpret_cast<heap_segment_t*>(start);
             os::memory::bzero(heap_head, sizeof(heap_segment_t));
             heap_head->seg_size = heap_size;
         }
 
-        void* malloc(uint32_t bytes){
+        void* malloc(size_t bytes){
             bytes += sizeof(heap_segment_t);
             bytes = (bytes + 0xf) & 0xf; // 16 byte align
 
@@ -73,15 +74,15 @@ namespace os::memory{
 
     namespace heap_policy {
         struct best_fit {
-            os::memory::heap_segment_t* operator ()(heap_segment_t* heap_head, uint32_t bytes);
+            os::memory::heap_segment_t* operator ()(heap_segment_t* heap_head, size_t bytes);
         };
 
         struct worst_fit {
-            os::memory::heap_segment_t* operator ()(heap_segment_t* heap_head, uint32_t bytes);
+            os::memory::heap_segment_t* operator ()(heap_segment_t* heap_head, size_t bytes);
         };
 
         struct first_fit {
-            os::memory::heap_segment_t* operator ()(heap_segment_t* heap_head, uint32_t bytes);
+            os::memory::heap_segment_t* operator ()(heap_segment_t* heap_head, size_t bytes);
         };
     }
 

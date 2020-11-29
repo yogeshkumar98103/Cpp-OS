@@ -1,11 +1,10 @@
 #ifndef __OS__KERNEL_H
 #define __OS__KERNEL_H
 
-#include "os/uart.h"
-
-namespace os::kernel {
-    void init(int r1, int r2, int atags);
-    void destroy();
-}
+#ifdef AARCH64
+#include "aarch64/kernel.h"
+#else
+#include "aarch32/kernel.h"
+#endif
 
 #endif // __OS__KERNEL_H
