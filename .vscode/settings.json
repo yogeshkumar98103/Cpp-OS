@@ -36,6 +36,9 @@
         "algorithm": "cpp",
         "future": "cpp",
         "mutex": "cpp",
-        "type_traits": "cpp"
+        "type_traits": "cpp",
+        "__mutex_base": "cpp",
+        "memory": "cpp",
+        "shared_mutex": "cpp"
     }
 }

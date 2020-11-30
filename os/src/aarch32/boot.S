@@ -10,11 +10,19 @@
 _start:
     mrc p15, #0, r1, c0, c0, #5
     and r1, r1, #3
-    cmp r1, #0 
-    bne halt
+    cmp r1, #0
+    beq core0_setup
+    cmp r1, #1
+    beq core1_setup
+    cmp r1, #2
+    beq core2_setup
+    cmp r1, #3
+    beq core3_setup
 
-    mov sp, #0x8000
+core0_setup:
+    ldr sp, =__core0_stack
 
+    // Set .bss to all 0s
     ldr r4, =__bss_start
     ldr r9, =__bss_end  
     mov r5, #0
@@ -30,8 +38,23 @@ _start:
     cmp r4, r9
     blo 1b
 
+    b call_entry
+
+core1_setup:
+    ldr sp, =__core1_stack
+    b call_entry
+
+core2_setup:
+    ldr sp, =__core2_stack
+    b call_entry
+
+core3_setup:
+    ldr sp, =__core3_stack
+
+call_entry:
     ldr r3, =entry
     blx r3
+    b halt
 
 halt: 
     wfe

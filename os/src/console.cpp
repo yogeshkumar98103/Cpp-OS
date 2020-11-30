@@ -1,13 +1,29 @@
 #include "os/console.h"
 #include "os/itoa.h"
+#include "os/spinlock.h"
 
 namespace os::console {
+    os::sync::spinlock getc_iolock{};
+    os::sync::spinlock puts_iolock{};
+    os::sync::spinlock gets_iolock{};
+    os::sync::spinlock putu32_iolock{};
+    os::sync::spinlock puti32_iolock{};
+
+    void iolock_init(){
+        getc_iolock.init();
+        puts_iolock.init();
+        gets_iolock.init();
+        putu32_iolock.init();
+        puti32_iolock.init();
+    }
+
     char getc(){
+        getc_iolock.acquire();
         char c = os::uart::getc();
 
         if(c == '\r') c = '\n';
         os::console::putc(c);
-
+        getc_iolock.release();
         return c;
     }
 
@@ -16,20 +32,26 @@ namespace os::console {
     }
 
     void puts(const char* str){
+        puts_iolock.acquire();
         while((*str) != '\0') putc(*(str++));
+        puts_iolock.release();
     }
 
     int gets(char* str, char delim){
+        gets_iolock.acquire();
         int char_read = 0;
         for(char_read = 0; (*str = getc()) != delim; ++char_read, ++str);
         *str = '\0';
+        gets_iolock.release();
         return char_read;
     }
 
     int gets(char* str, int limit, char delim){
+        gets_iolock.acquire();
         int char_read = 0;
         for(char_read = 0; char_read < limit && (*str = getc()) != delim; ++char_read, ++str);
         *str = '\0';
+        gets_iolock.release();
         return char_read;
     }
 
@@ -42,15 +64,19 @@ namespace os::console {
     }
 
     void putu32(uint32_t num){
-        static char str[12];
+        putu32_iolock.acquire();
+        char str[12];
         u32toa_branchlut2(num, str);
         puts(str);
+        putu32_iolock.release();
     }
 
     void puti32(int32_t num){
-        static char str[12];
+        puti32_iolock.acquire();
+        char str[12];
         u32toa_branchlut2(num, str);
         puts(str);
+        puti32_iolock.release();
     }
 
     // void putu16(uint16_t num){

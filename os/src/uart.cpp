@@ -1,4 +1,5 @@
 #include "os/uart.h"
+#include "os/spinlock.h"
 
 namespace os::mmio {
     inline void write(uint32_t reg, uint32_t data){
@@ -25,7 +26,11 @@ volatile unsigned int  __attribute__((aligned(16))) mbox[9] = {
 #endif
 
 namespace os::uart {
+    os::sync::spinlock iolock{};
+
     void init(){
+        iolock.init();
+
         os::mmio::write(UART0_CR, 0x00000000);
 
         // Setup the GPIO pin 14 && 15.
@@ -76,12 +81,16 @@ namespace os::uart {
     }
 
     void putc(const char c){
+        iolock.acquire();
         while (os::mmio::read(UART0_FR) & (1 << 5));
         os::mmio::write(UART0_DR, c);
+        iolock.release();
     }
 
     char getc() {
+        iolock.acquire();
         while (os::mmio::read(UART0_FR) & (1 << 4));
         return os::mmio::read(UART0_DR);
+        iolock.release();
     }
 }

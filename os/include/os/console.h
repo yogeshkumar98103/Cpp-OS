@@ -5,6 +5,8 @@
 #include <stddef.h>
 
 namespace os::console {
+    void iolock_init();
+    
     char getc();
 
     int gets(char* str, char delim = ' ');

@@ -15,6 +15,8 @@ OS_OBJ_FILES += ${patsubst ${OS_SRC_DIR}/${AARCH}/%.cpp, ${OS_OBJ_DIR}/%.o, ${OS
 OS_OBJ_FILES += ${patsubst ${OS_SRC_DIR}/%.S,  ${OS_OBJ_DIR}/%.o, ${OS_ASM_FILES}}
 OS_OBJ_FILES += ${patsubst ${OS_SRC_DIR}/${AARCH}/%.S,  ${OS_OBJ_DIR}/%.o, ${OS_ARCH_ASM_FILES}}
 
+OS_LINKER_FILE = linker_${AARCH}.ld
+
 compile: ${OS_OBJ_FILES} ${OS_INC_FILES}
 	@echo "Compiled"
 
@@ -25,9 +27,9 @@ compile: ${OS_OBJ_FILES} ${OS_INC_FILES}
 link: ${OS_ELF}
 
 # Link Object Files
-${OS_ELF}: ${OS_OBJ_FILES} ${OS_INC_FILES} ${EXT_OBJ_FILES}
+${OS_ELF}: ${OS_OBJ_FILES} ${OS_INC_FILES} ${EXT_OBJ_FILES} ${OS_LINKER_FILE}
 	@echo "Linking..."
-	@${CXX} ${ARCHFLAGS} -T linker_${AARCH}.ld -o ${OS_ELF} -I${OS_INC_DIR} ${LFLAGS} ${OS_OBJ_FILES} ${EXT_OBJ_FILES}
+	@${CXX} ${ARCHFLAGS} -T ${OS_LINKER_FILE} -o ${OS_ELF} -I${OS_INC_DIR} ${LFLAGS} ${OS_OBJ_FILES} ${EXT_OBJ_FILES}
 
 # Compile .cpp Files
 ${OS_OBJ_DIR}/%.o: ${OS_SRC_DIR}/%.cpp

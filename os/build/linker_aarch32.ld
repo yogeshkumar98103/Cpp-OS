@@ -24,6 +24,10 @@ SECTIONS
     __data_start = .;
     .data :
     {
+        /* start_ctors = .;
+        KEEP(*( .init_array ));
+        KEEP(*(SORT_BY_INIT_PRIORITY( .init_array.* ))); 
+        end_ctors = .; */
         *(.data)
     }
     . = ALIGN(4096);
@@ -37,5 +41,16 @@ SECTIONS
     }
     . = ALIGN(4096);
     __bss_end = .;
+    .stack :
+    {
+        . = . + 4096;
+        __core0_stack = .;
+        . = . + 4096;
+        __core1_stack = .;
+        . = . + 4096;
+        __core2_stack = .;
+        . = . + 4096;
+        __core3_stack = .;
+    }
     __end = .;
 }
