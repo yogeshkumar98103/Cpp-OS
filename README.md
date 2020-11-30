@@ -85,3 +85,4 @@ https://wiki.osdev.org/Raspberry_Pi_Bare_Bones#Pi_3.2C_4
 https://elinux.org/Device_Tree_Reference
 https://github.com/BrianSidebotham/arm-tutorial-rpi/tree/master/part-1
 https://static.docs.arm.com/den0024/a/DEN0024A_v8_architecture_PG.pdf
+https://wiki.osdev.org/C++

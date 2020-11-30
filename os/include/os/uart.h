@@ -5,7 +5,12 @@
 #include <stdint.h>
 // #include <cinttypes>
 
+#if (RASPI_MODEL == 2 || RASPI_MODEL == 3)
 #define PERIPHERAL_BASE 0x3F000000
+#elif (RASPI_MODEL == 4)
+#define PERIPHERAL_BASE 0xFE000000
+#endif
+
 #define PERIPHERAL_LENGTH 0x01000000
 #define SYSTEM_TIMER_OFFSET 0x3000
 #define INTERRUPTS_OFFSET 0xB000

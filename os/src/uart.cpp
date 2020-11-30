@@ -17,6 +17,13 @@ namespace os{
     }
 }
 
+#if (RASPI_MODEL >= 3)
+// A Mailbox message with set clock rate of PL011 to 3MHz tag
+volatile unsigned int  __attribute__((aligned(16))) mbox[9] = {
+    9*4, 0, 0x38002, 12, 8, 2, 3000000, 0 ,0
+};
+#endif
+
 namespace os::uart {
     void init(){
         os::mmio::write(UART0_CR, 0x00000000);
@@ -40,6 +47,18 @@ namespace os::uart {
         // Divider = UART_CLOCK/(16 * Baud)
         // Fraction part register = (Fractional part * 64) + 0.5
         // UART_CLOCK = 3000000; Baud = 115200.
+
+        // For Raspi3 and 4 the UART_CLOCK is system-clock dependent by default.
+        // Set it to 3Mhz so that we can consistently set the baud rate
+#if (RASPI_MODEL >= 3)
+        // UART_CLOCK = 30000000;
+        unsigned int r = (((unsigned int)(&mbox) & ~0xF) | 8);
+        // wait until we can talk to the VC
+        while ( mmio_read(MBOX_STATUS) & 0x80000000 ) { }
+        // send our message to property channel and wait for the response
+        mmio_write(MBOX_WRITE, r);
+        while ( (mmio_read(MBOX_STATUS) & 0x40000000) || mmio_read(MBOX_READ) != r ) { }
+#endif
 
         // Divider = 3000000 / (16 * 115200) = 1.627 = ~1.
         os::mmio::write(UART0_IBRD, 1);
