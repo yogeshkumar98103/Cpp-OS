@@ -4,8 +4,9 @@ ifeq ($(RASPI_MODEL), 4)
 	# Raspberry Pi 4 
 
 	AARCH = aarch64
-	CXX = aarch64-none-elf-cc
-	CPU = cortex-a72
+	CXX = arm-none-eabi-g++ 
+	# aarch64-none-elf-cc
+	CPU = cortex-a53
 	DIRECTIVES = -D AARCH64 -D RASPI_MODEL=${RASPI_MODEL}
 	MFPU = crypto-neon-fp-armv8
 	MARCH = armv8-a+crc 

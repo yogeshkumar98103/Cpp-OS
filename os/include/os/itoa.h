@@ -78,9 +78,9 @@ void i32toa_branchlut2(int32_t x, char* p) {
 
 void u64toa_branchlut2(uint64_t x, char* p) {
     
-    if(x < 100000000) BEGIN8(x);
-    else if(x < 10000000000000000) { BEGIN8(x / 100000000); MIDDLE8(x % 100000000); }
-    else { BEGIN4(x / 10000000000000000); MIDDLE16(x % 10000000000000000); }
+    if(x < 100000000) BEGIN8(x, p);
+    else if(x < 10000000000000000) { BEGIN8(x / 100000000, p); MIDDLE8(x % 100000000, p); }
+    else { BEGIN4(x / 10000000000000000, p); MIDDLE16(x % 10000000000000000, p); }
     *p = 0;
     
 }

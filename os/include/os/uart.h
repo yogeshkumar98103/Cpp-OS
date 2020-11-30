@@ -6,11 +6,12 @@
 // #include <cinttypes>
 
 #if (RASPI_MODEL == 2 || RASPI_MODEL == 3)
-#define PERIPHERAL_BASE 0x3F000000
+#define MMIO_BASE 0x3F000000
 #elif (RASPI_MODEL == 4)
-#define PERIPHERAL_BASE 0xFE000000
+#define MMIO_BASE 0xFE000000
 #endif
 
+// #define MMIO_BASE PERIPHERAL_BASE
 #define PERIPHERAL_LENGTH 0x01000000
 #define SYSTEM_TIMER_OFFSET 0x3000
 #define INTERRUPTS_OFFSET 0xB000
@@ -36,7 +37,7 @@ namespace os::uart {
 
     enum {
         // The GPIO registers base address.
-        GPIO_BASE = PERIPHERAL_BASE + GPIO_OFFSET,
+        GPIO_BASE = MMIO_BASE + GPIO_OFFSET,
         // The offsets for reach register.
 
         // Controls actuation of pull up/down to ALL GPIO pins.
@@ -46,7 +47,7 @@ namespace os::uart {
         GPPUDCLK0 = (GPIO_BASE + 0x98),
 
         // The base address for UART.
-        UART0_BASE = PERIPHERAL_BASE + UART0_OFFSET,
+        UART0_BASE = MMIO_BASE + UART0_OFFSET,
 
         // The offsets for reach register for the UART.
         UART0_DR     = (UART0_BASE + 0x00),
@@ -67,6 +68,12 @@ namespace os::uart {
         UART0_ITIP   = (UART0_BASE + 0x84),
         UART0_ITOP   = (UART0_BASE + 0x88),
         UART0_TDR    = (UART0_BASE + 0x8C),
+
+        // The offsets for Mailbox registers
+        MBOX_BASE    = (MMIO_BASE + 0xB880),
+        MBOX_READ    = (MBOX_BASE + 0x00),
+        MBOX_STATUS  = (MBOX_BASE + 0x18),
+        MBOX_WRITE   = (MBOX_BASE + 0x20)
     };
 }
 

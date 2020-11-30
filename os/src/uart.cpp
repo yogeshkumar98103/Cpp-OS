@@ -54,10 +54,10 @@ namespace os::uart {
         // UART_CLOCK = 30000000;
         unsigned int r = (((unsigned int)(&mbox) & ~0xF) | 8);
         // wait until we can talk to the VC
-        while ( mmio_read(MBOX_STATUS) & 0x80000000 ) { }
+        while ( os::mmio::read(MBOX_STATUS) & 0x80000000 ) { }
         // send our message to property channel and wait for the response
-        mmio_write(MBOX_WRITE, r);
-        while ( (mmio_read(MBOX_STATUS) & 0x40000000) || mmio_read(MBOX_READ) != r ) { }
+        os::mmio::write(MBOX_WRITE, r);
+        while ( (os::mmio::read(MBOX_STATUS) & 0x40000000) || os::mmio::read(MBOX_READ) != r ) { }
 #endif
 
         // Divider = 3000000 / (16 * 115200) = 1.627 = ~1.
