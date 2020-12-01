@@ -79,10 +79,10 @@ extern "C" int entry(uint64_t dtb_ptr32, uint64_t x1, uint64_t x2, uint64_t x3){
     os::kernel::init(dtb_ptr32, x1, x2, x3);
 
 #else
-extern "C" void entry(int r1, int core_id, int atags){
+extern "C" void entry(int r0, int core_id, int atags){
 
 #endif
-    (void) r1;
+    (void) r0;
 
     switch(core_id){
         case 0: core0_entry(core_id, atags); break;
