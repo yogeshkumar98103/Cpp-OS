@@ -26,6 +26,6 @@ endif
 
 # -march=${MARCH}
 ARCHFLAGS = -mcpu=${CPU} -mfpu=${MFPU} -mfloat-abi=hard 
-CXXFLAGS = -fpic -ffreestanding -fno-rtti -fno-exceptions ${DIRECTIVES}
+CXXFLAGS = -std=c++17 -fpic -ffreestanding -fno-rtti -fno-exceptions ${DIRECTIVES}
 CXXSRCFLAGS = -O2 -Wall -Wextra
 LFLAGS = -ffreestanding -O2 -nostdlib

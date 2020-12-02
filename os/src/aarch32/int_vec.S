@@ -8,16 +8,16 @@ exception_vector:
     ldr pc, software_interrupt_handler_addr
     ldr pc, prefetch_abort_handler_addr
     ldr pc, data_abort_handler_addr
-    ldr pc, unused_handler_addr                     // Reserved
-    ldr pc, interrupt_handler_addr
-    ldr pc, fast_interrupt_handler_addr
+    ldr pc, unused_handler_addr
+    ldr pc, irq_handler_addr
+    ldr pc, fast_irq_handler_addr
 
-reset_handler_addr:                 .word _start
+reset_handler_addr:                 .word reset_handler // _start
 undefined_instruction_handler_addr: .word undefined_instruction_handler
 software_interrupt_handler_addr:    .word software_interrupt_handler
 prefetch_abort_handler_addr:        .word prefetch_abort_handler
 data_abort_handler_addr:            .word data_abort_handler
-unused_handler_addr                 .word _start
+unused_handler_addr:                .word reset_handler
 irq_handler_addr:                   .word irq_handler_asm_wrapper
 fast_irq_handler_addr:              .word fast_irq_handler
 
@@ -31,3 +31,26 @@ move_exception_vector:
     stmia   r1!,{r2, r3, r4, r5, r6, r7, r8, r9}
     pop     {r4, r5, r6, r7, r8, r9}
     blx     lr
+
+irq_handler_asm_wrapper:
+    sub     lr, lr, #4       // Adjust return address
+    srsdb   sp!, #0x13       // Save irq lr and irq spsp to supervisor stack, and save the resulting stack pointer as the current stack pointer
+    cpsid   if, #0x13        // Switch to supervisor mode with interrupts disabled
+    push    {r0-r3, r12, lr} // Save the caller save registers
+    and     r1, sp, #4       // Make sure stack is 8 byte aligned
+    sub     sp, sp, r1
+    push    {r1}             // Save the stack adjustment
+    bl      irq_handler
+    pop     {r1}             // Get the stack adjustment
+    add     sp, sp, r1
+    pop     {r0-r3, r12, lr} // Revert the caller save registers
+    rfeia   sp!              // Load the saved return address and program state register from before the interrupt from the stack and return 
+
+.global setup_interrupts
+
+@ setup_interrupts:
+@     @ mrs     r0, cpsr
+@     @ bic     r0, r0, #0x80
+@     @ msr     cpsr_c, r0
+@     cpsie   i
+@     mov     pc, lr

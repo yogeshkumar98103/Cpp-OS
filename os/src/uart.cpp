@@ -11,13 +11,6 @@ namespace os::mmio {
     }
 }
 
-namespace os{
-    void delay(int32_t count) {
-        asm volatile("__delay_%=: subs %[count], %[count], #1; bne __delay_%=\n"
-                : "=r"(count): [count]"0"(count) : "cc");
-    }
-}
-
 #if (RASPI_MODEL >= 3)
 // A Mailbox message with set clock rate of PL011 to 3MHz tag
 volatile unsigned int  __attribute__((aligned(16))) mbox[9] = {
@@ -29,6 +22,7 @@ namespace os::uart {
     os::sync::spinlock iolock{};
 
     void init(){
+        using namespace os::mmio;
         iolock.init();
 
         os::mmio::write(UART0_CR, 0x00000000);
@@ -82,15 +76,22 @@ namespace os::uart {
 
     void putc(const char c){
         iolock.acquire();
-        while (os::mmio::read(UART0_FR) & (1 << 5));
-        os::mmio::write(UART0_DR, c);
+        while (os::mmio::read(os::mmio::UART0_FR) & (1 << 5));
+        os::mmio::write(os::mmio::UART0_DR, c);
         iolock.release();
     }
 
     char getc() {
         iolock.acquire();
-        while (os::mmio::read(UART0_FR) & (1 << 4));
-        return os::mmio::read(UART0_DR);
+        while (os::mmio::read(os::mmio::UART0_FR) & (1 << 4));
+        return os::mmio::read(os::mmio::UART0_DR);
         iolock.release();
+    }
+}
+
+namespace os {
+    void delay(int32_t count) {
+        asm volatile("__delay_%=: subs %[count], %[count], #1; bne __delay_%=\n" 
+        : "=r"(count): [count]"0"(count) : "cc");
     }
 }

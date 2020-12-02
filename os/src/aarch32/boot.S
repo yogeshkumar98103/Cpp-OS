@@ -20,6 +20,17 @@ _start:
     beq core3_setup
 
 core0_setup:
+    // save CPSR.
+    @ mrs r0, cpsr
+
+    @ // set sp in irq mode.
+    @ bic r1, r0, #0x1F
+    @ orr r1, r1, #0x12
+    @ msr cpsr_c,r1
+    @ mov sp, #0x4000
+
+    @ // set sp in svc mode.
+    @ msr cpsr_c, r0
     ldr sp, =__core0_stack
 
     // Set .bss to all 0s

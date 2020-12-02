@@ -2,6 +2,8 @@
 #include "os/console.h"
 #include "os/memory.h"
 #include "os/spinlock.h"
+#include "os/interrupts.h"
+#include "os/timer.h"
 
 // typedef void (*constructor)();
 // extern "C" constructor start_ctors;
@@ -18,6 +20,7 @@
 os::sync::signallock coreinitlock1;
 os::sync::signallock coreinitlock2;
 os::sync::signallock coreinitlock3;
+os::sync::spinlock printlock;
 
 // void* heap_start   = os::memory::get_kernel_end();
     // uint32_t heap_size = os::memory::get_memory_size();
@@ -45,33 +48,69 @@ void core0_entry(int core_id, int atags){
     coreinitlock2.signal();
     coreinitlock3.signal();
 
+    printlock.acquire();
     os::console::puts("Core #");
     os::console::putu32(core_id);
     os::console::puts(" Started\n");
+    printlock.release();
+
+    os::interrupts::init();
+
+    volatile uint32_t* local_interrupt_0 = (uint32_t*)0x40000024;
+    volatile uint32_t* local_timer_control = (uint32_t*)0x40000034;
+    volatile uint32_t* local_timer_write_flags = (uint32_t*)0x40000038;
+    volatile uint32_t* core0_timer_int_control = (uint32_t*)0x40000040;
+    // reload value 5000000 = like half sec, enable clock, enable interrupt
+
+    *local_interrupt_0 = 0;
+    *local_timer_control = (1U << 29) | (1U << 28) | (0x00ffffff);
+    // 3.) Hit timer interrupt clear and reload register 0x40000038 (bits 30 & 31)
+    // QA7_rev3.4.pdf page 18 ... write 1 to both bits which clears irq signal and loads value from above
+    *local_timer_write_flags = (1U << 31) | (1U << 30);
+
+    // 4.) Setup timer interrupt control register 0x40000040 (all bits ... zero all but the one bit set)
+    // QA7_rev3.4.pdf page 13 ... now this depends what mode Core0 leaves your bootstub in.
+    // If you did no EL changes in stub the core0 will still be in Hyp mode if like me you dropped it to SVC mode it is Non Secure
+
+    // If Core0 enters in Hyp mode ... set nCNTHPIRQ_IRQ bit 1
+    // If Core0 enters in Svc mode ... set nCNTPNSIRQ_IRQ bit 2
+    *core0_timer_int_control = (1 << 1);
+
+    // 5.) Now you need to enable global interupts
+    __asm__ __volatile__("cpsie i");
+
+    // os::armtimer::init();
+    // os::armtimer::set(0x4000000);
 }
 
 void core1_entry(int core_id){
     coreinitlock1.wait();
 
+    printlock.acquire();
     os::console::puts("Core #");
     os::console::putu32(core_id);
     os::console::puts(" Started\n");
+    printlock.release();
 }
 
 void core2_entry(int core_id){
     coreinitlock2.wait();
 
+    printlock.acquire();
     os::console::puts("Core #");
     os::console::putu32(core_id);
     os::console::puts(" Started\n");
+    printlock.release();
 }
 
 void core3_entry(int core_id){
     coreinitlock3.wait();
 
+    printlock.acquire();
     os::console::puts("Core #");
     os::console::putu32(core_id);
     os::console::puts(" Started\n");
+    printlock.release();
 }
 
 #ifdef AARCH64 
