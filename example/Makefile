@@ -34,8 +34,9 @@ compile: ${BIN_DIR} ${OBJ_DIR} ${OBJ_FILES} ${INC_FILES}
 	@${MAKE} -C ${OS_BUILD_DIR} compile
 
 ${OBJ_DIR}/%.o: ${SRC_DIR}/%.cpp 
+	@echo 
 	@echo Building $<
-	@${CXX} ${ARCHFLAGS} ${CXXFLAGS} -I${OS_DIR}/${OS_INC_DIR} -I${INC_DIR} -c $< -o $@ ${CXXSRCFLAGS}
+	@${CXX} ${ARCHFLAGS} ${CXXFLAGS} -I${INC_DIR} -I${OS_DIR}/${OS_INC_DIR} -I${OS_DIR}/${LIB_INC_DIR} -c $< -o $@ ${CXXSRCFLAGS}
 
 run: ${OS_ELF}
 	@${QEMU} -append 'console=ttyS0' -nographic -m 1G -M ${DEVICE_NAME} -serial mon:stdio -kernel ${OS_ELF}

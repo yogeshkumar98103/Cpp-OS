@@ -2,7 +2,7 @@
 #define __OS__INTERRUPTS_H
 
 #include <stdint.h>
-#include "constants.h"
+#include "mmio.h"
 
 namespace os::mmio {
     inline const uint32_t INTERRUPTS_BASE = MMIO_BASE + INTERRUPTS_OFFSET;

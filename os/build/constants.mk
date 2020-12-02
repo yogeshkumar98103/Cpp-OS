@@ -1,4 +1,6 @@
 OS_INC_DIR = include
+LIB_DIR = lib
+LIB_INC_DIR = ${OS_INC_DIR}/${LIB_DIR}
 
 ifeq ($(RASPI_MODEL), 4)
 	# Raspberry Pi 4 

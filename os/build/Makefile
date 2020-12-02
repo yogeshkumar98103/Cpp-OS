@@ -4,8 +4,12 @@ OS_INC_DIR = ../include
 OS_SRC_DIR = ../src
 OS_OBJ_DIR = ../objects
 
+LIB_SRC_DIR = ${OS_SRC_DIR}/${LIB_DIR}
+
 OS_CPP_FILES =  ${wildcard ${OS_SRC_DIR}/*.cpp}
 OS_ARCH_CPP_FILES = ${wildcard ${OS_SRC_DIR}/${AARCH}/*.cpp}
+LIB_CPP_FILES = ${wildcard ${LIB_SRC_DIR}/*.cpp}
+
 OS_ASM_FILES =  ${wildcard ${OS_SRC_DIR}/*.S}
 OS_ARCH_ASM_FILES = ${wildcard ${OS_SRC_DIR}/${AARCH}/*.S}
 OS_INC_FILES =  ${wildcard ${OS_INC_DIR}/os/*.h}
@@ -14,6 +18,7 @@ OS_OBJ_FILES =  ${patsubst ${OS_SRC_DIR}/%.cpp, ${OS_OBJ_DIR}/%.o, ${OS_CPP_FILE
 OS_OBJ_FILES += ${patsubst ${OS_SRC_DIR}/${AARCH}/%.cpp, ${OS_OBJ_DIR}/%.o, ${OS_ARCH_CPP_FILES}}
 OS_OBJ_FILES += ${patsubst ${OS_SRC_DIR}/%.S,  ${OS_OBJ_DIR}/%.o, ${OS_ASM_FILES}}
 OS_OBJ_FILES += ${patsubst ${OS_SRC_DIR}/${AARCH}/%.S,  ${OS_OBJ_DIR}/%.o, ${OS_ARCH_ASM_FILES}}
+OS_OBJ_FILES += ${patsubst ${LIB_SRC_DIR}/%.cpp,  ${OS_OBJ_DIR}/%.o, ${LIB_CPP_FILES}}
 
 OS_LINKER_FILE = linker_${AARCH}.ld
 
@@ -54,6 +59,13 @@ ${OS_OBJ_DIR}/%.o: ${OS_SRC_DIR}/${AARCH}/%.S
 	@mkdir -p $(@D)
 	@echo "Building " $<
 	@${CXX} ${ARCHFLAGS} ${CXXFLAGS} -c $< -o $@ 
+
+# Compile LIB .cpp Files
+${OS_OBJ_DIR}/%.o: ${LIB_SRC_DIR}/%.cpp
+	@mkdir -p $(@D)
+	@echo "Building " $<
+	@${CXX} ${ARCHFLAGS} ${CXXFLAGS} -I${OS_INC_DIR} -I${LIB_INC_DIR} -c $< -o $@ ${CXXSRCFLAGS}
+
 
 clean:
 	@rm -rf ${OS_OBJ_DIR}

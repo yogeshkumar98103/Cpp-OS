@@ -1,15 +1,6 @@
+#include "os/mmio.h"
 #include "os/uart.h"
 #include "os/spinlock.h"
-
-namespace os::mmio {
-    inline void write(uint32_t reg, uint32_t data){
-        *(volatile uint32_t*)reg = data;
-    }
-
-    inline uint32_t read(uint32_t reg){
-        return *(volatile uint32_t*)reg;
-    }
-}
 
 #if (RASPI_MODEL >= 3)
 // A Mailbox message with set clock rate of PL011 to 3MHz tag

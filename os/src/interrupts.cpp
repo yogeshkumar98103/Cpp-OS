@@ -1,6 +1,11 @@
 #include "os/interrupts.h"
 #include "os/memory.h"
 #include "os/console.h"
+#include "os/cpu_utils.h"
+#include "os/mmio.h"
+#include "os/timer.h"
+
+using namespace os;
 
 extern "C" void move_exception_vector(void);
 extern "C" void setup_interrupts(void);
@@ -86,7 +91,6 @@ extern "C" void _start(void);
 extern "C" void __attribute__ ((interrupt ("ABORT"))) reset_handler(void) {
     os::console::puts("RESET HANDLER\n");
     _start();
-    // while(1);
 }
 extern "C" void __attribute__ ((interrupt ("ABORT"))) prefetch_abort_handler(void) {
     os::console::puts("PREFETCH ABORT HANDLER\n");
@@ -109,20 +113,21 @@ extern "C" void __attribute__ ((interrupt ("FIQ"))) fast_irq_handler(void) {
     while(1);
 }
 
-// extern "C" void __attribute__ ((interrupt ("RESET"))) reset_handler(void) {
-//     os::console::puts("RESET HANDLER\n");
-//     while(1);
-// }
+static inline bool is_timer_irq(int cpu_id){
+    return mmio::read(mmio::CORE_IRQ_SOURCE_BASE + cpu_id * 0x4) & 0x08; 
+}
 
-// __attribute__ ((interrupt ("IRQ")))
-
-extern "C" void  irq_handler(void) {
+extern "C" void irq_handler(void) {
     using namespace os::interrupts;
-    // disable_interrupts();
-    volatile uint32_t* local_timer_write_flags = (uint32_t*)0x40000038;
-    *local_timer_write_flags = (1U << 31) | (1U << 30);
+    int cpu_id = get_cpu_id();
 
-    os::console::puts("Interrupted! ");
+    if(is_timer_irq(cpu_id)){
+        timer::set(0);
+        console::puts("Interrupted Core #");
+        console::putu32(cpu_id);
+        console::putc(' ');
+        console::putu32(interrupt_regs->irq_basic_pending);
+    }
 
     for (int i = 0; i < NUM_IRQS; ++i) {
         // If the interrupt is pending and there is a handler, run the handler

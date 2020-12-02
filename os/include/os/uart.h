@@ -3,16 +3,11 @@
 
 #include <stddef.h>
 #include <stdint.h>
-#include "constants.h"
+#include "mmio.h"
 
 namespace os{
     // Loop <count> times in a way that the compiler won't optimize away
     void delay(int32_t count);
-}
-
-namespace os::mmio {
-    inline void write(uint32_t reg, uint32_t data);
-    inline uint32_t read(uint32_t reg);
 }
 
 namespace os::mmio {
