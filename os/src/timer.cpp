@@ -7,26 +7,22 @@
 using namespace os;
 
 namespace os::timer {
-    void init(){
-        arm_generic_timer::init();
+    void init(interrupts::timer_handler_f timer_handler, uint32_t init_delay_ms){
+        arm_generic_timer::init(timer_handler, init_delay_ms);
     }
 
-    void set(uint32_t usecs){
-        arm_generic_timer::set(usecs);
+    void set(uint32_t msecs){
+        arm_generic_timer::set(msecs);
+    }
+
+    void disable(){
+        arm_generic_timer::disable();
     }
 
 }
 
 namespace os::arm_generic_timer {
     static int cntfrq;
-
-    static void timer_handler(){
-        
-    }
-
-    static void timer_clearer(){
-
-    }
 
     static inline void set_cntv(bool enable) {
         asm volatile ("mcr p15, 0, %0, c14, c3, 1" :: "r"(enable));
@@ -42,22 +38,26 @@ namespace os::arm_generic_timer {
         asm volatile ("mcr p15, 0, %0, c14, c3, 0" :: "r"(val));
     }
 
-    void init(){
+    void init(interrupts::timer_handler_f timer_handler, uint32_t init_delay_ms){
         cntfrq = read_cntfrq();
         int cpu_id = get_cpu_id();
-        write_cntv_tval(cntfrq);
+        interrupts::register_timer_handler(timer_handler, cpu_id);
+        // write_cntv_tval(cntfrq);
+        set(init_delay_ms);
         mmio::write(mmio::CORE_TIMER_IRQCNTL_BASE + cpu_id * 0x4, 0x08);
         set_cntv(true);
         interrupts::enable_interrupts();
     }
 
-    void set(uint32_t usecs){
-        (void) usecs;
-        write_cntv_tval(cntfrq);
+    #include "os/console.h"
+    void set(uint32_t msecs){
+        write_cntv_tval((cntfrq / 1000) * msecs);
     }
 
     void disable(){
+        int cpu_id = get_cpu_id();
         set_cntv(false);
+        mmio::write(mmio::CORE_IRQ_SOURCE_BASE + cpu_id * 0x4, 0);
     }
 }
 

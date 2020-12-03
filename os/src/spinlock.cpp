@@ -1,6 +1,8 @@
 #include "os/spinlock.h"
+#include "os/interrupts.h"
 
 // extern "C" int try_lock(int* lock);
+using namespace os;
 
 namespace os::sync {
     spinlock::spinlock(){
@@ -12,13 +14,13 @@ namespace os::sync {
     }
 
     void spinlock::acquire(){
+        // interrupts::disable_interrupts();
         while (__atomic_test_and_set(&lock, __ATOMIC_ACQUIRE));
-        // while (!try_lock(&lock));
     }
 
     void spinlock::release(){
         __atomic_store_n(&lock, 0, __ATOMIC_RELAXED);
-        // lock = 0;
+        // interrupts::enable_interrupts();
     }
 
     signallock::signallock(){
@@ -26,7 +28,6 @@ namespace os::sync {
     }
 
     void signallock::signal(){
-        // __atomic_fetch_add(&lock, 1, __ATOMIC_RELAXED);
         lock = 1;
     }
 

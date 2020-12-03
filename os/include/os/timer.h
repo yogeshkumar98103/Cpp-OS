@@ -5,6 +5,7 @@
 
 #include <stdint.h>
 #include "mmio.h"
+#include "interrupts.h"
 
 namespace os::mmio {
     inline const uint32_t CORE_TIMER_IRQCNTL_BASE = 0x40000040;
@@ -12,13 +13,15 @@ namespace os::mmio {
 }
 
 namespace os::timer {
-    void init();
-    void set(uint32_t usecs);
+    void init(os::interrupts::timer_handler_f timer_handler, uint32_t init_delay_ms);
+    void set(uint32_t msecs);
+    void disable();
 }
 
 namespace os::arm_generic_timer {
-    void init();
-    void set(uint32_t usecs);
+    void init(os::interrupts::timer_handler_f timer_handler, uint32_t init_delay_ms);
+    void set(uint32_t msecs);
+    void disable();
 }
 
 // namespace os::mmio {

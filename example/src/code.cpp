@@ -44,17 +44,6 @@ os::sync::spinlock printlock;
 
     // heap.free(str);
 
-// void enable_cntv(void) {
-//     uint32_t cntv_ctl = 1;
-// 	asm volatile ("mcr p15, 0, %0, c14, c3, 1" :: "r"(cntv_ctl) ); // write CNTV_CTL
-// }
-
-// uint32_t read_cntfrq(void) {
-//     uint32_t val;
-// 	asm volatile ("mrc p15, 0, %0, c14, c0, 0" : "=r"(val) );
-//     return val;
-// }
-
 void core0_entry(uint32_t core_id, int atags){
     using namespace os::console;
 
@@ -68,52 +57,24 @@ void core0_entry(uint32_t core_id, int atags){
     printlock.acquire();
     std::cout << "Core #" << core_id << " Started" << std::endl;
     printlock.release();
-
-
-    // int cntfrq = read_cntfrq();
-    // write_cntv_tval(cntfrq);    // clear cntv interrupt and set next 1 sec timer.
-    // os::mmio::write(CORE0_TIMER_IRQCNTL, 0x08);
-    // enable_cntv(); 
-    // __asm__ __volatile__("cpsie i");
-
-    // volatile uint32_t* local_interrupt_0 = (uint32_t*)0x40000024;
-    // volatile uint32_t* local_timer_control = (uint32_t*)0x40000034;
-    // volatile uint32_t* local_timer_write_flags = (uint32_t*)0x40000038;
-    // volatile uint32_t* core0_timer_int_control = (uint32_t*)0x40000040;
-
-    // *local_interrupt_0 = 0;
-    // *local_timer_control = (1U << 29) | (1U << 28) | (0x00ffffff);
-    // *local_timer_write_flags = (1U << 31) | (1U << 30);
-    // *core0_timer_int_control = (1 << 1);
-    // __asm__ __volatile__("cpsie i");
 }
 
-void core1_entry(int core_id){
+void timer_irq_handler(const uint32_t cpu_id){
+    os::timer::set(2000);
+    std::cout << "Interrupted Core #" << cpu_id << std::endl;
+}
+
+void core1_entry(uint32_t core_id){
     coreinitlock1.wait();
 
     printlock.acquire();
     std::cout << "Core #" << core_id << " Started" << std::endl;
     printlock.release();
 
-    os::timer::init();
-    os::timer::set(0);
-
-    // volatile uint32_t* local_interrupt_0 = (uint32_t*)0x40000024;
-    // volatile uint32_t* local_timer_control = (uint32_t*)0x40000034;
-    // volatile uint32_t* local_timer_write_flags = (uint32_t*)0x40000038;
-    // const uint32_t control_reg = 0x40000000;
-    // const uint32_t core_timer_prescaler = 0x40000008;
-    // const uint32_t core_timer_int_control = 0x40000040 + 4 * core_id;
-    
-    // *local_interrupt_0 = core_id;
-    // *local_timer_control = (1U << 29) | (1U << 28) | (0x00ffffff);
-    // *local_timer_write_flags = (1U << 31) | (1U << 30);
-    // os::mmio::write(core_timer_prescaler, 1 << 30);
-    // os::mmio::write(core_timer_int_control, 1);
-    // __asm__ __volatile__("cpsie i");
+    os::timer::init(timer_irq_handler, 0);
 }
 
-void core2_entry(int core_id){
+void core2_entry(uint32_t core_id){
     coreinitlock2.wait();
 
     printlock.acquire();
@@ -121,7 +82,7 @@ void core2_entry(int core_id){
     printlock.release();
 }
 
-void core3_entry(int core_id){
+void core3_entry(uint32_t core_id){
     coreinitlock3.wait();
 
     printlock.acquire();

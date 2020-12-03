@@ -25,7 +25,7 @@ namespace std {
     }
 
     ostream& operator << (ostream& out, const char ch){
-        os::console::putu32(ch);
+        os::console::putc(ch);
         return out;
     }
 
