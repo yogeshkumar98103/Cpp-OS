@@ -66,7 +66,7 @@ namespace os::memory{
             if(remaining_space > 2 * sizeof(heap_segment_t)){
                 heap_segment_t* next_segment = (heap_segment_t*)((char*)heap_segment + bytes);
                 next_segment->prev = heap_segment;
-                next_segment->next = heap_head->next;
+                next_segment->next = heap_segment->next;
                 heap_segment->next = next_segment;
                 heap_segment->seg_size -= remaining_space;
                 next_segment->seg_size  = remaining_space;

@@ -81,7 +81,7 @@ namespace os::concurrency {
         uint32_t time_quanta;
 
         heap_t heap;
-        os::sync::spinlock lock;
+        os::sync::spinlock tlock;
         
     public:
         // rr_scheduler() = default;
@@ -104,8 +104,6 @@ namespace os::concurrency {
             os::timer::init(os::concurrency::dispatcher, time_quanta);
 
             first_context_switch(&sch_context, &thread->context);
-            // context_save(&sch_context);
-            // context_load(&thread->context);
             std::cout << "Returned from switch" << std::endl;
         }
 
@@ -114,18 +112,20 @@ namespace os::concurrency {
             if(nthreads == all_thread_count) return nullptr;
             // TODO: add args to stack
 
+            tlock.acquire();
             os::thread::thread_t& thread = *find_slot();
-            thread.tid = os::thread::next_thread_id++;
             thread.state = os::thread::thread_state::ready;
+            thread.tid = os::thread::next_thread_id++;
             thread.stack = (char*)heap.malloc(STACK_SIZE);
             thread.context = reinterpret_cast<os::thread::cpu_context_t*>(thread.stack + os::STACK_SIZE - sizeof(os::thread::cpu_context_t));
             os::memory::bzero(thread.context, sizeof(os::thread::cpu_context_t));
             thread.context->lr = reinterpret_cast<uint32_t>(thread_func);
-            // thread.context->sp = reinterpret_cast<uint32_t>(grim_reaper);
             thread.context->cpsr = 0x13 | (8 << 1);         // supervisor mode with IRQs only
-        
+
             ++all_thread_count;
             ++active_thread_count;
+
+            tlock.release();
             return &thread;
         }
 
@@ -146,25 +146,25 @@ namespace os::concurrency {
             os::timer::set(time_quanta);
             std::cout << "active_thread_count: " << active_thread_count << std::endl;
 
-            debug_threads();
+            // debug_threads();
 
             if(active_thread_count > 1){
                 os::thread::thread_t* old_thread = current_thread;
                 current_thread = get_next();
                 old_thread->state = os::thread::thread_state::ready;
                 current_thread->state = os::thread::thread_state::running;
-                debug_threads();
+                // debug_threads();
                 // std::cout << current_thread->tid << std::endl;
-                std::cout << "B: " << current_thread->tid << std::endl;
-                std::cout << "Stack Ptr: " << get_sp() << std::endl;
-                std::cout << "Stack 1: " << (uint32_t)old_thread->context << std::endl;
-                std::cout << "Stack 2: " << (uint32_t)current_thread->context << std::endl;
+                // std::cout << "B: " << current_thread->tid << std::endl;
+                // std::cout << "Stack Ptr: " << get_sp() << std::endl;
+                // std::cout << "Stack 1: " << (uint32_t)old_thread->context << std::endl;
+                // std::cout << "Stack 2: " << (uint32_t)current_thread->context << std::endl;
                 os::interrupts::enable_interrupts();
                 context_switch(&old_thread->context, &current_thread->context);
-                std::cout << "A: " << current_thread->tid << std::endl;
-                std::cout << "Stack Ptr: " << get_sp() << std::endl;
-                std::cout << "Stack 1: " << (uint32_t)old_thread->context << std::endl;
-                std::cout << "Stack 2: " << (uint32_t)current_thread->context << std::endl;
+                // std::cout << "A: " << current_thread->tid << std::endl;
+                // std::cout << "Stack Ptr: " << get_sp() << std::endl;
+                // std::cout << "Stack 1: " << (uint32_t)old_thread->context << std::endl;
+                // std::cout << "Stack 2: " << (uint32_t)current_thread->context << std::endl;
             }
             else std::cout << current_thread->tid << std::endl;
 
@@ -200,7 +200,6 @@ namespace os::concurrency {
             // Control never reaches here
             return nullptr;
         }
-        
 
         void debug_threads(){
             for(uint32_t i = 0; i < nthreads; ++i){

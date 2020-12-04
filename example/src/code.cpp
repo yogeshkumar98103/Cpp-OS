@@ -39,24 +39,47 @@ void core0_entry(uint32_t core_id, int atags){
     // heap.free(str);
 }
 
-using scheduler_t = os::concurrency::rr_scheduler<2, os::memory::best_fit_heap>;
+using scheduler_t = os::concurrency::rr_scheduler<5, os::memory::best_fit_heap>;
 scheduler_t* scheduler;
 
 void second_thread(){
     uint32_t j = 0;
     while(true){
-        for(volatile uint32_t i = 0; i < 1000000; ++i);
+        for(volatile uint32_t i = 0; i < 10000000; ++i);
         printlock.acquire();
         std::cout << "Second Thread: " << j++ << ' ' << get_sp() << std::endl;
         printlock.release();
     } 
 }
 
-void main_thread(){
-    scheduler->spawn(second_thread);
+void third_thread(){
     uint32_t j = 0;
     while(true){
-        for(volatile uint32_t i = 0; i < 1000000; ++i);
+        for(volatile uint32_t i = 0; i < 10000000; ++i);
+        printlock.acquire();
+        std::cout << "Third Thread: " << j++ << ' ' << get_sp() << std::endl;
+        printlock.release();
+    } 
+}
+
+void fourth_thread(){
+    uint32_t j = 0;
+    while(true){
+        for(volatile uint32_t i = 0; i < 10000000; ++i);
+        printlock.acquire();
+        std::cout << "Fourth Thread: " << j++ << ' ' << get_sp() << std::endl;
+        printlock.release();
+    } 
+}
+
+void main_thread(){
+    scheduler->spawn(second_thread);
+    scheduler->spawn(third_thread);
+    scheduler->spawn(fourth_thread);
+
+    uint32_t j = 0;
+    while(true){
+        for(volatile uint32_t i = 0; i < 10000000; ++i);
         printlock.acquire();
         std::cout << "Main Thread: " << j++ << ' ' << get_sp() << std::endl;
         printlock.release();
@@ -82,18 +105,17 @@ void core1_entry(uint32_t core_id){
     void* heap_start   = os::memory::get_kernel_end();
     uint32_t heap_size = os::memory::get_memory_size();
     os::memory::best_fit_heap heap(heap_start, heap_size);
-    scheduler_t scheduler(500, std::move(heap));
+    scheduler_t scheduler(1000, std::move(heap));
     ::scheduler = &scheduler;
     os::cpu[core_id].scheduler = (scheduler_base*)&scheduler;
     scheduler.start(main_thread);
     std::cout << "Back to core 1" << std::endl;
 
-    // auto p1 = (char*)heap.malloc(100);
-    // auto p2 = (char*)heap.malloc(100);
-    // printlock.acquire();
+    // auto p1 = heap.malloc(os::STACK_SIZE);
+    // auto p2 = heap.malloc(os::STACK_SIZE);
+    // auto p3 = heap.malloc(os::STACK_SIZE);
 
-    // std::cout << (uint32_t)heap_start <<  ' ' << (uint32_t)p1 << ' ' << (uint32_t)p2 << std::endl;
-    // printlock.release();
+    std::cout << "Hello" << std::endl;
 
     // os::timer::init(handler, 1000);
 }
