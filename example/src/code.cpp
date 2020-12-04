@@ -4,8 +4,11 @@
 #include "os/spinlock.h"
 #include "os/interrupts.h"
 #include "os/timer.h"
+#include "os/thread.h"
+#include "os/cpu.h"
 
 #include "iostream.h"
+#include "utility.h"
 
 // typedef void (*constructor)();
 // extern "C" constructor start_ctors;
@@ -23,12 +26,6 @@ os::sync::signallock coreinitlock1;
 os::sync::signallock coreinitlock2;
 os::sync::signallock coreinitlock3;
 os::sync::spinlock printlock;
-
-// void* heap_start   = os::memory::get_kernel_end();
-    // uint32_t heap_size = os::memory::get_memory_size();
-
-    // os::memory::best_fit_heap heap(heap_start, heap_size);
-
     // char* str = (char*)heap.malloc(100);
 
     // os::console::puts("Kernel Started\n");
@@ -48,7 +45,7 @@ void core0_entry(uint32_t core_id, int atags){
     using namespace os::console;
 
     os::kernel::init(0, 0, atags);
-    os::interrupts::init();
+    // os::interrupts::init();
 
     coreinitlock1.signal();
     coreinitlock2.signal();
@@ -59,19 +56,39 @@ void core0_entry(uint32_t core_id, int atags){
     printlock.release();
 }
 
-void timer_irq_handler(const uint32_t cpu_id){
-    os::timer::set(2000);
-    std::cout << "Interrupted Core #" << cpu_id << std::endl;
+using scheduler_t = os::concurrency::rr_scheduler<2, os::memory::best_fit_heap>;
+scheduler_t* scheduler;
+
+void second_thread(){
+    std::cout << "Second Thread" << std::endl;
+}
+
+void main_thread(){
+    std::cout << "Main Thread" << std::endl;
+    // while(true){
+
+    // }
+    // scheduler->spawn(second_thread);
 }
 
 void core1_entry(uint32_t core_id){
+    using namespace os::concurrency;
+
     coreinitlock1.wait();
 
     printlock.acquire();
-    std::cout << "Core #" << core_id << " Started" << std::endl;
+    std::cout << "Core #" << core_id << std::endl;
     printlock.release();
 
-    os::timer::init(timer_irq_handler, 0);
+    void* heap_start   = os::memory::get_kernel_end();
+    uint32_t heap_size = os::memory::get_memory_size();
+
+    os::memory::best_fit_heap heap(heap_start, heap_size);
+    scheduler_t scheduler(1000, std::move(heap));
+    ::scheduler = &scheduler;
+    os::cpu[core_id].scheduler = (scheduler_base*)&scheduler;
+    scheduler.start(main_thread);
+    std::cout << "Back to core 1" << std::endl;
 }
 
 void core2_entry(uint32_t core_id){

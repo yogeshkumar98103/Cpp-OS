@@ -2,7 +2,7 @@
 #include "os/console.h"
 #include "os/interrupts.h"
 #include "os/mmio.h"
-#include "os/cpu_utils.h"
+#include "os/cpu.h"
 
 using namespace os;
 

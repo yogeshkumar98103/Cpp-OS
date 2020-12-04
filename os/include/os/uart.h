@@ -52,4 +52,7 @@ namespace os::uart {
     char getc();
 }
 
+extern "C" void putc(char c);
+char getc();
+
 #endif //  __OS__UART_H

@@ -28,7 +28,7 @@ namespace os::console {
     }
 
     void putc(const char ch){
-        return os::uart::putc(ch);
+        os::uart::putc(ch);
     }
 
     void puts(const char* str){
@@ -102,4 +102,32 @@ namespace os::console {
             puts(str);
         }
     #endif
+}
+
+extern "C" void putu32(uint32_t num){
+    using namespace os::console;
+    
+    putu32_iolock.acquire();
+    char str[12];
+
+    str[0] = (num % 10) + '0';
+    num /= 10;
+    str[1] = (num % 10) + '0';
+    num /= 10;
+    str[2] = (num % 10) + '0';
+    num /= 10;
+    str[3] = (num % 10) + '0';
+    num /= 10;
+    str[4] = (num % 10) + '0';
+    num /= 10;
+    str[5] = (num % 10) + '0';
+    num /= 10;
+    str[6] = (num % 10) + '0';
+    num /= 10;
+
+    // u32toa_branchlut2(num, str);
+    str[7] = str[8] = str[9] = str[10] = str[11] = 0;
+    os::console::puts(str);
+    os::console::puts(" <-\n");
+    putu32_iolock.release();
 }

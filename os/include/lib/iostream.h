@@ -1,5 +1,5 @@
-#ifndef __STDLIB__STDIO_H
-#define __STDLIB__STDIO_H
+#ifndef __LIB__STDIO_H
+#define __LIB__STDIO_H
 
 #include "stdint.h"
 
@@ -21,4 +21,4 @@ namespace std {
     ostream& endl (ostream& out);
 }
 
-#endif // __STDLIB__STDIO_H
+#endif // __LIB__STDIO_H

@@ -15,6 +15,15 @@ namespace os::memory{
         heap_segment_t* prev;
         size_t seg_size;          // This includes header size also
         bool allocated;
+
+        // heap_segment_t();
+        // 
+        // heap_segment_t(const heap_segment_t& other){
+        //     next = other.next;
+        //     prev = other.prev;
+        //     seg_size = other.seg_size;
+        //     allocated = other.allocated;
+        // }
     };
 
     /// `alloc_policy` is used when selecting segment of heap to fulfill current request
@@ -33,6 +42,20 @@ namespace os::memory{
             os::memory::bzero(heap_head, sizeof(heap_segment_t));
             heap_head->seg_size = heap_size;
         }
+
+        heap(heap<alloc_policy>&& other) {
+            heap_head = other.heap_head;
+            other.heap_head = nullptr;
+        }
+
+        heap<alloc_policy>& operator= (heap<alloc_policy>&& other){
+            heap_head = other.heap_head;
+            other.heap_head = nullptr;
+            return (*this);
+        }
+
+        heap(const heap<alloc_policy>& other) = delete;
+        heap<alloc_policy>& operator= (const heap<alloc_policy>& other) = delete;
 
         void* malloc(size_t bytes){
             bytes += sizeof(heap_segment_t);

@@ -97,6 +97,8 @@
         "tuple": "cpp",
         "typeindex": "cpp",
         "typeinfo": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "memory_resource": "cpp",
+        "filesystem": "cpp"
     }
 }

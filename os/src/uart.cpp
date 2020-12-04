@@ -66,16 +66,28 @@ namespace os::uart {
     }
 
     void putc(const char c){
-        iolock.acquire();
-        while (os::mmio::read(os::mmio::UART0_FR) & (1 << 5));
-        os::mmio::write(os::mmio::UART0_DR, c);
-        iolock.release();
+        if(c <= 126){
+            iolock.acquire();
+            while (os::mmio::read(os::mmio::UART0_FR) & (1 << 5));
+            os::mmio::write(os::mmio::UART0_DR, c);
+            iolock.release();
+        }
     }
 
     char getc() {
         iolock.acquire();
         while (os::mmio::read(os::mmio::UART0_FR) & (1 << 4));
         return os::mmio::read(os::mmio::UART0_DR);
+        iolock.release();
+    }
+}
+
+extern "C" void putc(char c){
+    using namespace os::uart;
+    if(c <= 126){
+        iolock.acquire();
+        while (os::mmio::read(os::mmio::UART0_FR) & (1 << 5));
+        os::mmio::write(os::mmio::UART0_DR, c);
         iolock.release();
     }
 }

@@ -4,6 +4,8 @@
 #include "os/uart.h"
 #include <stddef.h>
 
+extern "C" void putu32(uint32_t ch);
+
 namespace os::console {
     void iolock_init();
     

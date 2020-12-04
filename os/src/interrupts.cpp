@@ -1,7 +1,7 @@
 #include "os/interrupts.h"
 #include "os/memory.h"
 #include "os/console.h"
-#include "os/cpu_utils.h"
+#include "os/cpu.h"
 #include "os/mmio.h"
 #include "os/timer.h"
 #include "os/constants.h"
@@ -86,6 +86,7 @@ extern "C" void irq_handler(void) {
     console::puts("Interrupt!!\n");
 
     if(is_timer_irq(cpu_id)){
+        // this_cpu().scheduler->dispatcher();
         if(timer_handler[cpu_id]){
             timer_handler[cpu_id](cpu_id);
         }
