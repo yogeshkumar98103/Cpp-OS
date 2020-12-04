@@ -21,7 +21,9 @@
 @     pop     {r0-r12}    // restore the general purpose registers
 @     msr     cpsr_c, r12   // Restore the new thread's program status register
 @     pop     {lr, pc}    // we have no idea what lr should be, so just give it a garbage value. pc gets the stored lr so this function returns to there
-
+switch_stack:
+    mov     sp, r0
+    bx      lr
 
 context_switch:
     push    {lr}
@@ -30,20 +32,13 @@ context_switch:
     str     sp, [r0]
 
     ldr     sp, [r1]
+    add     r0, sp, #56  
+    str     r0, [r1]
     pop     {r0-r12}
     msr     cpsr_c, r12
-    str     sp, [r1]
     pop     {pc}
     bx      lr
 
-
-switch_stack:
-    mov     sp, r0
-    bx      lr
-
-get_sp:
-    mov     r0, sp
-    bx      lr
 
 first_context_switch:
     push    {lr}
@@ -52,10 +47,12 @@ first_context_switch:
     str     sp, [r0]
 
     ldr     sp, [r1]
+    add     r0, sp, #56  
+    str     r0, [r1]
     pop     {r0-r12}
     msr     cpsr_c, r12
     ldr     lr, =grim_reaper
-    str     sp, [r1]
+    @ str     sp, [r1]
     pop     {pc}
     bx      lr
 
@@ -76,7 +73,10 @@ context_load:
     pop     {pc}
     bx      lr
 
-
+get_sp:
+    mov     r0, sp
+    bx      lr
+    
 @ context_switch:
     @ mov     r0, sp 
     @ push    {lr}        // Push stack pointer and link register

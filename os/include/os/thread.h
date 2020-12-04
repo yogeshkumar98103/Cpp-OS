@@ -156,14 +156,18 @@ namespace os::concurrency {
                 debug_threads();
                 // std::cout << current_thread->tid << std::endl;
                 std::cout << "B: " << current_thread->tid << std::endl;
+                std::cout << "Stack Ptr: " << get_sp() << std::endl;
+                std::cout << "Stack 1: " << (uint32_t)old_thread->context << std::endl;
+                std::cout << "Stack 2: " << (uint32_t)current_thread->context << std::endl;
                 os::interrupts::enable_interrupts();
-                std::cout << "Stack: " << get_sp() << std::endl;
                 context_switch(&old_thread->context, &current_thread->context);
+                std::cout << "A: " << current_thread->tid << std::endl;
+                std::cout << "Stack Ptr: " << get_sp() << std::endl;
+                std::cout << "Stack 1: " << (uint32_t)old_thread->context << std::endl;
+                std::cout << "Stack 2: " << (uint32_t)current_thread->context << std::endl;
             }
             else std::cout << current_thread->tid << std::endl;
 
-            std::cout << "A: " << current_thread->tid << std::endl;
-            std::cout << "Stack: " << get_sp() << std::endl;
             // os::interrupts::disable_interrupts();
         }
 
