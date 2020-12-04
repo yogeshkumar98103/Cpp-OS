@@ -1,6 +1,8 @@
 #include "os/memory.h"
+// #include "lib/iostream.h"
 
-extern int __end;
+extern uint8_t __end;
+// extern uint8_t __core0_stack;
 
 namespace os::memory{
     void bzero(void* addr, size_t len){
@@ -9,7 +11,8 @@ namespace os::memory{
     }
 
     void* get_kernel_end(){
-        return reinterpret_cast<void*>(__end);
+        // std::cout << (void*)&__core0_stack << std::endl;
+        return reinterpret_cast<void*>(&__end);
     }
 
     size_t get_memory_size(){

@@ -33,6 +33,9 @@ link: ${BIN_DIR} ${OBJ_DIR} ${OBJ_FILES} ${INC_FILES}
 compile: ${BIN_DIR} ${OBJ_DIR} ${OBJ_FILES} ${INC_FILES}
 	@${MAKE} -C ${OS_BUILD_DIR} compile
 
+asm: 
+	@${MAKE} -C ${OS_BUILD_DIR} asm
+
 ${OBJ_DIR}/%.o: ${SRC_DIR}/%.cpp 
 	@echo 
 	@echo Building $<

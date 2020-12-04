@@ -16,12 +16,46 @@ extern "C" void move_exception_vector(void);
 extern "C" void setup_interrupts(void);
 extern uint32_t exception_vector;   
 
-namespace os::interrupts{
+namespace os::interrupts {
+    __inline__ int __interrupts_enabled(void) {
+        int res;
+        __asm__ __volatile__("mrs %[res], CPSR": [res] "=r" (res)::);
+        return ((res >> 7) & 1) == 0;
+    }
+
+    __inline__ void __enable_interrupts(void) {
+        // if (!__interrupts_enabled()) {
+            __asm__ __volatile__("cpsie i");
+        // }
+    }
+
+    __inline__ void __disable_interrupts(void) {
+        // if (__interrupts_enabled()) {
+            __asm__ __volatile__("cpsid i");
+        // }
+    }
+
+    void disable_interrupts(){
+        __asm__ __volatile__("cpsid i");
+        ++os::this_cpu().ncli;
+    }
+
+    void enable_interrupts(){
+        if(os::this_cpu().ncli > 1){
+            --os::this_cpu().ncli;
+        }
+        else {
+            os::this_cpu().ncli = 0;
+            __asm__ __volatile__("cpsie i");
+        } 
+    }
+
     static volatile interrupt_registers_t* interrupt_regs;
     // static interrupt_handler_f handlers[NUM_IRQS];
     // static interrupt_clearer_f clearers[NUM_IRQS];
 
     static timer_handler_f timer_handler[NCPU];
+    // static timer_handler_f timer_clearer[NCPU];
 
     // volatile interrupt_registers_t* get_interrupt_regs(){
     //     return interrupt_regs;
@@ -32,20 +66,21 @@ namespace os::interrupts{
         memory::bzero(timer_handler, sizeof (timer_handler_f) * NCPU);
         // os::memory::bzero(handlers, sizeof(interrupt_handler_f) * NUM_IRQS);
         // os::memory::bzero(clearers, sizeof(interrupt_clearer_f) * NUM_IRQS);
-        interrupt_regs->irq_basic_disable = 0xfffffffe; // disable all interrupts
-        interrupt_regs->irq_basic_enable  = 1;
+        interrupt_regs->irq_basic_disable = 0xffffffff; // disable all interrupts
+        // interrupt_regs->irq_basic_enable  = 1;
         interrupt_regs->irq_gpu_disable1  = 0xffffffff;
         interrupt_regs->irq_gpu_disable2  = 0xffffffff;
         move_exception_vector();
-        enable_interrupts();
     }
 
     void register_timer_handler(timer_handler_f handler, int cpu_id){
         timer_handler[cpu_id] = handler;
+        // timer_clearer[cpu_id] = clearer;
     }
 
     void unregister_timer_handler(int cpu_id){
         timer_handler[cpu_id] = nullptr;
+        // timer_clearer[cpu_id] = nullptr;
     }
 }
 
@@ -71,27 +106,45 @@ extern "C" void __attribute__ ((interrupt ("SWI"))) software_interrupt_handler(v
     os::console::puts("SWI HANDLER\n");
     while(1);
 }
-extern "C" void __attribute__ ((interrupt ("FIQ"))) fast_irq_handler(void) {
-    os::console::puts("FIQ HANDLER\n");
-    while(1);
-}
 
 static inline bool is_timer_irq(int cpu_id){
     return mmio::read(mmio::CORE_IRQ_SOURCE_BASE + cpu_id * 0x4) & 0x08; 
 } 
 
+extern "C" void context_save(os::thread::cpu_context_t**);
+
 extern "C" void irq_handler(void) {
     using namespace os::interrupts;
+
     uint32_t cpu_id = get_cpu_id();
+    disable_interrupts();
+    // os::cpu[cpu_id].ncli++;
+    // console::putu32((os::cpu[cpu_id].ncli/10) % 10);
     console::puts("Interrupt!!\n");
 
     if(is_timer_irq(cpu_id)){
-        // this_cpu().scheduler->dispatcher();
         if(timer_handler[cpu_id]){
+            // context_save(&os::cpu[cpu_id].scheduler->current_thread->context);
+            // os::interrupts::enable_interrupts();
             timer_handler[cpu_id](cpu_id);
+            // os::interrupts::disable_interrupts();
         }
     }
+
+
+    enable_interrupts();
 }
+
+extern "C" void irq_handler_asm_wrapper();
+
+extern "C" void __attribute__ ((interrupt ("FIQ"))) fast_irq_handler(void) {
+    using namespace os::interrupts;
+    disable_interrupts();
+    console::puts("Fast Interrupt!!\n");
+    irq_handler_asm_wrapper();
+    enable_interrupts();
+}
+
 
 // for (int i = 0; i < NUM_IRQS; ++i) {
     //     // If the interrupt is pending and there is a handler, run the handler

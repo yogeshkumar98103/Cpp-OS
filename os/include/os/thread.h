@@ -45,6 +45,7 @@ namespace os::thread {
         bool is_running();
         bool is_ready();
         bool is_sleeping();
+        const char* get_state_str();
     };
 }
 
@@ -54,6 +55,7 @@ extern "C" void context_load(os::thread::cpu_context_t**);
 extern "C" void context_save(os::thread::cpu_context_t**);
 extern "C" void switch_stack(os::thread::cpu_context_t*);
 extern "C" void grim_reaper();
+extern "C" uint32_t get_sp();
 
 namespace os::concurrency {
     class scheduler_base{
@@ -85,6 +87,7 @@ namespace os::concurrency {
         // rr_scheduler() = default;
 
         rr_scheduler(uint32_t time_quanta_ms, heap_t&& heap_): time_quanta(time_quanta_ms), heap(std::move(heap_)){
+            qidx = 0;
             active_thread_count = 0;
             all_thread_count = 0;
             memory::bzero(threads, sizeof(os::thread::thread_t) * nthreads);
@@ -96,8 +99,9 @@ namespace os::concurrency {
         template <typename func_t, typename... args_u>
         void start(func_t main_thread, args_u&& ...args){
             os::thread::thread_t* thread = spawn(main_thread, args...);
-            // os::timer::init(os::concurrency::dispatcher, time_quanta);
-            // std::cout << (uint32_t)thread->context->lr << std::endl;
+            current_thread = thread;
+            current_thread->state = os::thread::thread_state::running;
+            os::timer::init(os::concurrency::dispatcher, time_quanta);
 
             first_context_switch(&sch_context, &thread->context);
             // context_save(&sch_context);
@@ -133,17 +137,34 @@ namespace os::concurrency {
             while(!threads[qidx].is_ready()){
                 qidx = qidx + 1;
                 if(qidx == nthreads) qidx = 0;
+                // std::cout << qidx << ' ';
             }
             return &threads[qidx];
         }
 
         void dispatcher() override {
-            // os::timer::set(time_quanta);
+            os::timer::set(time_quanta);
+            std::cout << "active_thread_count: " << active_thread_count << std::endl;
+
+            debug_threads();
+
             if(active_thread_count > 1){
                 os::thread::thread_t* old_thread = current_thread;
                 current_thread = get_next();
+                old_thread->state = os::thread::thread_state::ready;
+                current_thread->state = os::thread::thread_state::running;
+                debug_threads();
+                // std::cout << current_thread->tid << std::endl;
+                std::cout << "B: " << current_thread->tid << std::endl;
+                os::interrupts::enable_interrupts();
+                std::cout << "Stack: " << get_sp() << std::endl;
                 context_switch(&old_thread->context, &current_thread->context);
             }
+            else std::cout << current_thread->tid << std::endl;
+
+            std::cout << "A: " << current_thread->tid << std::endl;
+            std::cout << "Stack: " << get_sp() << std::endl;
+            // os::interrupts::disable_interrupts();
         }
 
         void grim_reaper() override {
@@ -151,6 +172,7 @@ namespace os::concurrency {
             std::cout << "Grim Reaper!!\n";
 
             current_thread->state = os::thread::thread_state::empty;
+            heap.free(current_thread->stack);
             active_thread_count--;
             all_thread_count--;
 
@@ -174,10 +196,13 @@ namespace os::concurrency {
             // Control never reaches here
             return nullptr;
         }
-        // void grim_reaper(){
-        //     current_thread->state = os::thread::thread_state::empty;
-        //     os::console::puts("Grim Reaper!!\n");
-        // }
+        
+
+        void debug_threads(){
+            for(uint32_t i = 0; i < nthreads; ++i){
+                std::cout << '[' << i << "] tid: " << threads[i].tid << " state: " << threads[i].get_state_str() << std::endl;
+            }
+        }
     };
 }
 

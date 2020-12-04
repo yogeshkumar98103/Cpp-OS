@@ -45,23 +45,8 @@ namespace os::interrupts {
     //             (irq_is_gpu1(num)  && ((1 << (num))      & regs->irq_gpu_pending1))) ;
     // }
 
-    __inline__ int interrupts_enabled(void) {
-        int res;
-        __asm__ __volatile__("mrs %[res], CPSR": [res] "=r" (res)::);
-        return ((res >> 7) & 1) == 0;
-    }
-
-    __inline__ void enable_interrupts(void) {
-        if (!interrupts_enabled()) {
-            __asm__ __volatile__("cpsie i");
-        }
-    }
-
-    __inline__ void disable_interrupts(void) {
-        if (interrupts_enabled()) {
-            __asm__ __volatile__("cpsid i");
-        }
-    }
+    void enable_interrupts();
+    void disable_interrupts();
 
     namespace IRQNumber {
         inline const uint32_t SystemTimer1  = 1;
@@ -71,6 +56,7 @@ namespace os::interrupts {
 
     // using interrupt_handler_f = void (*)(void);
     using timer_handler_f = void (*)(const uint32_t);
+    using timer_clearer_f = void (*)(const uint32_t);
 
     void init(void);
     void register_timer_handler(timer_handler_f handler, int cpu_id);

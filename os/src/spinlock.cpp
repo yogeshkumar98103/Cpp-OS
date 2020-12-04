@@ -14,13 +14,13 @@ namespace os::sync {
     }
 
     void spinlock::acquire(){
-        // interrupts::disable_interrupts();
         while (__atomic_test_and_set(&lock, __ATOMIC_ACQUIRE));
+        interrupts::disable_interrupts();
     }
 
     void spinlock::release(){
-        __atomic_store_n(&lock, 0, __ATOMIC_RELAXED);
-        // interrupts::enable_interrupts();
+        __atomic_store_n(&lock, 0, __ATOMIC_RELEASE);
+        interrupts::enable_interrupts();
     }
 
     signallock::signallock(){

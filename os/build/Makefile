@@ -25,6 +25,9 @@ OS_LINKER_FILE = linker_${AARCH}.ld
 compile: ${OS_OBJ_FILES} ${OS_INC_FILES}
 	@echo "Compiled"
 
+asm:
+	@${CXX} ${ARCHFLAGS} ${CXXFLAGS} -I${OS_INC_DIR} -S ${OS_SRC_DIR}/interrupts.cpp -o interrupts.S ${CXXSRCFLAGS}
+
 # To use this target you need to export following variables
 #
 # OS_ELF	     => final elf binary name

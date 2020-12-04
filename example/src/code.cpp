@@ -10,42 +10,16 @@
 #include "iostream.h"
 #include "utility.h"
 
-// typedef void (*constructor)();
-// extern "C" constructor start_ctors;
-// extern "C" constructor end_ctors;
-// extern "C" void callConstructors(){
-//   for(constructor* i = &start_ctors; i != &end_ctors; i++)
-//      (*i)();
-// }
-
-// os::sync::spinlock coreinitlock1;
-// os::sync::spinlock coreinitlock2;
-// os::sync::spinlock coreinitlock3;
-
 os::sync::signallock coreinitlock1;
 os::sync::signallock coreinitlock2;
 os::sync::signallock coreinitlock3;
 os::sync::spinlock printlock;
-    // char* str = (char*)heap.malloc(100);
-
-    // os::console::puts("Kernel Started\n");
-    // for(uint32_t i = 0; ; ++i){
-    //     os::console::puts("Enter Text: ");
-    //     os::console::getline(str, 99);
-    //     os::console::putc('[');
-    //     os::console::putu32(i);
-    //     os::console::puts("] You typed: ");
-    //     os::console::puts(str);
-    //     os::console::putc('\n');
-    // }
-
-    // heap.free(str);
 
 void core0_entry(uint32_t core_id, int atags){
     using namespace os::console;
-
+    os::cpu_init(core_id);
     os::kernel::init(0, 0, atags);
-    // os::interrupts::init();
+    os::interrupts::init();
 
     coreinitlock1.signal();
     coreinitlock2.signal();
@@ -54,44 +28,78 @@ void core0_entry(uint32_t core_id, int atags){
     printlock.acquire();
     std::cout << "Core #" << core_id << " Started" << std::endl;
     printlock.release();
+
+    // char* str = (char*)heap.malloc(100);
+    // os::console::puts("Kernel Started\n");
+    // for(uint32_t i = 0; ; ++i){
+    //     std::cout << "Enter Text: ";
+    //     os::console::getline(str, 99);
+    //     std::cout << '[' << i << "] You typed: " << str << std::endl;
+    // }
+    // heap.free(str);
 }
 
 using scheduler_t = os::concurrency::rr_scheduler<2, os::memory::best_fit_heap>;
 scheduler_t* scheduler;
 
 void second_thread(){
-    std::cout << "Second Thread" << std::endl;
+    uint32_t j = 0;
+    while(true){
+        for(volatile uint32_t i = 0; i < 1000000; ++i);
+        printlock.acquire();
+        std::cout << "Second Thread: " << j++ << ' ' << get_sp() << std::endl;
+        printlock.release();
+    } 
 }
 
 void main_thread(){
-    std::cout << "Main Thread" << std::endl;
-    // while(true){
+    scheduler->spawn(second_thread);
+    uint32_t j = 0;
+    while(true){
+        for(volatile uint32_t i = 0; i < 1000000; ++i);
+        printlock.acquire();
+        std::cout << "Main Thread: " << j++ << ' ' << get_sp() << std::endl;
+        printlock.release();
+    } 
+}
 
-    // }
-    // scheduler->spawn(second_thread);
+void handler(uint32_t core_id){
+    printlock.acquire();
+    std::cout << "Interrupt on " << os::cpu[core_id].ncli << std::endl;
+    printlock.release();
+    os::timer::set(1000);
 }
 
 void core1_entry(uint32_t core_id){
     using namespace os::concurrency;
-
+    os::cpu_init(core_id);
     coreinitlock1.wait();
 
     printlock.acquire();
-    std::cout << "Core #" << core_id << std::endl;
+    std::cout << "Core #" << core_id << " Started" << std::endl;
     printlock.release();
 
     void* heap_start   = os::memory::get_kernel_end();
     uint32_t heap_size = os::memory::get_memory_size();
-
     os::memory::best_fit_heap heap(heap_start, heap_size);
-    scheduler_t scheduler(1000, std::move(heap));
+    scheduler_t scheduler(500, std::move(heap));
     ::scheduler = &scheduler;
     os::cpu[core_id].scheduler = (scheduler_base*)&scheduler;
     scheduler.start(main_thread);
     std::cout << "Back to core 1" << std::endl;
+
+    // auto p1 = (char*)heap.malloc(100);
+    // auto p2 = (char*)heap.malloc(100);
+    // printlock.acquire();
+
+    // std::cout << (uint32_t)heap_start <<  ' ' << (uint32_t)p1 << ' ' << (uint32_t)p2 << std::endl;
+    // printlock.release();
+
+    // os::timer::init(handler, 1000);
 }
 
 void core2_entry(uint32_t core_id){
+    os::cpu_init(core_id);
     coreinitlock2.wait();
 
     printlock.acquire();
@@ -100,6 +108,7 @@ void core2_entry(uint32_t core_id){
 }
 
 void core3_entry(uint32_t core_id){
+    os::cpu_init(core_id);
     coreinitlock3.wait();
 
     printlock.acquire();

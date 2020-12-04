@@ -5,12 +5,13 @@
 
 namespace os {
     struct cpu_t {
+        uint32_t ncli;
         os::concurrency::scheduler_base* scheduler;
     };
 
     inline cpu_t cpu[NCPU];
 
-    void init(uint32_t cpu_id);
+    void cpu_init(uint32_t cpu_id);
     cpu_t& this_cpu();
     int get_cpu_id();
 }

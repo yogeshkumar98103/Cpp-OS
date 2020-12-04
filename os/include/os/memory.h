@@ -59,7 +59,7 @@ namespace os::memory{
 
         void* malloc(size_t bytes){
             bytes += sizeof(heap_segment_t);
-            bytes = (bytes + 0xf) & 0xf; // 16 byte align
+            bytes = (bytes + 0xf) & (~0xf); // 16 byte align
 
             heap_segment_t* heap_segment = alloc_policy()(heap_head, bytes);
             uint32_t remaining_space = heap_segment->seg_size - bytes;
