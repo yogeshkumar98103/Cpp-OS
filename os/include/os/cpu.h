@@ -1,7 +1,13 @@
 #ifndef __OS__CPU_H
 #define __OS__CPU_H
 
-#include "thread.h"
+// #include "thread.h"
+#include <stdint.h>
+#include "constants.h"
+
+namespace os::concurrency {
+    class scheduler_base;
+}
 
 namespace os {
     struct cpu_t {

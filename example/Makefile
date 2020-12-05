@@ -46,7 +46,7 @@ run: ${OS_ELF}
 
 ${OS_ELF}: ${BIN_DIR} ${OBJ_DIR} ${OBJ_FILES} ${INC_FILES}
 	@echo Creating ELF
-	@${MAKE} -C ${OS_BUILD_DIR} RASPI_MODEL = ${RASPI_MODEL} link
+	@${MAKE} -C ${OS_BUILD_DIR} link
 
 ${OBJ_DIR}:
 	@mkdir -p ${OBJ_DIR}

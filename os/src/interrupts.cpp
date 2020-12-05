@@ -13,7 +13,7 @@
 using namespace os;
 
 extern "C" void move_exception_vector(void);
-extern "C" void setup_interrupts(void);
+// extern "C" void setup_interrupts(void);
 extern uint32_t exception_vector;   
 
 namespace os::interrupts {
@@ -111,23 +111,17 @@ static inline bool is_timer_irq(int cpu_id){
     return mmio::read(mmio::CORE_IRQ_SOURCE_BASE + cpu_id * 0x4) & 0x08; 
 } 
 
-extern "C" void context_save(os::thread::cpu_context_t**);
-
 extern "C" void irq_handler(void) {
     using namespace os::interrupts;
 
     uint32_t cpu_id = get_cpu_id();
     disable_interrupts();
-    // os::cpu[cpu_id].ncli++;
-    // console::putu32((os::cpu[cpu_id].ncli/10) % 10);
+   
     console::puts("Interrupt!!\n");
 
     if(is_timer_irq(cpu_id)){
         if(timer_handler[cpu_id]){
-            // context_save(&os::cpu[cpu_id].scheduler->current_thread->context);
-            // os::interrupts::enable_interrupts();
             timer_handler[cpu_id](cpu_id);
-            // os::interrupts::disable_interrupts();
         }
     }
 
@@ -135,13 +129,10 @@ extern "C" void irq_handler(void) {
     enable_interrupts();
 }
 
-extern "C" void irq_handler_asm_wrapper();
-
 extern "C" void __attribute__ ((interrupt ("FIQ"))) fast_irq_handler(void) {
     using namespace os::interrupts;
     disable_interrupts();
     console::puts("Fast Interrupt!!\n");
-    irq_handler_asm_wrapper();
     enable_interrupts();
 }
 

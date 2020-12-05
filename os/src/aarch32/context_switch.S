@@ -1,6 +1,6 @@
 .section ".text"
 .global context_switch
-.global first_context_switch
+.global first_context_switch_main_thread
 .global context_save
 .global context_load
 .global switch_stack
@@ -32,27 +32,42 @@ context_switch:
     str     sp, [r0]
 
     ldr     sp, [r1]
-    add     r0, sp, #56  
+    add     r0, sp, #56  // 56 is size of cpu_context_t
     str     r0, [r1]
     pop     {r0-r12}
     msr     cpsr_c, r12
+    ldr     lr, =thread_exit
     pop     {pc}
     bx      lr
 
 
-first_context_switch:
+first_context_switch_main_thread:
     push    {lr}
     mrs     r12, cpsr
     push    {r0-r12}
     str     sp, [r0]
 
     ldr     sp, [r1]
-    add     r0, sp, #56  
+    add     r0, sp, #56  // 56 is size of cpu_context_t
     str     r0, [r1]
     pop     {r0-r12}
     msr     cpsr_c, r12
     ldr     lr, =grim_reaper
-    @ str     sp, [r1]
+    pop     {pc}
+    bx      lr
+
+first_context_switch_secondary_thread:
+    push    {lr}
+    mrs     r12, cpsr
+    push    {r0-r12}
+    str     sp, [r0]
+
+    ldr     sp, [r1]
+    add     r0, sp, #56  // 56 is size of cpu_context_t
+    str     r0, [r1]
+    pop     {r0-r12}
+    msr     cpsr_c, r12
+    ldr     lr, =thread_exit
     pop     {pc}
     bx      lr
 

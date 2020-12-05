@@ -1,0 +1,7 @@
+[] mutex locks
+[] semaphores
+[] join threads
+[] many to many mapping in scheduler
+[] one to one mapping with coordinating threads
+[] yield threads
+[] sleep/wake on channel

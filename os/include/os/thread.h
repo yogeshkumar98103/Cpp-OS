@@ -8,10 +8,11 @@
 #include "lib/utility.h"
 #include "timer.h"
 #include "lib/iostream.h"
+#include "cpu.h"
 
 namespace os::thread {
     enum class thread_state {
-        empty, sleeping, running, ready,
+        empty, sleeping, running, ready, finished
     };
 
     using tid_t = uint32_t;
@@ -35,26 +36,48 @@ namespace os::thread {
         uint32_t lr;
     };
 
+    struct sleep_channel_t {};
+
     struct thread_t {        
         tid_t tid;
         thread_state state;
         cpu_context_t* context;
-        char* stack;
+        char* stack;                    // start of stack page
+        sleep_channel_t join_channel;   // other thread will sleep on this channel when join is called
+        sleep_channel_t* chan;          // if not null then thread is sleeping on this channel
 
         bool is_empty();
         bool is_running();
         bool is_ready();
         bool is_sleeping();
+        bool is_finished();
+
         const char* get_state_str();
+        void join();
+        void sleep(sleep_channel_t* sleep_chan);
+        void wake_one(sleep_channel_t* sleep_chan);
+        void wake_all(sleep_channel_t* sleep_chan);
     };
+
+    template <typename scheduler_t, typename func_t, typename... args_u>
+    thread_t* spawn(func_t thread_func, args_u&& ...args) {
+        return ((scheduler_t*)os::this_cpu().scheduler)->spawn(thread_func, args...);
+    }
 }
 
-extern "C" void first_context_switch(os::thread::cpu_context_t**, os::thread::cpu_context_t**);
+namespace os {
+    thread::thread_t* this_thread();
+    // thread::thread_t* this_scheduler();
+}
+
+extern "C" void first_context_switch_main_thread(os::thread::cpu_context_t**, os::thread::cpu_context_t**);
+extern "C" void first_context_switch_secondary_thread(os::thread::cpu_context_t**, os::thread::cpu_context_t**);
 extern "C" void context_switch(os::thread::cpu_context_t**, os::thread::cpu_context_t**);
 extern "C" void context_load(os::thread::cpu_context_t**);
 extern "C" void context_save(os::thread::cpu_context_t**);
 extern "C" void switch_stack(os::thread::cpu_context_t*);
 extern "C" void grim_reaper();
+extern "C" void thread_exit();
 extern "C" uint32_t get_sp();
 
 namespace os::concurrency {
@@ -65,8 +88,14 @@ namespace os::concurrency {
 
         friend void dispatcher(uint32_t cpu_id);
 
+        virtual void sleep(os::thread::sleep_channel_t* sleep_chan);
+        virtual void join(os::thread::thread_t* thread); 
+        virtual void wake_one(os::thread::sleep_channel_t* sleep_chan);
+        virtual void wake_all(os::thread::sleep_channel_t* sleep_chan);
+
         virtual void dispatcher();
         virtual void grim_reaper();
+        virtual void thread_exit();
     };
 
     void dispatcher(uint32_t cpu_id);
@@ -98,12 +127,14 @@ namespace os::concurrency {
 
         template <typename func_t, typename... args_u>
         void start(func_t main_thread, args_u&& ...args){
+            os::this_cpu().scheduler = static_cast<scheduler_base*>(this);
+
             os::thread::thread_t* thread = spawn(main_thread, args...);
             current_thread = thread;
             current_thread->state = os::thread::thread_state::running;
             os::timer::init(os::concurrency::dispatcher, time_quanta);
 
-            first_context_switch(&sch_context, &thread->context);
+            first_context_switch_main_thread(&sch_context, &thread->context);
             std::cout << "Returned from switch" << std::endl;
         }
 
@@ -129,6 +160,77 @@ namespace os::concurrency {
             return &thread;
         }
 
+        void sleep(os::thread::sleep_channel_t* sleep_chan) override {
+            if(sleep_chan == nullptr) return;
+            os::interrupts::disable_interrupts();
+
+            // tlock.acquire();
+            current_thread->chan = sleep_chan;
+            current_thread->state = os::thread::thread_state::sleeping;
+            active_thread_count--;
+            // tlock.release();
+
+            debug_threads();
+            os::thread::thread_t* old_thread = current_thread;
+
+            // if all threads are sleeping then we spin on this function until a thread wakes up
+            // although not recommended, this waking can be done by some other cpu.
+            current_thread = get_next();    
+            current_thread->state = os::thread::thread_state::running;
+
+            os::timer::set(time_quanta);
+            os::interrupts::enable_interrupts();
+            context_switch(&old_thread->context, &current_thread->context);
+        }
+
+        void join(os::thread::thread_t* thread) override {
+            os::interrupts::disable_interrupts();
+
+            if(thread->is_finished()){
+                thread->state = os::thread::thread_state::empty;
+                os::interrupts::enable_interrupts();
+                return;
+            }
+
+            current_thread->chan = &thread->join_channel;
+            current_thread->state = os::thread::thread_state::sleeping;
+            active_thread_count--;
+
+            debug_threads();
+            os::thread::thread_t* old_thread = current_thread;
+
+            // if all threads are sleeping then we spin on this function until a thread wakes up
+            // although not recommended, this waking can be done by some other cpu.
+            current_thread = get_next();    
+            current_thread->state = os::thread::thread_state::running;
+
+            os::timer::set(time_quanta);
+            os::interrupts::enable_interrupts();
+            context_switch(&old_thread->context, &current_thread->context);
+            thread->state = os::thread::thread_state::empty;
+        }
+
+        void wake_all(os::thread::sleep_channel_t* sleep_chan) override {
+            for(os::thread::thread_t* thread = &threads[0]; thread < &threads[nthreads]; ++thread){
+                if(thread->is_sleeping() && thread->chan == sleep_chan){
+                    thread->chan = nullptr;
+                    thread->state = os::thread::thread_state::ready;
+                    active_thread_count++;
+                }
+            }
+        }
+
+        void wake_one(os::thread::sleep_channel_t* sleep_chan) override {
+            for(os::thread::thread_t* thread = &threads[0]; thread < &threads[nthreads]; ++thread){
+                if(thread->is_sleeping() && thread->chan == sleep_chan){
+                    thread->chan = nullptr;
+                    thread->state = os::thread::thread_state::ready;
+                    active_thread_count++;
+                    break;
+                }
+            }
+        }
+
     private:
 
         /// This function chooses next thread to schedule
@@ -137,59 +239,57 @@ namespace os::concurrency {
             while(!threads[qidx].is_ready()){
                 qidx = qidx + 1;
                 if(qidx == nthreads) qidx = 0;
-                // std::cout << qidx << ' ';
             }
             return &threads[qidx];
         }
 
         void dispatcher() override {
             os::timer::set(time_quanta);
-            std::cout << "active_thread_count: " << active_thread_count << std::endl;
-
-            // debug_threads();
-
+            debug_threads();
             if(active_thread_count > 1){
                 os::thread::thread_t* old_thread = current_thread;
                 current_thread = get_next();
                 old_thread->state = os::thread::thread_state::ready;
                 current_thread->state = os::thread::thread_state::running;
-                // debug_threads();
-                // std::cout << current_thread->tid << std::endl;
-                // std::cout << "B: " << current_thread->tid << std::endl;
-                // std::cout << "Stack Ptr: " << get_sp() << std::endl;
-                // std::cout << "Stack 1: " << (uint32_t)old_thread->context << std::endl;
-                // std::cout << "Stack 2: " << (uint32_t)current_thread->context << std::endl;
                 os::interrupts::enable_interrupts();
                 context_switch(&old_thread->context, &current_thread->context);
-                // std::cout << "A: " << current_thread->tid << std::endl;
-                // std::cout << "Stack Ptr: " << get_sp() << std::endl;
-                // std::cout << "Stack 1: " << (uint32_t)old_thread->context << std::endl;
-                // std::cout << "Stack 2: " << (uint32_t)current_thread->context << std::endl;
             }
-            else std::cout << current_thread->tid << std::endl;
-
-            // os::interrupts::disable_interrupts();
         }
 
+        /// This is called when main_thread exits 
         void grim_reaper() override {
-            // os::interrupts::disable_interrupts();
+            os::timer::disable();
             std::cout << "Grim Reaper!!\n";
 
-            current_thread->state = os::thread::thread_state::empty;
-            heap.free(current_thread->stack);
-            active_thread_count--;
-            all_thread_count--;
+            --active_thread_count;
+            --all_thread_count;
 
             if(all_thread_count == 0){
-                // os::interrupts::enable_interrupts();
                 context_load(&sch_context);
                 // Never return here
             }
+            else{
+                // TODO: Error - Main thread exited before waiting for others
+            }
+        }
 
+        void thread_exit() override {
+            os::interrupts::disable_interrupts();
+
+            current_thread->state = os::thread::thread_state::finished;
+            heap.free(current_thread->stack);
+            active_thread_count--;
+            all_thread_count--;
+            wake_one(&current_thread->join_channel);
+
+            debug_threads();
             current_thread = get_next();
-            context_load(&current_thread->context);
+            current_thread->state = os::thread::thread_state::running;
 
-            // os::interrupts::enable_interrupts();
+            os::timer::set(time_quanta);
+            os::interrupts::enable_interrupts();
+
+            context_load(&current_thread->context); 
         }
 
         os::thread::thread_t* find_slot(){
