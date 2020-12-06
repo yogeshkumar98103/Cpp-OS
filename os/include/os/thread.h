@@ -32,7 +32,6 @@ namespace os::thread {
         uint32_t r10;
         uint32_t r11;
         uint32_t cpsr; 
-        // uint32_t sp;
         uint32_t lr;
     };
 
@@ -70,36 +69,27 @@ namespace os {
     // thread::thread_t* this_scheduler();
 }
 
-extern "C" void first_context_switch_main_thread(os::thread::cpu_context_t**, os::thread::cpu_context_t**);
-extern "C" void first_context_switch_secondary_thread(os::thread::cpu_context_t**, os::thread::cpu_context_t**);
 extern "C" void context_switch(os::thread::cpu_context_t**, os::thread::cpu_context_t**);
 extern "C" void context_load(os::thread::cpu_context_t**);
-extern "C" void context_save(os::thread::cpu_context_t**);
-extern "C" void switch_stack(os::thread::cpu_context_t*);
-extern "C" void grim_reaper();
 extern "C" void thread_exit();
 extern "C" uint32_t get_sp();
-// extern "C" void thread_func_asm_wrapper(void*);
 
 namespace os::concurrency {
+    template <typename scheduler_t>
+    void dispatcher(uint32_t cpu_id){
+        ((scheduler_t*)os::cpu[cpu_id].scheduler)->dispatcher();
+    }
+    
     class scheduler_base{
     public:
-        os::thread::thread_t* current_thread;
         os::thread::cpu_context_t* sch_context;
-
-        friend void dispatcher(uint32_t cpu_id);
+        os::thread::thread_t* current_thread;
 
         virtual void sleep(os::thread::sleep_channel_t* sleep_chan) = 0;
         virtual void join(os::thread::thread_t* thread) = 0;
         virtual void wake_one(os::thread::sleep_channel_t* sleep_chan) = 0;
         virtual void wake_all(os::thread::sleep_channel_t* sleep_chan) = 0;
-
-        virtual void dispatcher() = 0;
-        virtual void grim_reaper() = 0;
-        virtual void thread_exit() = 0;
     };
-
-    void dispatcher(uint32_t cpu_id);
 
     template <uint32_t nthreads, typename heap_t>
     class rr_scheduler: public scheduler_base {
@@ -114,6 +104,9 @@ namespace os::concurrency {
         os::sync::spinlock tlock;
         
     public:
+
+        template <typename scheduler_t>
+        friend void dispatcher(uint32_t cpu_id);
         // rr_scheduler() = default;
 
         rr_scheduler(uint32_t time_quanta_ms, heap_t&& heap_): time_quanta(time_quanta_ms), heap(std::move(heap_)){
@@ -126,6 +119,10 @@ namespace os::concurrency {
             }
         }
 
+        ~rr_scheduler(){
+
+        }
+
         template <typename func_t, typename... args_u>
         void start(func_t main_thread, args_u&& ...args){
             os::this_cpu().scheduler = static_cast<scheduler_base*>(this);
@@ -133,13 +130,12 @@ namespace os::concurrency {
             os::thread::thread_t* thread = spawn(main_thread, args...);
             current_thread = thread;
             current_thread->state = os::thread::thread_state::running;
-            os::timer::init(os::concurrency::dispatcher, time_quanta);
+            os::timer::init(os::concurrency::dispatcher<rr_scheduler<nthreads, heap_t>>, time_quanta);
 
-            first_context_switch_main_thread(&sch_context, &thread->context);
+            context_switch(&sch_context, &thread->context);
+            while(all_thread_count > 0) thread_exit();
 
-            while(all_thread_count > 0) {
-                thread_exit();
-            }
+            os::timer::disable();
 
             std::cout << "Returned from switch" << std::endl;
         }
@@ -176,7 +172,7 @@ namespace os::concurrency {
             active_thread_count--;
             // tlock.release();
 
-            debug_threads();
+            // debug_threads();
             os::thread::thread_t* old_thread = current_thread;
 
             // if all threads are sleeping then we spin on this function until a thread wakes up
@@ -202,13 +198,14 @@ namespace os::concurrency {
             current_thread->state = os::thread::thread_state::sleeping;
             active_thread_count--;
 
-            debug_threads();
             os::thread::thread_t* old_thread = current_thread;
 
             // if all threads are sleeping then we spin on this function until a thread wakes up
             // although not recommended, this waking can be done by some other cpu.
             current_thread = get_next();    
             current_thread->state = os::thread::thread_state::running;
+
+            debug_threads();
 
             os::timer::set(time_quanta);
             os::interrupts::enable_interrupts();
@@ -237,46 +234,42 @@ namespace os::concurrency {
             }
         }
 
-        void dispatcher() override {
-            os::timer::set(time_quanta);
-            debug_threads();
+    private:
+
+        void dispatcher() {
             if(active_thread_count > 1){
                 os::thread::thread_t* old_thread = current_thread;
                 current_thread = get_next();
                 old_thread->state = os::thread::thread_state::ready;
                 current_thread->state = os::thread::thread_state::running;
+                debug_threads();
+
+                os::timer::set(time_quanta);
                 os::interrupts::enable_interrupts();
                 context_switch(&old_thread->context, &current_thread->context);
             }
-        }
-
-        /// This is called when main_thread exits 
-        void grim_reaper() override {
-            os::timer::disable();
-            std::cout << "Grim Reaper!!\n";
-
-            --active_thread_count;
-            --all_thread_count;
-
-            if(all_thread_count == 0){
-                context_load(&sch_context);
-                // Never return here
-            }
-            else{
-                // TODO: Error - Main thread exited before waiting for others
+            else {
+                debug_threads();
+                os::timer::set(time_quanta);
             }
         }
 
-        void thread_exit() override {
+        void thread_exit() {
             os::interrupts::disable_interrupts();
+            std::cout << "Thread Exit\n";
 
-            current_thread->state = os::thread::thread_state::finished;
             heap.free(current_thread->stack);
             active_thread_count--;
             all_thread_count--;
-            wake_one(&current_thread->join_channel);
 
-            debug_threads();
+            if(all_thread_count == 0) {
+                current_thread->state = os::thread::thread_state::empty;
+                os::interrupts::enable_interrupts();
+                return;
+            }
+
+            current_thread->state = os::thread::thread_state::finished;
+            wake_one(&current_thread->join_channel);
             current_thread = get_next();
             current_thread->state = os::thread::thread_state::running;
 
@@ -286,8 +279,6 @@ namespace os::concurrency {
             context_switch(&sch_context, &current_thread->context);
             // context_load(&current_thread->context); 
         }
-
-    private:
 
         /// This function chooses next thread to schedule
         /// This is only called when there are atleast one active thread

@@ -55,7 +55,7 @@ Disassembly of section .text:
     808c:	00010000 	.word	0x00010000
     8090:	00011000 	.word	0x00011000
     8094:	00012000 	.word	0x00012000
-    8098:	0000a140 	.word	0x0000a140
+    8098:	00009fa0 	.word	0x00009fa0
 
 0000809c <_Z17u32toa_branchlut2mPc>:
     809c:	e30e30ff 	movw	r3, #57599	; 0xe0ff
@@ -309,14 +309,14 @@ Disassembly of section .text:
     846c:	e8bd4010 	pop	{r4, lr}
     8470:	ea00018c 	b	8aa8 <_ZN2os4sync8spinlock4initEv>
     8474:	00003bd8 	.word	0x00003bd8
-    8478:	00000048 	.word	0x00000048
-    847c:	00000054 	.word	0x00000054
+    8478:	0000004c 	.word	0x0000004c
+    847c:	00000050 	.word	0x00000050
     8480:	00000008 	.word	0x00000008
-    8484:	00000040 	.word	0x00000040
-    8488:	00000020 	.word	0x00000020
+    8484:	00000044 	.word	0x00000044
+    8488:	00000024 	.word	0x00000024
 
 0000848c <_ZN2os7console4putcEc>:
-    848c:	ea00025c 	b	8e04 <_ZN2os4uart4putcEc>
+    848c:	ea000236 	b	8d6c <_ZN2os4uart4putcEc>
 
 00008490 <_ZN2os7console4getcEv>:
     8490:	e59f303c 	ldr	r3, [pc, #60]	; 84d4 <_ZN2os7console4getcEv+0x44>
@@ -326,7 +326,7 @@ Disassembly of section .text:
     84a0:	e7935002 	ldr	r5, [r3, r2]
     84a4:	e1a00005 	mov	r0, r5
     84a8:	eb000181 	bl	8ab4 <_ZN2os4sync8spinlock7acquireEv>
-    84ac:	eb00026d 	bl	8e68 <_ZN2os4uart4getcEv>
+    84ac:	eb000247 	bl	8dd0 <_ZN2os4uart4getcEv>
     84b0:	e350000d 	cmp	r0, #13, 0
     84b4:	11a04000 	movne	r4, r0
     84b8:	03a0400a 	moveq	r4, #10, 0
@@ -337,7 +337,7 @@ Disassembly of section .text:
     84cc:	e1a00004 	mov	r0, r4
     84d0:	e8bd8070 	pop	{r4, r5, r6, pc}
     84d4:	00003b74 	.word	0x00003b74
-    84d8:	00000048 	.word	0x00000048
+    84d8:	0000004c 	.word	0x0000004c
 
 000084dc <_ZN2os7console4putsEPKc>:
     84dc:	e59f3040 	ldr	r3, [pc, #64]	; 8524 <_ZN2os7console4putsEPKc+0x48>
@@ -359,7 +359,7 @@ Disassembly of section .text:
     851c:	e8bd4070 	pop	{r4, r5, r6, lr}
     8520:	ea00016c 	b	8ad8 <_ZN2os4sync8spinlock7releaseEv>
     8524:	00003b28 	.word	0x00003b28
-    8528:	00000054 	.word	0x00000054
+    8528:	00000050 	.word	0x00000050
 
 0000852c <_ZN2os7console4getsEPcc>:
     852c:	e59f3054 	ldr	r3, [pc, #84]	; 8588 <_ZN2os7console4getsEPcc+0x5c>
@@ -453,7 +453,7 @@ Disassembly of section .text:
     866c:	e28dd014 	add	sp, sp, #20, 0
     8670:	e8bd8030 	pop	{r4, r5, pc}
     8674:	000039dc 	.word	0x000039dc
-    8678:	00000040 	.word	0x00000040
+    8678:	00000044 	.word	0x00000044
 
 0000867c <_ZN2os7console6puti32El>:
     867c:	e59f3044 	ldr	r3, [pc, #68]	; 86c8 <_ZN2os7console6puti32El+0x4c>
@@ -476,7 +476,7 @@ Disassembly of section .text:
     86c0:	e28dd014 	add	sp, sp, #20, 0
     86c4:	e8bd8030 	pop	{r4, r5, pc}
     86c8:	00003988 	.word	0x00003988
-    86cc:	00000020 	.word	0x00000020
+    86cc:	00000024 	.word	0x00000024
 
 000086d0 <putu32>:
     86d0:	e59f3050 	ldr	r3, [pc, #80]	; 8728 <putu32+0x58>
@@ -502,7 +502,7 @@ Disassembly of section .text:
     8720:	e28dd014 	add	sp, sp, #20, 0
     8724:	e8bd8030 	pop	{r4, r5, pc}
     8728:	00003934 	.word	0x00003934
-    872c:	00000040 	.word	0x00000040
+    872c:	00000044 	.word	0x00000044
     8730:	000029b0 	.word	0x000029b0
 
 00008734 <_ZN2os8cpu_initEm>:
@@ -518,10 +518,10 @@ Disassembly of section .text:
     8758:	e581c004 	str	ip, [r1, #4]
     875c:	e49df004 	pop	{pc}		; (ldr pc, [sp], #4)
     8760:	000038cc 	.word	0x000038cc
-    8764:	0000003c 	.word	0x0000003c
+    8764:	00000040 	.word	0x00000040
 
 00008768 <_ZN2os10get_cpu_idEv>:
-    8768:	ea000298 	b	91d0 <__get_cpu_id>
+    8768:	ea000250 	b	90b0 <__get_cpu_id>
 
 0000876c <_ZN2os8this_cpuEv>:
     876c:	e92d4010 	push	{r4, lr}
@@ -534,7 +534,7 @@ Disassembly of section .text:
     8788:	e0830180 	add	r0, r3, r0, lsl #3
     878c:	e8bd8010 	pop	{r4, pc}
     8790:	00003890 	.word	0x00003890
-    8794:	0000003c 	.word	0x0000003c
+    8794:	00000040 	.word	0x00000040
 
 00008798 <_ZN2os10interrupts18disable_interruptsEv>:
     8798:	e92d4010 	push	{r4, lr}
@@ -578,7 +578,7 @@ Disassembly of section .text:
     8820:	e5832024 	str	r2, [r3, #36]	; 0x24
     8824:	e583201c 	str	r2, [r3, #28]
     8828:	e5832020 	str	r2, [r3, #32]
-    882c:	ea00027a 	b	921c <move_exception_vector>
+    882c:	ea000232 	b	90fc <move_exception_vector>
     8830:	00004808 	.word	0x00004808
 
 00008834 <_ZN2os10interrupts22register_timer_handlerEPFvmEi>:
@@ -697,7 +697,7 @@ Disassembly of section .text:
     89a4:	e7930002 	ldr	r0, [r3, r2]
     89a8:	e12fff1e 	bx	lr
     89ac:	0000366c 	.word	0x0000366c
-    89b0:	00000024 	.word	0x00000024
+    89b0:	00000028 	.word	0x00000028
 
 000089b4 <_ZN2os6memory15get_memory_sizeEv>:
     89b4:	e3a00302 	mov	r0, #134217728	; 0x8000000
@@ -815,7 +815,7 @@ Disassembly of section .text:
     8b0c:	e92d4010 	push	{r4, lr}
     8b10:	ebffff15 	bl	876c <_ZN2os8this_cpuEv>
     8b14:	e5903004 	ldr	r3, [r0, #4]
-    8b18:	e5930004 	ldr	r0, [r3, #4]
+    8b18:	e5930008 	ldr	r0, [r3, #8]
     8b1c:	e8bd8010 	pop	{r4, pc}
 
 00008b20 <_ZN2os6thread8thread_t8is_emptyEv>:
@@ -900,2072 +900,1774 @@ Disassembly of section .text:
     8c10:	e5903004 	ldr	r3, [r0, #4]
     8c14:	e3530004 	cmp	r3, #4, 0
     8c18:	908ff103 	addls	pc, pc, r3, lsl #2
-    8c1c:	ea000010 	b	8c64 <_ZN2os6thread8thread_t13get_state_strEv+0x54>
-    8c20:	ea000009 	b	8c4c <_ZN2os6thread8thread_t13get_state_strEv+0x3c>
-    8c24:	ea00000b 	b	8c58 <_ZN2os6thread8thread_t13get_state_strEv+0x48>
-    8c28:	ea000004 	b	8c40 <_ZN2os6thread8thread_t13get_state_strEv+0x30>
+    8c1c:	ea000013 	b	8c70 <_ZN2os6thread8thread_t13get_state_strEv+0x60>
+    8c20:	ea000006 	b	8c40 <_ZN2os6thread8thread_t13get_state_strEv+0x30>
+    8c24:	ea00000e 	b	8c64 <_ZN2os6thread8thread_t13get_state_strEv+0x54>
+    8c28:	ea000007 	b	8c4c <_ZN2os6thread8thread_t13get_state_strEv+0x3c>
     8c2c:	ea000000 	b	8c34 <_ZN2os6thread8thread_t13get_state_strEv+0x24>
-    8c30:	ea00000b 	b	8c64 <_ZN2os6thread8thread_t13get_state_strEv+0x54>
-    8c34:	e59f0034 	ldr	r0, [pc, #52]	; 8c70 <_ZN2os6thread8thread_t13get_state_strEv+0x60>
+    8c30:	ea000008 	b	8c58 <_ZN2os6thread8thread_t13get_state_strEv+0x48>
+    8c34:	e59f0040 	ldr	r0, [pc, #64]	; 8c7c <_ZN2os6thread8thread_t13get_state_strEv+0x6c>
     8c38:	e08f0000 	add	r0, pc, r0
     8c3c:	e12fff1e 	bx	lr
-    8c40:	e59f002c 	ldr	r0, [pc, #44]	; 8c74 <_ZN2os6thread8thread_t13get_state_strEv+0x64>
+    8c40:	e59f0038 	ldr	r0, [pc, #56]	; 8c80 <_ZN2os6thread8thread_t13get_state_strEv+0x70>
     8c44:	e08f0000 	add	r0, pc, r0
     8c48:	e12fff1e 	bx	lr
-    8c4c:	e59f0024 	ldr	r0, [pc, #36]	; 8c78 <_ZN2os6thread8thread_t13get_state_strEv+0x68>
+    8c4c:	e59f0030 	ldr	r0, [pc, #48]	; 8c84 <_ZN2os6thread8thread_t13get_state_strEv+0x74>
     8c50:	e08f0000 	add	r0, pc, r0
     8c54:	e12fff1e 	bx	lr
-    8c58:	e59f001c 	ldr	r0, [pc, #28]	; 8c7c <_ZN2os6thread8thread_t13get_state_strEv+0x6c>
+    8c58:	e59f0028 	ldr	r0, [pc, #40]	; 8c88 <_ZN2os6thread8thread_t13get_state_strEv+0x78>
     8c5c:	e08f0000 	add	r0, pc, r0
     8c60:	e12fff1e 	bx	lr
-    8c64:	e59f0014 	ldr	r0, [pc, #20]	; 8c80 <_ZN2os6thread8thread_t13get_state_strEv+0x70>
+    8c64:	e59f0020 	ldr	r0, [pc, #32]	; 8c8c <_ZN2os6thread8thread_t13get_state_strEv+0x7c>
     8c68:	e08f0000 	add	r0, pc, r0
     8c6c:	e12fff1e 	bx	lr
-    8c70:	00002528 	.word	0x00002528
-    8c74:	00002508 	.word	0x00002508
-    8c78:	000024f4 	.word	0x000024f4
-    8c7c:	000024f8 	.word	0x000024f8
-    8c80:	000024d0 	.word	0x000024d0
+    8c70:	e59f0018 	ldr	r0, [pc, #24]	; 8c90 <_ZN2os6thread8thread_t13get_state_strEv+0x80>
+    8c74:	e08f0000 	add	r0, pc, r0
+    8c78:	e12fff1e 	bx	lr
+    8c7c:	00002528 	.word	0x00002528
+    8c80:	000024f4 	.word	0x000024f4
+    8c84:	000024f0 	.word	0x000024f0
+    8c88:	000024f8 	.word	0x000024f8
+    8c8c:	000024e0 	.word	0x000024e0
+    8c90:	000024ac 	.word	0x000024ac
 
-00008c84 <_ZN2os11concurrency10dispatcherEm>:
-    8c84:	e59f301c 	ldr	r3, [pc, #28]	; 8ca8 <_ZN2os11concurrency10dispatcherEm+0x24>
-    8c88:	e59f201c 	ldr	r2, [pc, #28]	; 8cac <_ZN2os11concurrency10dispatcherEm+0x28>
-    8c8c:	e08f3003 	add	r3, pc, r3
-    8c90:	e7933002 	ldr	r3, [r3, r2]
-    8c94:	e0833180 	add	r3, r3, r0, lsl #3
-    8c98:	e5930004 	ldr	r0, [r3, #4]
-    8c9c:	e5903000 	ldr	r3, [r0]
-    8ca0:	e5933010 	ldr	r3, [r3, #16]
-    8ca4:	e12fff13 	bx	r3
-    8ca8:	00003380 	.word	0x00003380
-    8cac:	0000003c 	.word	0x0000003c
+00008c94 <thread_exit>:
+    8c94:	e92d4010 	push	{r4, lr}
+    8c98:	ebfffeb3 	bl	876c <_ZN2os8this_cpuEv>
+    8c9c:	e5900004 	ldr	r0, [r0, #4]
+    8ca0:	e8bd4010 	pop	{r4, lr}
+    8ca4:	e2800004 	add	r0, r0, #4, 0
+    8ca8:	ea0000f7 	b	908c <context_load>
 
-00008cb0 <grim_reaper>:
-    8cb0:	e59f2040 	ldr	r2, [pc, #64]	; 8cf8 <grim_reaper+0x48>
-    8cb4:	e59f3040 	ldr	r3, [pc, #64]	; 8cfc <grim_reaper+0x4c>
-    8cb8:	e08f2002 	add	r2, pc, r2
-    8cbc:	e59f103c 	ldr	r1, [pc, #60]	; 8d00 <grim_reaper+0x50>
-    8cc0:	e92d4010 	push	{r4, lr}
-    8cc4:	e08f1001 	add	r1, pc, r1
-    8cc8:	e7920003 	ldr	r0, [r2, r3]
-    8ccc:	eb000186 	bl	92ec <_ZStlsRSt7ostreamPKc>
-    8cd0:	ebfffea5 	bl	876c <_ZN2os8this_cpuEv>
-    8cd4:	e5903004 	ldr	r3, [r0, #4]
-    8cd8:	e5930008 	ldr	r0, [r3, #8]
-    8cdc:	eb000104 	bl	90f4 <switch_stack>
-    8ce0:	ebfffea1 	bl	876c <_ZN2os8this_cpuEv>
-    8ce4:	e5900004 	ldr	r0, [r0, #4]
-    8ce8:	e8bd4010 	pop	{r4, lr}
-    8cec:	e5903000 	ldr	r3, [r0]
-    8cf0:	e5933014 	ldr	r3, [r3, #20]
-    8cf4:	e12fff13 	bx	r3
-    8cf8:	00003354 	.word	0x00003354
-    8cfc:	00000058 	.word	0x00000058
-    8d00:	000024a4 	.word	0x000024a4
+00008cac <_ZN2os17arm_generic_timer3setEm>:
+    8cac:	e59f3024 	ldr	r3, [pc, #36]	; 8cd8 <_ZN2os17arm_generic_timer3setEm+0x2c>
+    8cb0:	e3042dd3 	movw	r2, #19923	; 0x4dd3
+    8cb4:	e3412062 	movt	r2, #4194	; 0x1062
+    8cb8:	e08f3003 	add	r3, pc, r3
+    8cbc:	e5933000 	ldr	r3, [r3]
+    8cc0:	e0c21392 	smull	r1, r2, r2, r3
+    8cc4:	e1a03fc3 	asr	r3, r3, #31
+    8cc8:	e0633342 	rsb	r3, r3, r2, asr #6
+    8ccc:	e0030390 	mul	r3, r0, r3
+    8cd0:	ee0e3f13 	mcr	15, 0, r3, cr14, cr3, {0}
+    8cd4:	e12fff1e 	bx	lr
+    8cd8:	00004368 	.word	0x00004368
 
-00008d04 <thread_exit>:
-    8d04:	e59f202c 	ldr	r2, [pc, #44]	; 8d38 <thread_exit+0x34>
-    8d08:	e59f302c 	ldr	r3, [pc, #44]	; 8d3c <thread_exit+0x38>
-    8d0c:	e08f2002 	add	r2, pc, r2
-    8d10:	e59f1028 	ldr	r1, [pc, #40]	; 8d40 <thread_exit+0x3c>
-    8d14:	e92d4010 	push	{r4, lr}
-    8d18:	e08f1001 	add	r1, pc, r1
-    8d1c:	e7920003 	ldr	r0, [r2, r3]
-    8d20:	eb000171 	bl	92ec <_ZStlsRSt7ostreamPKc>
-    8d24:	ebfffe90 	bl	876c <_ZN2os8this_cpuEv>
-    8d28:	e5900004 	ldr	r0, [r0, #4]
-    8d2c:	e8bd4010 	pop	{r4, lr}
-    8d30:	e2800008 	add	r0, r0, #8, 0
-    8d34:	ea00011b 	b	91a8 <context_load>
-    8d38:	00003300 	.word	0x00003300
-    8d3c:	00000058 	.word	0x00000058
-    8d40:	00002464 	.word	0x00002464
+00008cdc <_ZN2os5timer3setEm>:
+    8cdc:	eafffff2 	b	8cac <_ZN2os17arm_generic_timer3setEm>
 
-00008d44 <_ZN2os17arm_generic_timer3setEm>:
-    8d44:	e59f3024 	ldr	r3, [pc, #36]	; 8d70 <_ZN2os17arm_generic_timer3setEm+0x2c>
-    8d48:	e3042dd3 	movw	r2, #19923	; 0x4dd3
-    8d4c:	e3412062 	movt	r2, #4194	; 0x1062
-    8d50:	e08f3003 	add	r3, pc, r3
-    8d54:	e5933000 	ldr	r3, [r3]
-    8d58:	e0c21392 	smull	r1, r2, r2, r3
-    8d5c:	e1a03fc3 	asr	r3, r3, #31
-    8d60:	e0633342 	rsb	r3, r3, r2, asr #6
-    8d64:	e0030390 	mul	r3, r0, r3
-    8d68:	ee0e3f13 	mcr	15, 0, r3, cr14, cr3, {0}
-    8d6c:	e12fff1e 	bx	lr
-    8d70:	000042d0 	.word	0x000042d0
+00008ce0 <_ZN2os17arm_generic_timer4initEPFvmEm>:
+    8ce0:	e92d4070 	push	{r4, r5, r6, lr}
+    8ce4:	e1a06000 	mov	r6, r0
+    8ce8:	e1a05001 	mov	r5, r1
+    8cec:	ee1e2f10 	mrc	15, 0, r2, cr14, cr0, {0}
+    8cf0:	e59f3044 	ldr	r3, [pc, #68]	; 8d3c <_ZN2os17arm_generic_timer4initEPFvmEm+0x5c>
+    8cf4:	e08f3003 	add	r3, pc, r3
+    8cf8:	e5832000 	str	r2, [r3]
+    8cfc:	ebfffe99 	bl	8768 <_ZN2os10get_cpu_idEv>
+    8d00:	e1a04000 	mov	r4, r0
+    8d04:	e1a00006 	mov	r0, r6
+    8d08:	e1a01004 	mov	r1, r4
+    8d0c:	ebfffec8 	bl	8834 <_ZN2os10interrupts22register_timer_handlerEPFvmEi>
+    8d10:	e1a00005 	mov	r0, r5
+    8d14:	ebffffe4 	bl	8cac <_ZN2os17arm_generic_timer3setEm>
+    8d18:	e1a00104 	lsl	r0, r4, #2
+    8d1c:	e3a01008 	mov	r1, #8, 0
+    8d20:	e2800101 	add	r0, r0, #1073741824	; 0x40000000
+    8d24:	e2800040 	add	r0, r0, #64, 0	; 0x40
+    8d28:	ebffff57 	bl	8a8c <_ZN2os4mmio5writeEmm>
+    8d2c:	e3a03001 	mov	r3, #1, 0
+    8d30:	ee0e3f33 	mcr	15, 0, r3, cr14, cr3, {1}
+    8d34:	e8bd4070 	pop	{r4, r5, r6, lr}
+    8d38:	eafffe9d 	b	87b4 <_ZN2os10interrupts17enable_interruptsEv>
+    8d3c:	0000432c 	.word	0x0000432c
 
-00008d74 <_ZN2os5timer3setEm>:
-    8d74:	eafffff2 	b	8d44 <_ZN2os17arm_generic_timer3setEm>
+00008d40 <_ZN2os5timer4initEPFvmEm>:
+    8d40:	eaffffe6 	b	8ce0 <_ZN2os17arm_generic_timer4initEPFvmEm>
 
-00008d78 <_ZN2os17arm_generic_timer4initEPFvmEm>:
-    8d78:	e92d4070 	push	{r4, r5, r6, lr}
-    8d7c:	e1a06000 	mov	r6, r0
-    8d80:	e1a05001 	mov	r5, r1
-    8d84:	ee1e2f10 	mrc	15, 0, r2, cr14, cr0, {0}
-    8d88:	e59f3044 	ldr	r3, [pc, #68]	; 8dd4 <_ZN2os17arm_generic_timer4initEPFvmEm+0x5c>
-    8d8c:	e08f3003 	add	r3, pc, r3
-    8d90:	e5832000 	str	r2, [r3]
-    8d94:	ebfffe73 	bl	8768 <_ZN2os10get_cpu_idEv>
-    8d98:	e1a04000 	mov	r4, r0
-    8d9c:	e1a00006 	mov	r0, r6
-    8da0:	e1a01004 	mov	r1, r4
-    8da4:	ebfffea2 	bl	8834 <_ZN2os10interrupts22register_timer_handlerEPFvmEi>
-    8da8:	e1a00005 	mov	r0, r5
-    8dac:	ebffffe4 	bl	8d44 <_ZN2os17arm_generic_timer3setEm>
-    8db0:	e1a00104 	lsl	r0, r4, #2
-    8db4:	e3a01008 	mov	r1, #8, 0
-    8db8:	e2800101 	add	r0, r0, #1073741824	; 0x40000000
-    8dbc:	e2800040 	add	r0, r0, #64, 0	; 0x40
-    8dc0:	ebffff31 	bl	8a8c <_ZN2os4mmio5writeEmm>
-    8dc4:	e3a03001 	mov	r3, #1, 0
-    8dc8:	ee0e3f33 	mcr	15, 0, r3, cr14, cr3, {1}
-    8dcc:	e8bd4070 	pop	{r4, r5, r6, lr}
-    8dd0:	eafffe77 	b	87b4 <_ZN2os10interrupts17enable_interruptsEv>
-    8dd4:	00004294 	.word	0x00004294
+00008d44 <_ZN2os17arm_generic_timer7disableEv>:
+    8d44:	e92d4010 	push	{r4, lr}
+    8d48:	ebfffe86 	bl	8768 <_ZN2os10get_cpu_idEv>
+    8d4c:	e3a01000 	mov	r1, #0, 0
+    8d50:	ee0e1f33 	mcr	15, 0, r1, cr14, cr3, {1}
+    8d54:	e1a00100 	lsl	r0, r0, #2
+    8d58:	e2800101 	add	r0, r0, #1073741824	; 0x40000000
+    8d5c:	e8bd4010 	pop	{r4, lr}
+    8d60:	e2800060 	add	r0, r0, #96, 0	; 0x60
+    8d64:	eaffff48 	b	8a8c <_ZN2os4mmio5writeEmm>
 
-00008dd8 <_ZN2os5timer4initEPFvmEm>:
-    8dd8:	eaffffe6 	b	8d78 <_ZN2os17arm_generic_timer4initEPFvmEm>
+00008d68 <_ZN2os5timer7disableEv>:
+    8d68:	eafffff5 	b	8d44 <_ZN2os17arm_generic_timer7disableEv>
 
-00008ddc <_ZN2os17arm_generic_timer7disableEv>:
+00008d6c <_ZN2os4uart4putcEc>:
+    8d6c:	e59f3054 	ldr	r3, [pc, #84]	; 8dc8 <_ZN2os4uart4putcEc+0x5c>
+    8d70:	e350007e 	cmp	r0, #126, 0	; 0x7e
+    8d74:	e08f3003 	add	r3, pc, r3
+    8d78:	812fff1e 	bxhi	lr
+    8d7c:	e59f2048 	ldr	r2, [pc, #72]	; 8dcc <_ZN2os4uart4putcEc+0x60>
+    8d80:	e92d4070 	push	{r4, r5, r6, lr}
+    8d84:	e1a04000 	mov	r4, r0
+    8d88:	e7936002 	ldr	r6, [r3, r2]
+    8d8c:	e3015018 	movw	r5, #4120	; 0x1018
+    8d90:	e3435f20 	movt	r5, #16160	; 0x3f20
+    8d94:	e1a00006 	mov	r0, r6
+    8d98:	ebffff45 	bl	8ab4 <_ZN2os4sync8spinlock7acquireEv>
+    8d9c:	e1a00005 	mov	r0, r5
+    8da0:	ebffff3b 	bl	8a94 <_ZN2os4mmio4readEm>
+    8da4:	e3100020 	tst	r0, #32, 0
+    8da8:	1afffffb 	bne	8d9c <_ZN2os4uart4putcEc+0x30>
+    8dac:	e3a00a01 	mov	r0, #4096	; 0x1000
+    8db0:	e1a01004 	mov	r1, r4
+    8db4:	e3430f20 	movt	r0, #16160	; 0x3f20
+    8db8:	ebffff33 	bl	8a8c <_ZN2os4mmio5writeEmm>
+    8dbc:	e1a00006 	mov	r0, r6
+    8dc0:	e8bd4070 	pop	{r4, r5, r6, lr}
+    8dc4:	eaffff43 	b	8ad8 <_ZN2os4sync8spinlock7releaseEv>
+    8dc8:	00003298 	.word	0x00003298
+    8dcc:	00000020 	.word	0x00000020
+
+00008dd0 <_ZN2os4uart4getcEv>:
+    8dd0:	e59f303c 	ldr	r3, [pc, #60]	; 8e14 <_ZN2os4uart4getcEv+0x44>
+    8dd4:	e59f203c 	ldr	r2, [pc, #60]	; 8e18 <_ZN2os4uart4getcEv+0x48>
+    8dd8:	e08f3003 	add	r3, pc, r3
     8ddc:	e92d4010 	push	{r4, lr}
-    8de0:	ebfffe60 	bl	8768 <_ZN2os10get_cpu_idEv>
-    8de4:	e3a01000 	mov	r1, #0, 0
-    8de8:	ee0e1f33 	mcr	15, 0, r1, cr14, cr3, {1}
-    8dec:	e1a00100 	lsl	r0, r0, #2
-    8df0:	e2800101 	add	r0, r0, #1073741824	; 0x40000000
-    8df4:	e8bd4010 	pop	{r4, lr}
-    8df8:	e2800060 	add	r0, r0, #96, 0	; 0x60
-    8dfc:	eaffff22 	b	8a8c <_ZN2os4mmio5writeEmm>
+    8de0:	e3014018 	movw	r4, #4120	; 0x1018
+    8de4:	e7930002 	ldr	r0, [r3, r2]
+    8de8:	e3434f20 	movt	r4, #16160	; 0x3f20
+    8dec:	ebffff30 	bl	8ab4 <_ZN2os4sync8spinlock7acquireEv>
+    8df0:	e1a00004 	mov	r0, r4
+    8df4:	ebffff26 	bl	8a94 <_ZN2os4mmio4readEm>
+    8df8:	e3100010 	tst	r0, #16, 0
+    8dfc:	1afffffb 	bne	8df0 <_ZN2os4uart4getcEv+0x20>
+    8e00:	e3a00a01 	mov	r0, #4096	; 0x1000
+    8e04:	e3430f20 	movt	r0, #16160	; 0x3f20
+    8e08:	ebffff21 	bl	8a94 <_ZN2os4mmio4readEm>
+    8e0c:	e6ef0070 	uxtb	r0, r0
+    8e10:	e8bd8010 	pop	{r4, pc}
+    8e14:	00003234 	.word	0x00003234
+    8e18:	00000020 	.word	0x00000020
 
-00008e00 <_ZN2os5timer7disableEv>:
-    8e00:	eafffff5 	b	8ddc <_ZN2os17arm_generic_timer7disableEv>
+00008e1c <putc>:
+    8e1c:	eaffffd2 	b	8d6c <_ZN2os4uart4putcEc>
 
-00008e04 <_ZN2os4uart4putcEc>:
-    8e04:	e59f3054 	ldr	r3, [pc, #84]	; 8e60 <_ZN2os4uart4putcEc+0x5c>
-    8e08:	e350007e 	cmp	r0, #126, 0	; 0x7e
-    8e0c:	e08f3003 	add	r3, pc, r3
-    8e10:	812fff1e 	bxhi	lr
-    8e14:	e59f2048 	ldr	r2, [pc, #72]	; 8e64 <_ZN2os4uart4putcEc+0x60>
-    8e18:	e92d4070 	push	{r4, r5, r6, lr}
-    8e1c:	e1a04000 	mov	r4, r0
-    8e20:	e7936002 	ldr	r6, [r3, r2]
-    8e24:	e3015018 	movw	r5, #4120	; 0x1018
-    8e28:	e3435f20 	movt	r5, #16160	; 0x3f20
-    8e2c:	e1a00006 	mov	r0, r6
-    8e30:	ebffff1f 	bl	8ab4 <_ZN2os4sync8spinlock7acquireEv>
-    8e34:	e1a00005 	mov	r0, r5
-    8e38:	ebffff15 	bl	8a94 <_ZN2os4mmio4readEm>
-    8e3c:	e3100020 	tst	r0, #32, 0
-    8e40:	1afffffb 	bne	8e34 <_ZN2os4uart4putcEc+0x30>
-    8e44:	e3a00a01 	mov	r0, #4096	; 0x1000
-    8e48:	e1a01004 	mov	r1, r4
-    8e4c:	e3430f20 	movt	r0, #16160	; 0x3f20
-    8e50:	ebffff0d 	bl	8a8c <_ZN2os4mmio5writeEmm>
-    8e54:	e1a00006 	mov	r0, r6
-    8e58:	e8bd4070 	pop	{r4, r5, r6, lr}
-    8e5c:	eaffff1d 	b	8ad8 <_ZN2os4sync8spinlock7releaseEv>
-    8e60:	00003200 	.word	0x00003200
-    8e64:	0000001c 	.word	0x0000001c
+00008e20 <_ZN2os5delayEl>:
+    8e20:	e2500001 	subs	r0, r0, #1, 0
+    8e24:	1afffffd 	bne	8e20 <_ZN2os5delayEl>
+    8e28:	e12fff1e 	bx	lr
 
-00008e68 <_ZN2os4uart4getcEv>:
-    8e68:	e59f303c 	ldr	r3, [pc, #60]	; 8eac <_ZN2os4uart4getcEv+0x44>
-    8e6c:	e59f203c 	ldr	r2, [pc, #60]	; 8eb0 <_ZN2os4uart4getcEv+0x48>
-    8e70:	e08f3003 	add	r3, pc, r3
-    8e74:	e92d4010 	push	{r4, lr}
-    8e78:	e3014018 	movw	r4, #4120	; 0x1018
-    8e7c:	e7930002 	ldr	r0, [r3, r2]
-    8e80:	e3434f20 	movt	r4, #16160	; 0x3f20
-    8e84:	ebffff0a 	bl	8ab4 <_ZN2os4sync8spinlock7acquireEv>
-    8e88:	e1a00004 	mov	r0, r4
-    8e8c:	ebffff00 	bl	8a94 <_ZN2os4mmio4readEm>
-    8e90:	e3100010 	tst	r0, #16, 0
-    8e94:	1afffffb 	bne	8e88 <_ZN2os4uart4getcEv+0x20>
-    8e98:	e3a00a01 	mov	r0, #4096	; 0x1000
-    8e9c:	e3430f20 	movt	r0, #16160	; 0x3f20
-    8ea0:	ebfffefb 	bl	8a94 <_ZN2os4mmio4readEm>
-    8ea4:	e6ef0070 	uxtb	r0, r0
-    8ea8:	e8bd8010 	pop	{r4, pc}
-    8eac:	0000319c 	.word	0x0000319c
-    8eb0:	0000001c 	.word	0x0000001c
+00008e2c <_ZN2os4uart4initEv>:
+    8e2c:	e59f30c4 	ldr	r3, [pc, #196]	; 8ef8 <_ZN2os4uart4initEv+0xcc>
+    8e30:	e59f20c4 	ldr	r2, [pc, #196]	; 8efc <_ZN2os4uart4initEv+0xd0>
+    8e34:	e08f3003 	add	r3, pc, r3
+    8e38:	e92d4070 	push	{r4, r5, r6, lr}
+    8e3c:	e3014030 	movw	r4, #4144	; 0x1030
+    8e40:	e7930002 	ldr	r0, [r3, r2]
+    8e44:	e3a05098 	mov	r5, #152, 0	; 0x98
+    8e48:	e3434f20 	movt	r4, #16160	; 0x3f20
+    8e4c:	ebffff15 	bl	8aa8 <_ZN2os4sync8spinlock4initEv>
+    8e50:	e3435f20 	movt	r5, #16160	; 0x3f20
+    8e54:	e1a00004 	mov	r0, r4
+    8e58:	e3a01000 	mov	r1, #0, 0
+    8e5c:	ebffff0a 	bl	8a8c <_ZN2os4mmio5writeEmm>
+    8e60:	e3a00094 	mov	r0, #148, 0	; 0x94
+    8e64:	e3a01000 	mov	r1, #0, 0
+    8e68:	e3430f20 	movt	r0, #16160	; 0x3f20
+    8e6c:	ebffff06 	bl	8a8c <_ZN2os4mmio5writeEmm>
+    8e70:	e3a00096 	mov	r0, #150, 0	; 0x96
+    8e74:	ebffffe9 	bl	8e20 <_ZN2os5delayEl>
+    8e78:	e1a00005 	mov	r0, r5
+    8e7c:	e3a01903 	mov	r1, #49152	; 0xc000
+    8e80:	ebffff01 	bl	8a8c <_ZN2os4mmio5writeEmm>
+    8e84:	e3a00096 	mov	r0, #150, 0	; 0x96
+    8e88:	ebffffe4 	bl	8e20 <_ZN2os5delayEl>
+    8e8c:	e1a00005 	mov	r0, r5
+    8e90:	e3a01000 	mov	r1, #0, 0
+    8e94:	ebfffefc 	bl	8a8c <_ZN2os4mmio5writeEmm>
+    8e98:	e3010044 	movw	r0, #4164	; 0x1044
+    8e9c:	e30017ff 	movw	r1, #2047	; 0x7ff
+    8ea0:	e3430f20 	movt	r0, #16160	; 0x3f20
+    8ea4:	ebfffef8 	bl	8a8c <_ZN2os4mmio5writeEmm>
+    8ea8:	e3010024 	movw	r0, #4132	; 0x1024
+    8eac:	e3a01001 	mov	r1, #1, 0
+    8eb0:	e3430f20 	movt	r0, #16160	; 0x3f20
+    8eb4:	ebfffef4 	bl	8a8c <_ZN2os4mmio5writeEmm>
+    8eb8:	e3010028 	movw	r0, #4136	; 0x1028
+    8ebc:	e3a01028 	mov	r1, #40, 0	; 0x28
+    8ec0:	e3430f20 	movt	r0, #16160	; 0x3f20
+    8ec4:	ebfffef0 	bl	8a8c <_ZN2os4mmio5writeEmm>
+    8ec8:	e301002c 	movw	r0, #4140	; 0x102c
+    8ecc:	e3a01070 	mov	r1, #112, 0	; 0x70
+    8ed0:	e3430f20 	movt	r0, #16160	; 0x3f20
+    8ed4:	ebfffeec 	bl	8a8c <_ZN2os4mmio5writeEmm>
+    8ed8:	e3010038 	movw	r0, #4152	; 0x1038
+    8edc:	e30017f2 	movw	r1, #2034	; 0x7f2
+    8ee0:	e3430f20 	movt	r0, #16160	; 0x3f20
+    8ee4:	ebfffee8 	bl	8a8c <_ZN2os4mmio5writeEmm>
+    8ee8:	e1a00004 	mov	r0, r4
+    8eec:	e3001301 	movw	r1, #769	; 0x301
+    8ef0:	e8bd4070 	pop	{r4, r5, r6, lr}
+    8ef4:	eafffee4 	b	8a8c <_ZN2os4mmio5writeEmm>
+    8ef8:	000031d8 	.word	0x000031d8
+    8efc:	00000020 	.word	0x00000020
 
-00008eb4 <putc>:
-    8eb4:	eaffffd2 	b	8e04 <_ZN2os4uart4putcEc>
+00008f00 <_ZN2os6kernel4initEiii>:
+    8f00:	e92d4010 	push	{r4, lr}
+    8f04:	ebffffc8 	bl	8e2c <_ZN2os4uart4initEv>
+    8f08:	e8bd4010 	pop	{r4, lr}
+    8f0c:	eafffd45 	b	8428 <_ZN2os7console11iolock_initEv>
 
-00008eb8 <_ZN2os5delayEl>:
-    8eb8:	e2500001 	subs	r0, r0, #1, 0
-    8ebc:	1afffffd 	bne	8eb8 <_ZN2os5delayEl>
-    8ec0:	e12fff1e 	bx	lr
+00008f10 <_ZN2os6kernel9wait_initEv>:
+    8f10:	e59f3020 	ldr	r3, [pc, #32]	; 8f38 <_ZN2os6kernel9wait_initEv+0x28>
+    8f14:	e59f2020 	ldr	r2, [pc, #32]	; 8f3c <_ZN2os6kernel9wait_initEv+0x2c>
+    8f18:	e08f3003 	add	r3, pc, r3
+    8f1c:	e92d4010 	push	{r4, lr}
+    8f20:	e7934002 	ldr	r4, [r3, r2]
+    8f24:	e1a00004 	mov	r0, r4
+    8f28:	ebfffee1 	bl	8ab4 <_ZN2os4sync8spinlock7acquireEv>
+    8f2c:	e1a00004 	mov	r0, r4
+    8f30:	e8bd4010 	pop	{r4, lr}
+    8f34:	eafffee7 	b	8ad8 <_ZN2os4sync8spinlock7releaseEv>
+    8f38:	000030f4 	.word	0x000030f4
+    8f3c:	0000000c 	.word	0x0000000c
 
-00008ec4 <_ZN2os4uart4initEv>:
-    8ec4:	e59f30c4 	ldr	r3, [pc, #196]	; 8f90 <_ZN2os4uart4initEv+0xcc>
-    8ec8:	e59f20c4 	ldr	r2, [pc, #196]	; 8f94 <_ZN2os4uart4initEv+0xd0>
-    8ecc:	e08f3003 	add	r3, pc, r3
-    8ed0:	e92d4070 	push	{r4, r5, r6, lr}
-    8ed4:	e3014030 	movw	r4, #4144	; 0x1030
-    8ed8:	e7930002 	ldr	r0, [r3, r2]
-    8edc:	e3a05098 	mov	r5, #152, 0	; 0x98
-    8ee0:	e3434f20 	movt	r4, #16160	; 0x3f20
-    8ee4:	ebfffeef 	bl	8aa8 <_ZN2os4sync8spinlock4initEv>
-    8ee8:	e3435f20 	movt	r5, #16160	; 0x3f20
-    8eec:	e1a00004 	mov	r0, r4
-    8ef0:	e3a01000 	mov	r1, #0, 0
-    8ef4:	ebfffee4 	bl	8a8c <_ZN2os4mmio5writeEmm>
-    8ef8:	e3a00094 	mov	r0, #148, 0	; 0x94
-    8efc:	e3a01000 	mov	r1, #0, 0
-    8f00:	e3430f20 	movt	r0, #16160	; 0x3f20
-    8f04:	ebfffee0 	bl	8a8c <_ZN2os4mmio5writeEmm>
-    8f08:	e3a00096 	mov	r0, #150, 0	; 0x96
-    8f0c:	ebffffe9 	bl	8eb8 <_ZN2os5delayEl>
-    8f10:	e1a00005 	mov	r0, r5
-    8f14:	e3a01903 	mov	r1, #49152	; 0xc000
-    8f18:	ebfffedb 	bl	8a8c <_ZN2os4mmio5writeEmm>
-    8f1c:	e3a00096 	mov	r0, #150, 0	; 0x96
-    8f20:	ebffffe4 	bl	8eb8 <_ZN2os5delayEl>
-    8f24:	e1a00005 	mov	r0, r5
-    8f28:	e3a01000 	mov	r1, #0, 0
-    8f2c:	ebfffed6 	bl	8a8c <_ZN2os4mmio5writeEmm>
-    8f30:	e3010044 	movw	r0, #4164	; 0x1044
-    8f34:	e30017ff 	movw	r1, #2047	; 0x7ff
-    8f38:	e3430f20 	movt	r0, #16160	; 0x3f20
-    8f3c:	ebfffed2 	bl	8a8c <_ZN2os4mmio5writeEmm>
-    8f40:	e3010024 	movw	r0, #4132	; 0x1024
-    8f44:	e3a01001 	mov	r1, #1, 0
-    8f48:	e3430f20 	movt	r0, #16160	; 0x3f20
-    8f4c:	ebfffece 	bl	8a8c <_ZN2os4mmio5writeEmm>
-    8f50:	e3010028 	movw	r0, #4136	; 0x1028
-    8f54:	e3a01028 	mov	r1, #40, 0	; 0x28
-    8f58:	e3430f20 	movt	r0, #16160	; 0x3f20
-    8f5c:	ebfffeca 	bl	8a8c <_ZN2os4mmio5writeEmm>
-    8f60:	e301002c 	movw	r0, #4140	; 0x102c
-    8f64:	e3a01070 	mov	r1, #112, 0	; 0x70
-    8f68:	e3430f20 	movt	r0, #16160	; 0x3f20
-    8f6c:	ebfffec6 	bl	8a8c <_ZN2os4mmio5writeEmm>
-    8f70:	e3010038 	movw	r0, #4152	; 0x1038
-    8f74:	e30017f2 	movw	r1, #2034	; 0x7f2
-    8f78:	e3430f20 	movt	r0, #16160	; 0x3f20
-    8f7c:	ebfffec2 	bl	8a8c <_ZN2os4mmio5writeEmm>
-    8f80:	e1a00004 	mov	r0, r4
-    8f84:	e3001301 	movw	r1, #769	; 0x301
-    8f88:	e8bd4070 	pop	{r4, r5, r6, lr}
-    8f8c:	eafffebe 	b	8a8c <_ZN2os4mmio5writeEmm>
-    8f90:	00003140 	.word	0x00003140
-    8f94:	0000001c 	.word	0x0000001c
+00008f40 <_ZN2os6kernel7destroyEv>:
+    8f40:	e12fff1e 	bx	lr
 
-00008f98 <_ZN2os6kernel4initEiii>:
-    8f98:	e92d4010 	push	{r4, lr}
-    8f9c:	ebffffc8 	bl	8ec4 <_ZN2os4uart4initEv>
-    8fa0:	e8bd4010 	pop	{r4, lr}
-    8fa4:	eafffd1f 	b	8428 <_ZN2os7console11iolock_initEv>
+00008f44 <__cxa_pure_virtual>:
+    8f44:	e12fff1e 	bx	lr
 
-00008fa8 <_ZN2os6kernel9wait_initEv>:
-    8fa8:	e59f3020 	ldr	r3, [pc, #32]	; 8fd0 <_ZN2os6kernel9wait_initEv+0x28>
-    8fac:	e59f2020 	ldr	r2, [pc, #32]	; 8fd4 <_ZN2os6kernel9wait_initEv+0x2c>
-    8fb0:	e08f3003 	add	r3, pc, r3
-    8fb4:	e92d4010 	push	{r4, lr}
-    8fb8:	e7934002 	ldr	r4, [r3, r2]
-    8fbc:	e1a00004 	mov	r0, r4
-    8fc0:	ebfffebb 	bl	8ab4 <_ZN2os4sync8spinlock7acquireEv>
-    8fc4:	e1a00004 	mov	r0, r4
-    8fc8:	e8bd4010 	pop	{r4, lr}
-    8fcc:	eafffec1 	b	8ad8 <_ZN2os4sync8spinlock7releaseEv>
-    8fd0:	0000305c 	.word	0x0000305c
-    8fd4:	0000000c 	.word	0x0000000c
+00008f48 <__cxa_atexit>:
+    8f48:	e92d4070 	push	{r4, r5, r6, lr}
+    8f4c:	e59f404c 	ldr	r4, [pc, #76]	; 8fa0 <__cxa_atexit+0x58>
+    8f50:	e59f304c 	ldr	r3, [pc, #76]	; 8fa4 <__cxa_atexit+0x5c>
+    8f54:	e08f4004 	add	r4, pc, r4
+    8f58:	e7946003 	ldr	r6, [r4, r3]
+    8f5c:	e5963000 	ldr	r3, [r6]
+    8f60:	e353007f 	cmp	r3, #127, 0	; 0x7f
+    8f64:	8a00000b 	bhi	8f98 <__cxa_atexit+0x50>
+    8f68:	e59fe038 	ldr	lr, [pc, #56]	; 8fa8 <__cxa_atexit+0x60>
+    8f6c:	e3a0c00c 	mov	ip, #12, 0
+    8f70:	e00c039c 	mul	ip, ip, r3
+    8f74:	e794e00e 	ldr	lr, [r4, lr]
+    8f78:	e2833001 	add	r3, r3, #1, 0
+    8f7c:	e5863000 	str	r3, [r6]
+    8f80:	e1a05000 	mov	r5, r0
+    8f84:	e08e300c 	add	r3, lr, ip
+    8f88:	e3a00000 	mov	r0, #0, 0
+    8f8c:	e78e500c 	str	r5, [lr, ip]
+    8f90:	e9830006 	stmib	r3, {r1, r2}
+    8f94:	e8bd8070 	pop	{r4, r5, r6, pc}
+    8f98:	e3e00000 	mvn	r0, #0, 0
+    8f9c:	e8bd8070 	pop	{r4, r5, r6, pc}
+    8fa0:	000030b8 	.word	0x000030b8
+    8fa4:	00000014 	.word	0x00000014
+    8fa8:	0000003c 	.word	0x0000003c
 
-00008fd8 <_ZN2os6kernel7destroyEv>:
-    8fd8:	e12fff1e 	bx	lr
+00008fac <__cxa_finalize>:
+    8fac:	e59f209c 	ldr	r2, [pc, #156]	; 9050 <__cxa_finalize+0xa4>
+    8fb0:	e59f309c 	ldr	r3, [pc, #156]	; 9054 <__cxa_finalize+0xa8>
+    8fb4:	e08f2002 	add	r2, pc, r2
+    8fb8:	e92d41f0 	push	{r4, r5, r6, r7, r8, lr}
+    8fbc:	e2505000 	subs	r5, r0, #0, 0
+    8fc0:	e7923003 	ldr	r3, [r2, r3]
+    8fc4:	e5934000 	ldr	r4, [r3]
+    8fc8:	0a000011 	beq	9014 <__cxa_finalize+0x68>
+    8fcc:	e3540000 	cmp	r4, #0, 0
+    8fd0:	08bd81f0 	popeq	{r4, r5, r6, r7, r8, pc}
+    8fd4:	e59f307c 	ldr	r3, [pc, #124]	; 9058 <__cxa_finalize+0xac>
+    8fd8:	e3a0100c 	mov	r1, #12, 0
+    8fdc:	e3a07000 	mov	r7, #0, 0
+    8fe0:	e7926003 	ldr	r6, [r2, r3]
+    8fe4:	e0246491 	mla	r4, r1, r4, r6
+    8fe8:	ea000002 	b	8ff8 <__cxa_finalize+0x4c>
+    8fec:	e244400c 	sub	r4, r4, #12, 0
+    8ff0:	e1540006 	cmp	r4, r6
+    8ff4:	08bd81f0 	popeq	{r4, r5, r6, r7, r8, pc}
+    8ff8:	e514300c 	ldr	r3, [r4, #-12]
+    8ffc:	e1530005 	cmp	r3, r5
+    9000:	1afffff9 	bne	8fec <__cxa_finalize+0x40>
+    9004:	e5140008 	ldr	r0, [r4, #-8]
+    9008:	e12fff35 	blx	r5
+    900c:	e504700c 	str	r7, [r4, #-12]
+    9010:	eafffff5 	b	8fec <__cxa_finalize+0x40>
+    9014:	e3540000 	cmp	r4, #0, 0
+    9018:	08bd81f0 	popeq	{r4, r5, r6, r7, r8, pc}
+    901c:	e59f3034 	ldr	r3, [pc, #52]	; 9058 <__cxa_finalize+0xac>
+    9020:	e3a0100c 	mov	r1, #12, 0
+    9024:	e7925003 	ldr	r5, [r2, r3]
+    9028:	e0245491 	mla	r4, r1, r4, r5
+    902c:	e514300c 	ldr	r3, [r4, #-12]
+    9030:	e3530000 	cmp	r3, #0, 0
+    9034:	0a000001 	beq	9040 <__cxa_finalize+0x94>
+    9038:	e5140008 	ldr	r0, [r4, #-8]
+    903c:	e12fff33 	blx	r3
+    9040:	e244400c 	sub	r4, r4, #12, 0
+    9044:	e1540005 	cmp	r4, r5
+    9048:	1afffff7 	bne	902c <__cxa_finalize+0x80>
+    904c:	e8bd81f0 	pop	{r4, r5, r6, r7, r8, pc}
+    9050:	00003058 	.word	0x00003058
+    9054:	00000014 	.word	0x00000014
+    9058:	0000003c 	.word	0x0000003c
 
-00008fdc <__cxa_pure_virtual>:
-    8fdc:	e12fff1e 	bx	lr
+0000905c <context_switch>:
+    905c:	e52de004 	push	{lr}		; (str lr, [sp, #-4]!)
+    9060:	e10fc000 	mrs	ip, CPSR
+    9064:	e92d1fff 	push	{r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, fp, ip}
+    9068:	e580d000 	str	sp, [r0]
+    906c:	e591d000 	ldr	sp, [r1]
+    9070:	e28d0038 	add	r0, sp, #56, 0	; 0x38
+    9074:	e5810000 	str	r0, [r1]
+    9078:	e8bd1fff 	pop	{r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, fp, ip}
+    907c:	e121f00c 	msr	CPSR_c, ip
+    9080:	e59fe024 	ldr	lr, [pc, #36]	; 90ac <get_sp+0x8>
+    9084:	e49df004 	pop	{pc}		; (ldr pc, [sp], #4)
+    9088:	e12fff1e 	bx	lr
 
-00008fe0 <__cxa_atexit>:
-    8fe0:	e92d4070 	push	{r4, r5, r6, lr}
-    8fe4:	e59f404c 	ldr	r4, [pc, #76]	; 9038 <__cxa_atexit+0x58>
-    8fe8:	e59f304c 	ldr	r3, [pc, #76]	; 903c <__cxa_atexit+0x5c>
-    8fec:	e08f4004 	add	r4, pc, r4
-    8ff0:	e7946003 	ldr	r6, [r4, r3]
-    8ff4:	e5963000 	ldr	r3, [r6]
-    8ff8:	e353007f 	cmp	r3, #127, 0	; 0x7f
-    8ffc:	8a00000b 	bhi	9030 <__cxa_atexit+0x50>
-    9000:	e59fe038 	ldr	lr, [pc, #56]	; 9040 <__cxa_atexit+0x60>
-    9004:	e3a0c00c 	mov	ip, #12, 0
-    9008:	e00c039c 	mul	ip, ip, r3
-    900c:	e794e00e 	ldr	lr, [r4, lr]
-    9010:	e2833001 	add	r3, r3, #1, 0
-    9014:	e5863000 	str	r3, [r6]
-    9018:	e1a05000 	mov	r5, r0
-    901c:	e08e300c 	add	r3, lr, ip
-    9020:	e3a00000 	mov	r0, #0, 0
-    9024:	e78e500c 	str	r5, [lr, ip]
-    9028:	e9830006 	stmib	r3, {r1, r2}
-    902c:	e8bd8070 	pop	{r4, r5, r6, pc}
-    9030:	e3e00000 	mvn	r0, #0, 0
-    9034:	e8bd8070 	pop	{r4, r5, r6, pc}
-    9038:	00003020 	.word	0x00003020
-    903c:	00000014 	.word	0x00000014
-    9040:	00000038 	.word	0x00000038
+0000908c <context_load>:
+    908c:	e590d000 	ldr	sp, [r0]
+    9090:	e8bd1fff 	pop	{r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, fp, ip}
+    9094:	e121f00c 	msr	CPSR_c, ip
+    9098:	e580d000 	str	sp, [r0]
+    909c:	e49df004 	pop	{pc}		; (ldr pc, [sp], #4)
+    90a0:	e12fff1e 	bx	lr
 
-00009044 <__cxa_finalize>:
-    9044:	e59f209c 	ldr	r2, [pc, #156]	; 90e8 <__cxa_finalize+0xa4>
-    9048:	e59f309c 	ldr	r3, [pc, #156]	; 90ec <__cxa_finalize+0xa8>
-    904c:	e08f2002 	add	r2, pc, r2
-    9050:	e92d41f0 	push	{r4, r5, r6, r7, r8, lr}
-    9054:	e2505000 	subs	r5, r0, #0, 0
-    9058:	e7923003 	ldr	r3, [r2, r3]
-    905c:	e5934000 	ldr	r4, [r3]
-    9060:	0a000011 	beq	90ac <__cxa_finalize+0x68>
-    9064:	e3540000 	cmp	r4, #0, 0
-    9068:	08bd81f0 	popeq	{r4, r5, r6, r7, r8, pc}
-    906c:	e59f307c 	ldr	r3, [pc, #124]	; 90f0 <__cxa_finalize+0xac>
-    9070:	e3a0100c 	mov	r1, #12, 0
-    9074:	e3a07000 	mov	r7, #0, 0
-    9078:	e7926003 	ldr	r6, [r2, r3]
-    907c:	e0246491 	mla	r4, r1, r4, r6
-    9080:	ea000002 	b	9090 <__cxa_finalize+0x4c>
-    9084:	e244400c 	sub	r4, r4, #12, 0
-    9088:	e1540006 	cmp	r4, r6
-    908c:	08bd81f0 	popeq	{r4, r5, r6, r7, r8, pc}
-    9090:	e514300c 	ldr	r3, [r4, #-12]
-    9094:	e1530005 	cmp	r3, r5
-    9098:	1afffff9 	bne	9084 <__cxa_finalize+0x40>
-    909c:	e5140008 	ldr	r0, [r4, #-8]
-    90a0:	e12fff35 	blx	r5
-    90a4:	e504700c 	str	r7, [r4, #-12]
-    90a8:	eafffff5 	b	9084 <__cxa_finalize+0x40>
-    90ac:	e3540000 	cmp	r4, #0, 0
-    90b0:	08bd81f0 	popeq	{r4, r5, r6, r7, r8, pc}
-    90b4:	e59f3034 	ldr	r3, [pc, #52]	; 90f0 <__cxa_finalize+0xac>
-    90b8:	e3a0100c 	mov	r1, #12, 0
-    90bc:	e7925003 	ldr	r5, [r2, r3]
-    90c0:	e0245491 	mla	r4, r1, r4, r5
-    90c4:	e514300c 	ldr	r3, [r4, #-12]
-    90c8:	e3530000 	cmp	r3, #0, 0
-    90cc:	0a000001 	beq	90d8 <__cxa_finalize+0x94>
-    90d0:	e5140008 	ldr	r0, [r4, #-8]
-    90d4:	e12fff33 	blx	r3
-    90d8:	e244400c 	sub	r4, r4, #12, 0
-    90dc:	e1540005 	cmp	r4, r5
-    90e0:	1afffff7 	bne	90c4 <__cxa_finalize+0x80>
-    90e4:	e8bd81f0 	pop	{r4, r5, r6, r7, r8, pc}
-    90e8:	00002fc0 	.word	0x00002fc0
-    90ec:	00000014 	.word	0x00000014
-    90f0:	00000038 	.word	0x00000038
+000090a4 <get_sp>:
+    90a4:	e1a0000d 	mov	r0, sp
+    90a8:	e12fff1e 	bx	lr
+    90ac:	00008c94 	.word	0x00008c94
 
-000090f4 <switch_stack>:
-    90f4:	e1a0d000 	mov	sp, r0
-    90f8:	e12fff1e 	bx	lr
+000090b0 <__get_cpu_id>:
+    90b0:	ee100fb0 	mrc	15, 0, r0, cr0, cr0, {5}
+    90b4:	e2000003 	and	r0, r0, #3, 0
+    90b8:	e12fff1e 	bx	lr
 
-000090fc <context_switch>:
-    90fc:	e52de004 	push	{lr}		; (str lr, [sp, #-4]!)
-    9100:	e10fc000 	mrs	ip, CPSR
-    9104:	e92d1fff 	push	{r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, fp, ip}
-    9108:	e580d000 	str	sp, [r0]
-    910c:	e591d000 	ldr	sp, [r1]
-    9110:	e28d0038 	add	r0, sp, #56, 0	; 0x38
-    9114:	e5810000 	str	r0, [r1]
-    9118:	e8bd1fff 	pop	{r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, fp, ip}
-    911c:	e121f00c 	msr	CPSR_c, ip
-    9120:	e59fe0a0 	ldr	lr, [pc, #160]	; 91c8 <get_sp+0x8>
-    9124:	e49df004 	pop	{pc}		; (ldr pc, [sp], #4)
-    9128:	e12fff1e 	bx	lr
+000090bc <exception_vector>:
+    90bc:	e59ff018 	ldr	pc, [pc, #24]	; 90dc <reset_handler_addr>
+    90c0:	e59ff018 	ldr	pc, [pc, #24]	; 90e0 <undefined_instruction_handler_addr>
+    90c4:	e59ff018 	ldr	pc, [pc, #24]	; 90e4 <software_interrupt_handler_addr>
+    90c8:	e59ff018 	ldr	pc, [pc, #24]	; 90e8 <prefetch_abort_handler_addr>
+    90cc:	e59ff018 	ldr	pc, [pc, #24]	; 90ec <data_abort_handler_addr>
+    90d0:	e59ff018 	ldr	pc, [pc, #24]	; 90f0 <unused_handler_addr>
+    90d4:	e59ff018 	ldr	pc, [pc, #24]	; 90f4 <irq_handler_addr>
+    90d8:	e59ff018 	ldr	pc, [pc, #24]	; 90f8 <fast_irq_handler_addr>
 
-0000912c <first_context_switch_main_thread>:
-    912c:	e52de004 	push	{lr}		; (str lr, [sp, #-4]!)
-    9130:	e10fc000 	mrs	ip, CPSR
-    9134:	e92d1fff 	push	{r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, fp, ip}
-    9138:	e580d000 	str	sp, [r0]
-    913c:	e591d000 	ldr	sp, [r1]
-    9140:	e28d0038 	add	r0, sp, #56, 0	; 0x38
-    9144:	e5810000 	str	r0, [r1]
-    9148:	e8bd1fff 	pop	{r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, fp, ip}
-    914c:	e121f00c 	msr	CPSR_c, ip
-    9150:	e59fe074 	ldr	lr, [pc, #116]	; 91cc <get_sp+0xc>
-    9154:	e49df004 	pop	{pc}		; (ldr pc, [sp], #4)
-    9158:	e12fff1e 	bx	lr
+000090dc <reset_handler_addr>:
+    90dc:	00008868 	.word	0x00008868
 
-0000915c <first_context_switch_secondary_thread>:
-    915c:	e52de004 	push	{lr}		; (str lr, [sp, #-4]!)
-    9160:	e10fc000 	mrs	ip, CPSR
-    9164:	e92d1fff 	push	{r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, fp, ip}
-    9168:	e580d000 	str	sp, [r0]
-    916c:	e591d000 	ldr	sp, [r1]
-    9170:	e28d0038 	add	r0, sp, #56, 0	; 0x38
-    9174:	e5810000 	str	r0, [r1]
-    9178:	e8bd1fff 	pop	{r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, fp, ip}
-    917c:	e121f00c 	msr	CPSR_c, ip
-    9180:	e59fe040 	ldr	lr, [pc, #64]	; 91c8 <get_sp+0x8>
-    9184:	e49df004 	pop	{pc}		; (ldr pc, [sp], #4)
-    9188:	e12fff1e 	bx	lr
+000090e0 <undefined_instruction_handler_addr>:
+    90e0:	000088c0 	.word	0x000088c0
 
-0000918c <context_save>:
-    918c:	e92d2000 	stmfd	sp!, {sp}
-    9190:	e590d000 	ldr	sp, [r0]
-    9194:	e52de004 	push	{lr}		; (str lr, [sp, #-4]!)
-    9198:	e10fc000 	mrs	ip, CPSR
-    919c:	e92d1fff 	push	{r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, fp, ip}
-    91a0:	e580d000 	str	sp, [r0]
-    91a4:	e12fff1e 	bx	lr
+000090e4 <software_interrupt_handler_addr>:
+    90e4:	000088d0 	.word	0x000088d0
 
-000091a8 <context_load>:
-    91a8:	e590d000 	ldr	sp, [r0]
-    91ac:	e8bd1fff 	pop	{r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, fp, ip}
-    91b0:	e121f00c 	msr	CPSR_c, ip
-    91b4:	e580d000 	str	sp, [r0]
-    91b8:	e49df004 	pop	{pc}		; (ldr pc, [sp], #4)
-    91bc:	e12fff1e 	bx	lr
+000090e8 <prefetch_abort_handler_addr>:
+    90e8:	00008888 	.word	0x00008888
 
-000091c0 <get_sp>:
-    91c0:	e1a0000d 	mov	r0, sp
-    91c4:	e12fff1e 	bx	lr
-    91c8:	00008d04 	.word	0x00008d04
-    91cc:	00008cb0 	.word	0x00008cb0
+000090ec <data_abort_handler_addr>:
+    90ec:	000088a4 	.word	0x000088a4
 
-000091d0 <__get_cpu_id>:
-    91d0:	ee100fb0 	mrc	15, 0, r0, cr0, cr0, {5}
-    91d4:	e2000003 	and	r0, r0, #3, 0
-    91d8:	e12fff1e 	bx	lr
+000090f0 <unused_handler_addr>:
+    90f0:	00008868 	.word	0x00008868
 
-000091dc <exception_vector>:
-    91dc:	e59ff018 	ldr	pc, [pc, #24]	; 91fc <reset_handler_addr>
-    91e0:	e59ff018 	ldr	pc, [pc, #24]	; 9200 <undefined_instruction_handler_addr>
-    91e4:	e59ff018 	ldr	pc, [pc, #24]	; 9204 <software_interrupt_handler_addr>
-    91e8:	e59ff018 	ldr	pc, [pc, #24]	; 9208 <prefetch_abort_handler_addr>
-    91ec:	e59ff018 	ldr	pc, [pc, #24]	; 920c <data_abort_handler_addr>
-    91f0:	e59ff018 	ldr	pc, [pc, #24]	; 9210 <unused_handler_addr>
-    91f4:	e59ff018 	ldr	pc, [pc, #24]	; 9214 <irq_handler_addr>
-    91f8:	e59ff018 	ldr	pc, [pc, #24]	; 9218 <fast_irq_handler_addr>
+000090f4 <irq_handler_addr>:
+    90f4:	00009120 	.word	0x00009120
 
-000091fc <reset_handler_addr>:
-    91fc:	00008868 	.word	0x00008868
+000090f8 <fast_irq_handler_addr>:
+    90f8:	00009120 	.word	0x00009120
 
-00009200 <undefined_instruction_handler_addr>:
-    9200:	000088c0 	.word	0x000088c0
+000090fc <move_exception_vector>:
+    90fc:	e92d03f0 	push	{r4, r5, r6, r7, r8, r9}
+    9100:	e59f0048 	ldr	r0, [pc, #72]	; 9150 <irq_handler_asm_wrapper+0x30>
+    9104:	e3a01000 	mov	r1, #0, 0
+    9108:	e8b003fc 	ldm	r0!, {r2, r3, r4, r5, r6, r7, r8, r9}
+    910c:	e8a103fc 	stmia	r1!, {r2, r3, r4, r5, r6, r7, r8, r9}
+    9110:	e8b003fc 	ldm	r0!, {r2, r3, r4, r5, r6, r7, r8, r9}
+    9114:	e8a103fc 	stmia	r1!, {r2, r3, r4, r5, r6, r7, r8, r9}
+    9118:	e8bd03f0 	pop	{r4, r5, r6, r7, r8, r9}
+    911c:	e12fff3e 	blx	lr
 
-00009204 <software_interrupt_handler_addr>:
-    9204:	000088d0 	.word	0x000088d0
+00009120 <irq_handler_asm_wrapper>:
+    9120:	e24ee004 	sub	lr, lr, #4, 0
+    9124:	f96d0513 	srsdb	sp!, #19
+    9128:	f10e00d3 	cpsid	if,#19
+    912c:	e92d500f 	push	{r0, r1, r2, r3, ip, lr}
+    9130:	e20d1004 	and	r1, sp, #4, 0
+    9134:	e04dd001 	sub	sp, sp, r1
+    9138:	e52d1004 	push	{r1}		; (str r1, [sp, #-4]!)
+    913c:	ebfffde9 	bl	88e8 <irq_handler>
+    9140:	e49d1004 	pop	{r1}		; (ldr r1, [sp], #4)
+    9144:	e08dd001 	add	sp, sp, r1
+    9148:	e8bd500f 	pop	{r0, r1, r2, r3, ip, lr}
+    914c:	f8bd0a00 	rfeia	sp!
+    9150:	000090bc 	.word	0x000090bc
 
-00009208 <prefetch_abort_handler_addr>:
-    9208:	00008888 	.word	0x00008888
+00009154 <_ZStlsRSt7ostreamm>:
+    9154:	e92d4010 	push	{r4, lr}
+    9158:	e1a04000 	mov	r4, r0
+    915c:	e1a00001 	mov	r0, r1
+    9160:	ebfffd30 	bl	8628 <_ZN2os7console6putu32Em>
+    9164:	e1a00004 	mov	r0, r4
+    9168:	e8bd8010 	pop	{r4, pc}
 
-0000920c <data_abort_handler_addr>:
-    920c:	000088a4 	.word	0x000088a4
+0000916c <_ZStlsRSt7ostreaml>:
+    916c:	e92d4010 	push	{r4, lr}
+    9170:	e1a04000 	mov	r4, r0
+    9174:	e1a00001 	mov	r0, r1
+    9178:	ebfffd3f 	bl	867c <_ZN2os7console6puti32El>
+    917c:	e1a00004 	mov	r0, r4
+    9180:	e8bd8010 	pop	{r4, pc}
 
-00009210 <unused_handler_addr>:
-    9210:	00008868 	.word	0x00008868
+00009184 <_ZStlsRSt7ostreamt>:
+    9184:	e92d4010 	push	{r4, lr}
+    9188:	e1a04000 	mov	r4, r0
+    918c:	e1a00001 	mov	r0, r1
+    9190:	ebfffd24 	bl	8628 <_ZN2os7console6putu32Em>
+    9194:	e1a00004 	mov	r0, r4
+    9198:	e8bd8010 	pop	{r4, pc}
 
-00009214 <irq_handler_addr>:
-    9214:	00009240 	.word	0x00009240
+0000919c <_ZStlsRSt7ostreams>:
+    919c:	e92d4010 	push	{r4, lr}
+    91a0:	e1a04000 	mov	r4, r0
+    91a4:	e1a00001 	mov	r0, r1
+    91a8:	ebfffd33 	bl	867c <_ZN2os7console6puti32El>
+    91ac:	e1a00004 	mov	r0, r4
+    91b0:	e8bd8010 	pop	{r4, pc}
 
-00009218 <fast_irq_handler_addr>:
-    9218:	00009240 	.word	0x00009240
+000091b4 <_ZStlsRSt7ostreamc>:
+    91b4:	e92d4010 	push	{r4, lr}
+    91b8:	e1a04000 	mov	r4, r0
+    91bc:	e1a00001 	mov	r0, r1
+    91c0:	ebfffcb1 	bl	848c <_ZN2os7console4putcEc>
+    91c4:	e1a00004 	mov	r0, r4
+    91c8:	e8bd8010 	pop	{r4, pc}
 
-0000921c <move_exception_vector>:
-    921c:	e92d03f0 	push	{r4, r5, r6, r7, r8, r9}
-    9220:	e59f0048 	ldr	r0, [pc, #72]	; 9270 <irq_handler_asm_wrapper+0x30>
-    9224:	e3a01000 	mov	r1, #0, 0
-    9228:	e8b003fc 	ldm	r0!, {r2, r3, r4, r5, r6, r7, r8, r9}
-    922c:	e8a103fc 	stmia	r1!, {r2, r3, r4, r5, r6, r7, r8, r9}
-    9230:	e8b003fc 	ldm	r0!, {r2, r3, r4, r5, r6, r7, r8, r9}
-    9234:	e8a103fc 	stmia	r1!, {r2, r3, r4, r5, r6, r7, r8, r9}
-    9238:	e8bd03f0 	pop	{r4, r5, r6, r7, r8, r9}
-    923c:	e12fff3e 	blx	lr
+000091cc <_ZStlsRSt7ostreamPKc>:
+    91cc:	e92d4010 	push	{r4, lr}
+    91d0:	e1a04000 	mov	r4, r0
+    91d4:	e1a00001 	mov	r0, r1
+    91d8:	ebfffcbf 	bl	84dc <_ZN2os7console4putsEPKc>
+    91dc:	e1a00004 	mov	r0, r4
+    91e0:	e8bd8010 	pop	{r4, pc}
 
-00009240 <irq_handler_asm_wrapper>:
-    9240:	e24ee004 	sub	lr, lr, #4, 0
-    9244:	f96d0513 	srsdb	sp!, #19
-    9248:	f10e00d3 	cpsid	if,#19
-    924c:	e92d500f 	push	{r0, r1, r2, r3, ip, lr}
-    9250:	e20d1004 	and	r1, sp, #4, 0
-    9254:	e04dd001 	sub	sp, sp, r1
-    9258:	e52d1004 	push	{r1}		; (str r1, [sp, #-4]!)
-    925c:	ebfffda1 	bl	88e8 <irq_handler>
-    9260:	e49d1004 	pop	{r1}		; (ldr r1, [sp], #4)
-    9264:	e08dd001 	add	sp, sp, r1
-    9268:	e8bd500f 	pop	{r0, r1, r2, r3, ip, lr}
-    926c:	f8bd0a00 	rfeia	sp!
-    9270:	000091dc 	.word	0x000091dc
+000091e4 <_ZStlsRSt7ostreamPFS0_S0_E>:
+    91e4:	e12fff11 	bx	r1
 
-00009274 <_ZStlsRSt7ostreamm>:
-    9274:	e92d4010 	push	{r4, lr}
-    9278:	e1a04000 	mov	r4, r0
-    927c:	e1a00001 	mov	r0, r1
-    9280:	ebfffce8 	bl	8628 <_ZN2os7console6putu32Em>
-    9284:	e1a00004 	mov	r0, r4
-    9288:	e8bd8010 	pop	{r4, pc}
+000091e8 <_ZSt4endlRSt7ostream>:
+    91e8:	e92d4010 	push	{r4, lr}
+    91ec:	e1a04000 	mov	r4, r0
+    91f0:	e3a0000a 	mov	r0, #10, 0
+    91f4:	ebfffca4 	bl	848c <_ZN2os7console4putcEc>
+    91f8:	e1a00004 	mov	r0, r4
+    91fc:	e8bd8010 	pop	{r4, pc}
 
-0000928c <_ZStlsRSt7ostreaml>:
-    928c:	e92d4010 	push	{r4, lr}
-    9290:	e1a04000 	mov	r4, r0
-    9294:	e1a00001 	mov	r0, r1
-    9298:	ebfffcf7 	bl	867c <_ZN2os7console6puti32El>
-    929c:	e1a00004 	mov	r0, r4
-    92a0:	e8bd8010 	pop	{r4, pc}
+00009200 <_Z13second_threadv>:
+    9200:	e59f30bc 	ldr	r3, [pc, #188]	; 92c4 <_Z13second_threadv+0xc4>
+    9204:	e92d4ff0 	push	{r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    9208:	e3a0a000 	mov	sl, #0, 0
+    920c:	e08f3003 	add	r3, pc, r3
+    9210:	e30896a0 	movw	r9, #34464	; 0x86a0
+    9214:	e59f00ac 	ldr	r0, [pc, #172]	; 92c8 <_Z13second_threadv+0xc8>
+    9218:	e24dd00c 	sub	sp, sp, #12, 0
+    921c:	e59f10a8 	ldr	r1, [pc, #168]	; 92cc <_Z13second_threadv+0xcc>
+    9220:	e1a0800a 	mov	r8, sl
+    9224:	e59f20a4 	ldr	r2, [pc, #164]	; 92d0 <_Z13second_threadv+0xd0>
+    9228:	e59f50a4 	ldr	r5, [pc, #164]	; 92d4 <_Z13second_threadv+0xd4>
+    922c:	e7934000 	ldr	r4, [r3, r0]
+    9230:	e7937001 	ldr	r7, [r3, r1]
+    9234:	e7936002 	ldr	r6, [r3, r2]
+    9238:	e3409001 	movt	r9, #1
+    923c:	e08f5005 	add	r5, pc, r5
+    9240:	e58d8004 	str	r8, [sp, #4]
+    9244:	e59d3004 	ldr	r3, [sp, #4]
+    9248:	e1530009 	cmp	r3, r9
+    924c:	2a000005 	bcs	9268 <_Z13second_threadv+0x68>
+    9250:	e59d3004 	ldr	r3, [sp, #4]
+    9254:	e2833001 	add	r3, r3, #1, 0
+    9258:	e58d3004 	str	r3, [sp, #4]
+    925c:	e59d3004 	ldr	r3, [sp, #4]
+    9260:	e1530009 	cmp	r3, r9
+    9264:	3afffff9 	bcc	9250 <_Z13second_threadv+0x50>
+    9268:	e1a00004 	mov	r0, r4
+    926c:	ebfffe10 	bl	8ab4 <_ZN2os4sync8spinlock7acquireEv>
+    9270:	e1a01005 	mov	r1, r5
+    9274:	e1a00007 	mov	r0, r7
+    9278:	ebffffd3 	bl	91cc <_ZStlsRSt7ostreamPKc>
+    927c:	e1a0100a 	mov	r1, sl
+    9280:	e28aa001 	add	sl, sl, #1, 0
+    9284:	ebffffb2 	bl	9154 <_ZStlsRSt7ostreamm>
+    9288:	e3a01020 	mov	r1, #32, 0
+    928c:	ebffffc8 	bl	91b4 <_ZStlsRSt7ostreamc>
+    9290:	e1a0b000 	mov	fp, r0
+    9294:	ebffff82 	bl	90a4 <get_sp>
+    9298:	e1a01000 	mov	r1, r0
+    929c:	e1a0000b 	mov	r0, fp
+    92a0:	ebffffab 	bl	9154 <_ZStlsRSt7ostreamm>
+    92a4:	e1a01006 	mov	r1, r6
+    92a8:	ebffffcd 	bl	91e4 <_ZStlsRSt7ostreamPFS0_S0_E>
+    92ac:	e1a00004 	mov	r0, r4
+    92b0:	ebfffe08 	bl	8ad8 <_ZN2os4sync8spinlock7releaseEv>
+    92b4:	e35a0015 	cmp	sl, #21, 0
+    92b8:	1affffe0 	bne	9240 <_Z13second_threadv+0x40>
+    92bc:	e28dd00c 	add	sp, sp, #12, 0
+    92c0:	e8bd8ff0 	pop	{r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    92c4:	00002e00 	.word	0x00002e00
+    92c8:	00000010 	.word	0x00000010
+    92cc:	00000054 	.word	0x00000054
+    92d0:	00000000 	.word	0x00000000
+    92d4:	00001f2c 	.word	0x00001f2c
 
-000092a4 <_ZStlsRSt7ostreamt>:
-    92a4:	e92d4010 	push	{r4, lr}
-    92a8:	e1a04000 	mov	r4, r0
-    92ac:	e1a00001 	mov	r0, r1
-    92b0:	ebfffcdc 	bl	8628 <_ZN2os7console6putu32Em>
-    92b4:	e1a00004 	mov	r0, r4
-    92b8:	e8bd8010 	pop	{r4, pc}
+000092d8 <_Z12third_threadv>:
+    92d8:	e59f30bc 	ldr	r3, [pc, #188]	; 939c <_Z12third_threadv+0xc4>
+    92dc:	e92d4ff0 	push	{r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    92e0:	e3a0a000 	mov	sl, #0, 0
+    92e4:	e08f3003 	add	r3, pc, r3
+    92e8:	e30896a0 	movw	r9, #34464	; 0x86a0
+    92ec:	e59f00ac 	ldr	r0, [pc, #172]	; 93a0 <_Z12third_threadv+0xc8>
+    92f0:	e24dd00c 	sub	sp, sp, #12, 0
+    92f4:	e59f10a8 	ldr	r1, [pc, #168]	; 93a4 <_Z12third_threadv+0xcc>
+    92f8:	e1a0800a 	mov	r8, sl
+    92fc:	e59f20a4 	ldr	r2, [pc, #164]	; 93a8 <_Z12third_threadv+0xd0>
+    9300:	e59f50a4 	ldr	r5, [pc, #164]	; 93ac <_Z12third_threadv+0xd4>
+    9304:	e7934000 	ldr	r4, [r3, r0]
+    9308:	e7937001 	ldr	r7, [r3, r1]
+    930c:	e7936002 	ldr	r6, [r3, r2]
+    9310:	e3409001 	movt	r9, #1
+    9314:	e08f5005 	add	r5, pc, r5
+    9318:	e58d8004 	str	r8, [sp, #4]
+    931c:	e59d3004 	ldr	r3, [sp, #4]
+    9320:	e1530009 	cmp	r3, r9
+    9324:	2a000005 	bcs	9340 <_Z12third_threadv+0x68>
+    9328:	e59d3004 	ldr	r3, [sp, #4]
+    932c:	e2833001 	add	r3, r3, #1, 0
+    9330:	e58d3004 	str	r3, [sp, #4]
+    9334:	e59d3004 	ldr	r3, [sp, #4]
+    9338:	e1530009 	cmp	r3, r9
+    933c:	3afffff9 	bcc	9328 <_Z12third_threadv+0x50>
+    9340:	e1a00004 	mov	r0, r4
+    9344:	ebfffdda 	bl	8ab4 <_ZN2os4sync8spinlock7acquireEv>
+    9348:	e1a01005 	mov	r1, r5
+    934c:	e1a00007 	mov	r0, r7
+    9350:	ebffff9d 	bl	91cc <_ZStlsRSt7ostreamPKc>
+    9354:	e1a0100a 	mov	r1, sl
+    9358:	e28aa001 	add	sl, sl, #1, 0
+    935c:	ebffff7c 	bl	9154 <_ZStlsRSt7ostreamm>
+    9360:	e3a01020 	mov	r1, #32, 0
+    9364:	ebffff92 	bl	91b4 <_ZStlsRSt7ostreamc>
+    9368:	e1a0b000 	mov	fp, r0
+    936c:	ebffff4c 	bl	90a4 <get_sp>
+    9370:	e1a01000 	mov	r1, r0
+    9374:	e1a0000b 	mov	r0, fp
+    9378:	ebffff75 	bl	9154 <_ZStlsRSt7ostreamm>
+    937c:	e1a01006 	mov	r1, r6
+    9380:	ebffff97 	bl	91e4 <_ZStlsRSt7ostreamPFS0_S0_E>
+    9384:	e1a00004 	mov	r0, r4
+    9388:	ebfffdd2 	bl	8ad8 <_ZN2os4sync8spinlock7releaseEv>
+    938c:	e35a0015 	cmp	sl, #21, 0
+    9390:	1affffe0 	bne	9318 <_Z12third_threadv+0x40>
+    9394:	e28dd00c 	add	sp, sp, #12, 0
+    9398:	e8bd8ff0 	pop	{r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    939c:	00002d28 	.word	0x00002d28
+    93a0:	00000010 	.word	0x00000010
+    93a4:	00000054 	.word	0x00000054
+    93a8:	00000000 	.word	0x00000000
+    93ac:	00001e64 	.word	0x00001e64
 
-000092bc <_ZStlsRSt7ostreams>:
-    92bc:	e92d4010 	push	{r4, lr}
-    92c0:	e1a04000 	mov	r4, r0
-    92c4:	e1a00001 	mov	r0, r1
-    92c8:	ebfffceb 	bl	867c <_ZN2os7console6puti32El>
-    92cc:	e1a00004 	mov	r0, r4
-    92d0:	e8bd8010 	pop	{r4, pc}
+000093b0 <_Z13fourth_threadv>:
+    93b0:	e59f30bc 	ldr	r3, [pc, #188]	; 9474 <_Z13fourth_threadv+0xc4>
+    93b4:	e92d4ff0 	push	{r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    93b8:	e3a0a000 	mov	sl, #0, 0
+    93bc:	e08f3003 	add	r3, pc, r3
+    93c0:	e30896a0 	movw	r9, #34464	; 0x86a0
+    93c4:	e59f00ac 	ldr	r0, [pc, #172]	; 9478 <_Z13fourth_threadv+0xc8>
+    93c8:	e24dd00c 	sub	sp, sp, #12, 0
+    93cc:	e59f10a8 	ldr	r1, [pc, #168]	; 947c <_Z13fourth_threadv+0xcc>
+    93d0:	e1a0800a 	mov	r8, sl
+    93d4:	e59f20a4 	ldr	r2, [pc, #164]	; 9480 <_Z13fourth_threadv+0xd0>
+    93d8:	e59f50a4 	ldr	r5, [pc, #164]	; 9484 <_Z13fourth_threadv+0xd4>
+    93dc:	e7934000 	ldr	r4, [r3, r0]
+    93e0:	e7937001 	ldr	r7, [r3, r1]
+    93e4:	e7936002 	ldr	r6, [r3, r2]
+    93e8:	e3409001 	movt	r9, #1
+    93ec:	e08f5005 	add	r5, pc, r5
+    93f0:	e58d8004 	str	r8, [sp, #4]
+    93f4:	e59d3004 	ldr	r3, [sp, #4]
+    93f8:	e1530009 	cmp	r3, r9
+    93fc:	2a000005 	bcs	9418 <_Z13fourth_threadv+0x68>
+    9400:	e59d3004 	ldr	r3, [sp, #4]
+    9404:	e2833001 	add	r3, r3, #1, 0
+    9408:	e58d3004 	str	r3, [sp, #4]
+    940c:	e59d3004 	ldr	r3, [sp, #4]
+    9410:	e1530009 	cmp	r3, r9
+    9414:	3afffff9 	bcc	9400 <_Z13fourth_threadv+0x50>
+    9418:	e1a00004 	mov	r0, r4
+    941c:	ebfffda4 	bl	8ab4 <_ZN2os4sync8spinlock7acquireEv>
+    9420:	e1a01005 	mov	r1, r5
+    9424:	e1a00007 	mov	r0, r7
+    9428:	ebffff67 	bl	91cc <_ZStlsRSt7ostreamPKc>
+    942c:	e1a0100a 	mov	r1, sl
+    9430:	e28aa001 	add	sl, sl, #1, 0
+    9434:	ebffff46 	bl	9154 <_ZStlsRSt7ostreamm>
+    9438:	e3a01020 	mov	r1, #32, 0
+    943c:	ebffff5c 	bl	91b4 <_ZStlsRSt7ostreamc>
+    9440:	e1a0b000 	mov	fp, r0
+    9444:	ebffff16 	bl	90a4 <get_sp>
+    9448:	e1a01000 	mov	r1, r0
+    944c:	e1a0000b 	mov	r0, fp
+    9450:	ebffff3f 	bl	9154 <_ZStlsRSt7ostreamm>
+    9454:	e1a01006 	mov	r1, r6
+    9458:	ebffff61 	bl	91e4 <_ZStlsRSt7ostreamPFS0_S0_E>
+    945c:	e1a00004 	mov	r0, r4
+    9460:	ebfffd9c 	bl	8ad8 <_ZN2os4sync8spinlock7releaseEv>
+    9464:	e35a0015 	cmp	sl, #21, 0
+    9468:	1affffe0 	bne	93f0 <_Z13fourth_threadv+0x40>
+    946c:	e28dd00c 	add	sp, sp, #12, 0
+    9470:	e8bd8ff0 	pop	{r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    9474:	00002c50 	.word	0x00002c50
+    9478:	00000010 	.word	0x00000010
+    947c:	00000054 	.word	0x00000054
+    9480:	00000000 	.word	0x00000000
+    9484:	00001d9c 	.word	0x00001d9c
 
-000092d4 <_ZStlsRSt7ostreamc>:
-    92d4:	e92d4010 	push	{r4, lr}
-    92d8:	e1a04000 	mov	r4, r0
-    92dc:	e1a00001 	mov	r0, r1
-    92e0:	ebfffc69 	bl	848c <_ZN2os7console4putcEc>
-    92e4:	e1a00004 	mov	r0, r4
-    92e8:	e8bd8010 	pop	{r4, pc}
+00009488 <_Z11main_threadv>:
+    9488:	e92d4ff0 	push	{r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    948c:	e24dd014 	sub	sp, sp, #20, 0
+    9490:	e59f5408 	ldr	r5, [pc, #1032]	; 98a0 <_Z11main_threadv+0x418>
+    9494:	ebfffcb4 	bl	876c <_ZN2os8this_cpuEv>
+    9498:	e5906004 	ldr	r6, [r0, #4]
+    949c:	e08f5005 	add	r5, pc, r5
+    94a0:	e5963084 	ldr	r3, [r6, #132]	; 0x84
+    94a4:	e3530005 	cmp	r3, #5, 0
+    94a8:	0a0000f8 	beq	9890 <_Z11main_threadv+0x408>
+    94ac:	e2868098 	add	r8, r6, #152, 0	; 0x98
+    94b0:	e286400c 	add	r4, r6, #12, 0
+    94b4:	e1a00008 	mov	r0, r8
+    94b8:	e2869084 	add	r9, r6, #132, 0	; 0x84
+    94bc:	ebfffd7c 	bl	8ab4 <_ZN2os4sync8spinlock7acquireEv>
+    94c0:	ea000002 	b	94d0 <_Z11main_threadv+0x48>
+    94c4:	e2844018 	add	r4, r4, #24, 0
+    94c8:	e1590004 	cmp	r9, r4
+    94cc:	0a0000f1 	beq	9898 <_Z11main_threadv+0x410>
+    94d0:	e1a00004 	mov	r0, r4
+    94d4:	e1a07004 	mov	r7, r4
+    94d8:	ebfffd90 	bl	8b20 <_ZN2os6thread8thread_t8is_emptyEv>
+    94dc:	e3500000 	cmp	r0, #0, 0
+    94e0:	0afffff7 	beq	94c4 <_Z11main_threadv+0x3c>
+    94e4:	e59f33b8 	ldr	r3, [pc, #952]	; 98a4 <_Z11main_threadv+0x41c>
+    94e8:	e3a02003 	mov	r2, #3, 0
+    94ec:	e5842004 	str	r2, [r4, #4]
+    94f0:	e28d000c 	add	r0, sp, #12, 0
+    94f4:	e795c003 	ldr	ip, [r5, r3]
+    94f8:	e3012010 	movw	r2, #4112	; 0x1010
+    94fc:	e5961094 	ldr	r1, [r6, #148]	; 0x94
+    9500:	e59c3000 	ldr	r3, [ip]
+    9504:	e283e001 	add	lr, r3, #1, 0
+    9508:	e58ce000 	str	lr, [ip]
+    950c:	e5843000 	str	r3, [r4]
+    9510:	ebfffd29 	bl	89bc <_ZN2os6memory11heap_policy8best_fitclEPNS0_14heap_segment_tEj>
+    9514:	e5902008 	ldr	r2, [r0, #8]
+    9518:	e1a03000 	mov	r3, r0
+    951c:	e2422a01 	sub	r2, r2, #4096	; 0x1000
+    9520:	e2422010 	sub	r2, r2, #16, 0
+    9524:	e3520020 	cmp	r2, #32, 0
+    9528:	9a000008 	bls	9550 <_Z11main_threadv+0xc8>
+    952c:	e590c000 	ldr	ip, [r0]
+    9530:	e2801a01 	add	r1, r0, #4096	; 0x1000
+    9534:	e5810014 	str	r0, [r1, #20]
+    9538:	e3010010 	movw	r0, #4112	; 0x1010
+    953c:	e581c010 	str	ip, [r1, #16]
+    9540:	e083c000 	add	ip, r3, r0
+    9544:	e5830008 	str	r0, [r3, #8]
+    9548:	e583c000 	str	ip, [r3]
+    954c:	e5812018 	str	r2, [r1, #24]
+    9550:	e2830efd 	add	r0, r3, #4048	; 0xfd0
+    9554:	e2833010 	add	r3, r3, #16, 0
+    9558:	e584300c 	str	r3, [r4, #12]
+    955c:	e2800008 	add	r0, r0, #8, 0
+    9560:	e5840008 	str	r0, [r4, #8]
+    9564:	e3a01038 	mov	r1, #56, 0	; 0x38
+    9568:	ebfffd00 	bl	8970 <_ZN2os6memory5bzeroEPvj>
+    956c:	e59f3334 	ldr	r3, [pc, #820]	; 98a8 <_Z11main_threadv+0x420>
+    9570:	e3a0c013 	mov	ip, #19, 0
+    9574:	e5962084 	ldr	r2, [r6, #132]	; 0x84
+    9578:	e1a00008 	mov	r0, r8
+    957c:	e795e003 	ldr	lr, [r5, r3]
+    9580:	e5963088 	ldr	r3, [r6, #136]	; 0x88
+    9584:	e2822001 	add	r2, r2, #1, 0
+    9588:	e5941008 	ldr	r1, [r4, #8]
+    958c:	e2833001 	add	r3, r3, #1, 0
+    9590:	e581e034 	str	lr, [r1, #52]	; 0x34
+    9594:	e581c030 	str	ip, [r1, #48]	; 0x30
+    9598:	e1c628f4 	strd	r2, [r6, #132]	; 0x84
+    959c:	ebfffd4d 	bl	8ad8 <_ZN2os4sync8spinlock7releaseEv>
+    95a0:	ebfffc71 	bl	876c <_ZN2os8this_cpuEv>
+    95a4:	e5906004 	ldr	r6, [r0, #4]
+    95a8:	e5963084 	ldr	r3, [r6, #132]	; 0x84
+    95ac:	e3530005 	cmp	r3, #5, 0
+    95b0:	0a0000b4 	beq	9888 <_Z11main_threadv+0x400>
+    95b4:	e2869098 	add	r9, r6, #152, 0	; 0x98
+    95b8:	e286400c 	add	r4, r6, #12, 0
+    95bc:	e1a00009 	mov	r0, r9
+    95c0:	e2868084 	add	r8, r6, #132, 0	; 0x84
+    95c4:	ebfffd3a 	bl	8ab4 <_ZN2os4sync8spinlock7acquireEv>
+    95c8:	ea000002 	b	95d8 <_Z11main_threadv+0x150>
+    95cc:	e2844018 	add	r4, r4, #24, 0
+    95d0:	e1580004 	cmp	r8, r4
+    95d4:	0a0000af 	beq	9898 <_Z11main_threadv+0x410>
+    95d8:	e1a00004 	mov	r0, r4
+    95dc:	e1a0a004 	mov	sl, r4
+    95e0:	ebfffd4e 	bl	8b20 <_ZN2os6thread8thread_t8is_emptyEv>
+    95e4:	e3500000 	cmp	r0, #0, 0
+    95e8:	0afffff7 	beq	95cc <_Z11main_threadv+0x144>
+    95ec:	e59f32b0 	ldr	r3, [pc, #688]	; 98a4 <_Z11main_threadv+0x41c>
+    95f0:	e3a02003 	mov	r2, #3, 0
+    95f4:	e5842004 	str	r2, [r4, #4]
+    95f8:	e28d000c 	add	r0, sp, #12, 0
+    95fc:	e795c003 	ldr	ip, [r5, r3]
+    9600:	e3012010 	movw	r2, #4112	; 0x1010
+    9604:	e5961094 	ldr	r1, [r6, #148]	; 0x94
+    9608:	e59c3000 	ldr	r3, [ip]
+    960c:	e283e001 	add	lr, r3, #1, 0
+    9610:	e58ce000 	str	lr, [ip]
+    9614:	e5843000 	str	r3, [r4]
+    9618:	ebfffce7 	bl	89bc <_ZN2os6memory11heap_policy8best_fitclEPNS0_14heap_segment_tEj>
+    961c:	e5902008 	ldr	r2, [r0, #8]
+    9620:	e1a03000 	mov	r3, r0
+    9624:	e2422a01 	sub	r2, r2, #4096	; 0x1000
+    9628:	e2422010 	sub	r2, r2, #16, 0
+    962c:	e3520020 	cmp	r2, #32, 0
+    9630:	9a000008 	bls	9658 <_Z11main_threadv+0x1d0>
+    9634:	e590c000 	ldr	ip, [r0]
+    9638:	e2801a01 	add	r1, r0, #4096	; 0x1000
+    963c:	e5810014 	str	r0, [r1, #20]
+    9640:	e3010010 	movw	r0, #4112	; 0x1010
+    9644:	e581c010 	str	ip, [r1, #16]
+    9648:	e083c000 	add	ip, r3, r0
+    964c:	e5830008 	str	r0, [r3, #8]
+    9650:	e583c000 	str	ip, [r3]
+    9654:	e5812018 	str	r2, [r1, #24]
+    9658:	e2830efd 	add	r0, r3, #4048	; 0xfd0
+    965c:	e2833010 	add	r3, r3, #16, 0
+    9660:	e584300c 	str	r3, [r4, #12]
+    9664:	e2800008 	add	r0, r0, #8, 0
+    9668:	e5840008 	str	r0, [r4, #8]
+    966c:	e3a01038 	mov	r1, #56, 0	; 0x38
+    9670:	ebfffcbe 	bl	8970 <_ZN2os6memory5bzeroEPvj>
+    9674:	e59f3230 	ldr	r3, [pc, #560]	; 98ac <_Z11main_threadv+0x424>
+    9678:	e3a0c013 	mov	ip, #19, 0
+    967c:	e5962084 	ldr	r2, [r6, #132]	; 0x84
+    9680:	e1a00009 	mov	r0, r9
+    9684:	e795e003 	ldr	lr, [r5, r3]
+    9688:	e5963088 	ldr	r3, [r6, #136]	; 0x88
+    968c:	e2822001 	add	r2, r2, #1, 0
+    9690:	e5941008 	ldr	r1, [r4, #8]
+    9694:	e2833001 	add	r3, r3, #1, 0
+    9698:	e581e034 	str	lr, [r1, #52]	; 0x34
+    969c:	e581c030 	str	ip, [r1, #48]	; 0x30
+    96a0:	e1c628f4 	strd	r2, [r6, #132]	; 0x84
+    96a4:	ebfffd0b 	bl	8ad8 <_ZN2os4sync8spinlock7releaseEv>
+    96a8:	ebfffc2f 	bl	876c <_ZN2os8this_cpuEv>
+    96ac:	e5906004 	ldr	r6, [r0, #4]
+    96b0:	e5963084 	ldr	r3, [r6, #132]	; 0x84
+    96b4:	e3530005 	cmp	r3, #5, 0
+    96b8:	0a00006f 	beq	987c <_Z11main_threadv+0x3f4>
+    96bc:	e286b098 	add	fp, r6, #152, 0	; 0x98
+    96c0:	e286400c 	add	r4, r6, #12, 0
+    96c4:	e1a0000b 	mov	r0, fp
+    96c8:	e2868084 	add	r8, r6, #132, 0	; 0x84
+    96cc:	ebfffcf8 	bl	8ab4 <_ZN2os4sync8spinlock7acquireEv>
+    96d0:	ea000002 	b	96e0 <_Z11main_threadv+0x258>
+    96d4:	e2844018 	add	r4, r4, #24, 0
+    96d8:	e1580004 	cmp	r8, r4
+    96dc:	0a00006d 	beq	9898 <_Z11main_threadv+0x410>
+    96e0:	e58d4004 	str	r4, [sp, #4]
+    96e4:	e1a00004 	mov	r0, r4
+    96e8:	ebfffd0c 	bl	8b20 <_ZN2os6thread8thread_t8is_emptyEv>
+    96ec:	e3500000 	cmp	r0, #0, 0
+    96f0:	0afffff7 	beq	96d4 <_Z11main_threadv+0x24c>
+    96f4:	e59f31a8 	ldr	r3, [pc, #424]	; 98a4 <_Z11main_threadv+0x41c>
+    96f8:	e3a02003 	mov	r2, #3, 0
+    96fc:	e5842004 	str	r2, [r4, #4]
+    9700:	e28d000c 	add	r0, sp, #12, 0
+    9704:	e795c003 	ldr	ip, [r5, r3]
+    9708:	e3012010 	movw	r2, #4112	; 0x1010
+    970c:	e5961094 	ldr	r1, [r6, #148]	; 0x94
+    9710:	e59c3000 	ldr	r3, [ip]
+    9714:	e283e001 	add	lr, r3, #1, 0
+    9718:	e58ce000 	str	lr, [ip]
+    971c:	e5843000 	str	r3, [r4]
+    9720:	ebfffca5 	bl	89bc <_ZN2os6memory11heap_policy8best_fitclEPNS0_14heap_segment_tEj>
+    9724:	e5902008 	ldr	r2, [r0, #8]
+    9728:	e1a03000 	mov	r3, r0
+    972c:	e2422a01 	sub	r2, r2, #4096	; 0x1000
+    9730:	e2422010 	sub	r2, r2, #16, 0
+    9734:	e3520020 	cmp	r2, #32, 0
+    9738:	9a000008 	bls	9760 <_Z11main_threadv+0x2d8>
+    973c:	e590c000 	ldr	ip, [r0]
+    9740:	e2801a01 	add	r1, r0, #4096	; 0x1000
+    9744:	e5810014 	str	r0, [r1, #20]
+    9748:	e3010010 	movw	r0, #4112	; 0x1010
+    974c:	e581c010 	str	ip, [r1, #16]
+    9750:	e083c000 	add	ip, r3, r0
+    9754:	e5830008 	str	r0, [r3, #8]
+    9758:	e583c000 	str	ip, [r3]
+    975c:	e5812018 	str	r2, [r1, #24]
+    9760:	e2830efd 	add	r0, r3, #4048	; 0xfd0
+    9764:	e2833010 	add	r3, r3, #16, 0
+    9768:	e584300c 	str	r3, [r4, #12]
+    976c:	e2800008 	add	r0, r0, #8, 0
+    9770:	e5840008 	str	r0, [r4, #8]
+    9774:	e3a01038 	mov	r1, #56, 0	; 0x38
+    9778:	ebfffc7c 	bl	8970 <_ZN2os6memory5bzeroEPvj>
+    977c:	e59f312c 	ldr	r3, [pc, #300]	; 98b0 <_Z11main_threadv+0x428>
+    9780:	e3a01013 	mov	r1, #19, 0
+    9784:	e5962084 	ldr	r2, [r6, #132]	; 0x84
+    9788:	e1a0000b 	mov	r0, fp
+    978c:	e795e003 	ldr	lr, [r5, r3]
+    9790:	e5963088 	ldr	r3, [r6, #136]	; 0x88
+    9794:	e2822001 	add	r2, r2, #1, 0
+    9798:	e594c008 	ldr	ip, [r4, #8]
+    979c:	e2833001 	add	r3, r3, #1, 0
+    97a0:	e58ce034 	str	lr, [ip, #52]	; 0x34
+    97a4:	e58c1030 	str	r1, [ip, #48]	; 0x30
+    97a8:	e1c628f4 	strd	r2, [r6, #132]	; 0x84
+    97ac:	ebfffcc9 	bl	8ad8 <_ZN2os4sync8spinlock7releaseEv>
+    97b0:	e59f80fc 	ldr	r8, [pc, #252]	; 98b4 <_Z11main_threadv+0x42c>
+    97b4:	e1a00007 	mov	r0, r7
+    97b8:	e3a0b000 	mov	fp, #0, 0
+    97bc:	ebfffd0a 	bl	8bec <_ZN2os6thread8thread_t4joinEv>
+    97c0:	e08f8008 	add	r8, pc, r8
+    97c4:	e1a0000a 	mov	r0, sl
+    97c8:	e308a6a0 	movw	sl, #34464	; 0x86a0
+    97cc:	ebfffd06 	bl	8bec <_ZN2os6thread8thread_t4joinEv>
+    97d0:	e59f10e0 	ldr	r1, [pc, #224]	; 98b8 <_Z11main_threadv+0x430>
+    97d4:	e1a0700b 	mov	r7, fp
+    97d8:	e59f20dc 	ldr	r2, [pc, #220]	; 98bc <_Z11main_threadv+0x434>
+    97dc:	e59f30dc 	ldr	r3, [pc, #220]	; 98c0 <_Z11main_threadv+0x438>
+    97e0:	e7954001 	ldr	r4, [r5, r1]
+    97e4:	e7956002 	ldr	r6, [r5, r2]
+    97e8:	e340a001 	movt	sl, #1
+    97ec:	e7955003 	ldr	r5, [r5, r3]
+    97f0:	e58d700c 	str	r7, [sp, #12]
+    97f4:	e59d300c 	ldr	r3, [sp, #12]
+    97f8:	e153000a 	cmp	r3, sl
+    97fc:	2a000005 	bcs	9818 <_Z11main_threadv+0x390>
+    9800:	e59d300c 	ldr	r3, [sp, #12]
+    9804:	e2833001 	add	r3, r3, #1, 0
+    9808:	e58d300c 	str	r3, [sp, #12]
+    980c:	e59d300c 	ldr	r3, [sp, #12]
+    9810:	e153000a 	cmp	r3, sl
+    9814:	3afffff9 	bcc	9800 <_Z11main_threadv+0x378>
+    9818:	e1a00004 	mov	r0, r4
+    981c:	ebfffca4 	bl	8ab4 <_ZN2os4sync8spinlock7acquireEv>
+    9820:	e1a01008 	mov	r1, r8
+    9824:	e1a00006 	mov	r0, r6
+    9828:	ebfffe67 	bl	91cc <_ZStlsRSt7ostreamPKc>
+    982c:	e1a0100b 	mov	r1, fp
+    9830:	e28bb001 	add	fp, fp, #1, 0
+    9834:	ebfffe46 	bl	9154 <_ZStlsRSt7ostreamm>
+    9838:	e3a01020 	mov	r1, #32, 0
+    983c:	ebfffe5c 	bl	91b4 <_ZStlsRSt7ostreamc>
+    9840:	e1a09000 	mov	r9, r0
+    9844:	ebfffe16 	bl	90a4 <get_sp>
+    9848:	e1a01000 	mov	r1, r0
+    984c:	e1a00009 	mov	r0, r9
+    9850:	ebfffe3f 	bl	9154 <_ZStlsRSt7ostreamm>
+    9854:	e1a01005 	mov	r1, r5
+    9858:	ebfffe61 	bl	91e4 <_ZStlsRSt7ostreamPFS0_S0_E>
+    985c:	e1a00004 	mov	r0, r4
+    9860:	ebfffc9c 	bl	8ad8 <_ZN2os4sync8spinlock7releaseEv>
+    9864:	e35b0029 	cmp	fp, #41, 0	; 0x29
+    9868:	1affffe0 	bne	97f0 <_Z11main_threadv+0x368>
+    986c:	e59d0004 	ldr	r0, [sp, #4]
+    9870:	ebfffcdd 	bl	8bec <_ZN2os6thread8thread_t4joinEv>
+    9874:	e28dd014 	add	sp, sp, #20, 0
+    9878:	e8bd8ff0 	pop	{r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    987c:	e3a03000 	mov	r3, #0, 0
+    9880:	e58d3004 	str	r3, [sp, #4]
+    9884:	eaffffc9 	b	97b0 <_Z11main_threadv+0x328>
+    9888:	e3a0a000 	mov	sl, #0, 0
+    988c:	eaffff85 	b	96a8 <_Z11main_threadv+0x220>
+    9890:	e3a07000 	mov	r7, #0, 0
+    9894:	eaffff41 	b	95a0 <_Z11main_threadv+0x118>
+    9898:	e5800004 	str	r0, [r0, #4]
+    989c:	e7f000f0 	udf	#0
+    98a0:	00002b70 	.word	0x00002b70
+    98a4:	0000002c 	.word	0x0000002c
+    98a8:	00000058 	.word	0x00000058
+    98ac:	00000038 	.word	0x00000038
+    98b0:	00000034 	.word	0x00000034
+    98b4:	000019d8 	.word	0x000019d8
+    98b8:	00000010 	.word	0x00000010
+    98bc:	00000054 	.word	0x00000054
+    98c0:	00000000 	.word	0x00000000
 
-000092ec <_ZStlsRSt7ostreamPKc>:
-    92ec:	e92d4010 	push	{r4, lr}
-    92f0:	e1a04000 	mov	r4, r0
-    92f4:	e1a00001 	mov	r0, r1
-    92f8:	ebfffc77 	bl	84dc <_ZN2os7console4putsEPKc>
-    92fc:	e1a00004 	mov	r0, r4
-    9300:	e8bd8010 	pop	{r4, pc}
+000098c4 <_Z11core0_entrymi>:
+    98c4:	e92d4070 	push	{r4, r5, r6, lr}
+    98c8:	e1a06001 	mov	r6, r1
+    98cc:	e59f4090 	ldr	r4, [pc, #144]	; 9964 <_Z11core0_entrymi+0xa0>
+    98d0:	e1a05000 	mov	r5, r0
+    98d4:	ebfffb96 	bl	8734 <_ZN2os8cpu_initEm>
+    98d8:	e08f4004 	add	r4, pc, r4
+    98dc:	e3a01000 	mov	r1, #0, 0
+    98e0:	e1a02006 	mov	r2, r6
+    98e4:	e1a00001 	mov	r0, r1
+    98e8:	ebfffd84 	bl	8f00 <_ZN2os6kernel4initEiii>
+    98ec:	ebfffbbf 	bl	87f0 <_ZN2os10interrupts4initEv>
+    98f0:	e59f3070 	ldr	r3, [pc, #112]	; 9968 <_Z11core0_entrymi+0xa4>
+    98f4:	e7940003 	ldr	r0, [r4, r3]
+    98f8:	ebfffc7c 	bl	8af0 <_ZN2os4sync10signallock6signalEv>
+    98fc:	e59f3068 	ldr	r3, [pc, #104]	; 996c <_Z11core0_entrymi+0xa8>
+    9900:	e7940003 	ldr	r0, [r4, r3]
+    9904:	ebfffc79 	bl	8af0 <_ZN2os4sync10signallock6signalEv>
+    9908:	e59f3060 	ldr	r3, [pc, #96]	; 9970 <_Z11core0_entrymi+0xac>
+    990c:	e7940003 	ldr	r0, [r4, r3]
+    9910:	ebfffc76 	bl	8af0 <_ZN2os4sync10signallock6signalEv>
+    9914:	e59f3058 	ldr	r3, [pc, #88]	; 9974 <_Z11core0_entrymi+0xb0>
+    9918:	e7946003 	ldr	r6, [r4, r3]
+    991c:	e1a00006 	mov	r0, r6
+    9920:	ebfffc63 	bl	8ab4 <_ZN2os4sync8spinlock7acquireEv>
+    9924:	e59f304c 	ldr	r3, [pc, #76]	; 9978 <_Z11core0_entrymi+0xb4>
+    9928:	e59f104c 	ldr	r1, [pc, #76]	; 997c <_Z11core0_entrymi+0xb8>
+    992c:	e7940003 	ldr	r0, [r4, r3]
+    9930:	e08f1001 	add	r1, pc, r1
+    9934:	ebfffe24 	bl	91cc <_ZStlsRSt7ostreamPKc>
+    9938:	e1a01005 	mov	r1, r5
+    993c:	ebfffe04 	bl	9154 <_ZStlsRSt7ostreamm>
+    9940:	e59f1038 	ldr	r1, [pc, #56]	; 9980 <_Z11core0_entrymi+0xbc>
+    9944:	e08f1001 	add	r1, pc, r1
+    9948:	ebfffe1f 	bl	91cc <_ZStlsRSt7ostreamPKc>
+    994c:	e59f3030 	ldr	r3, [pc, #48]	; 9984 <_Z11core0_entrymi+0xc0>
+    9950:	e7941003 	ldr	r1, [r4, r3]
+    9954:	ebfffe22 	bl	91e4 <_ZStlsRSt7ostreamPFS0_S0_E>
+    9958:	e1a00006 	mov	r0, r6
+    995c:	e8bd4070 	pop	{r4, r5, r6, lr}
+    9960:	eafffc5c 	b	8ad8 <_ZN2os4sync8spinlock7releaseEv>
+    9964:	00002734 	.word	0x00002734
+    9968:	00000030 	.word	0x00000030
+    996c:	0000005c 	.word	0x0000005c
+    9970:	00000048 	.word	0x00000048
+    9974:	00000010 	.word	0x00000010
+    9978:	00000054 	.word	0x00000054
+    997c:	00001878 	.word	0x00001878
+    9980:	0000186c 	.word	0x0000186c
+    9984:	00000000 	.word	0x00000000
 
-00009304 <_ZStlsRSt7ostreamPFS0_S0_E>:
-    9304:	e12fff11 	bx	r1
+00009988 <_Z7handlerm>:
+    9988:	e92d4070 	push	{r4, r5, r6, lr}
+    998c:	e1a05000 	mov	r5, r0
+    9990:	e59f4054 	ldr	r4, [pc, #84]	; 99ec <_Z7handlerm+0x64>
+    9994:	e59f3054 	ldr	r3, [pc, #84]	; 99f0 <_Z7handlerm+0x68>
+    9998:	e08f4004 	add	r4, pc, r4
+    999c:	e7946003 	ldr	r6, [r4, r3]
+    99a0:	e1a00006 	mov	r0, r6
+    99a4:	ebfffc42 	bl	8ab4 <_ZN2os4sync8spinlock7acquireEv>
+    99a8:	e59f3044 	ldr	r3, [pc, #68]	; 99f4 <_Z7handlerm+0x6c>
+    99ac:	e59f1044 	ldr	r1, [pc, #68]	; 99f8 <_Z7handlerm+0x70>
+    99b0:	e7940003 	ldr	r0, [r4, r3]
+    99b4:	e08f1001 	add	r1, pc, r1
+    99b8:	ebfffe03 	bl	91cc <_ZStlsRSt7ostreamPKc>
+    99bc:	e59f3038 	ldr	r3, [pc, #56]	; 99fc <_Z7handlerm+0x74>
+    99c0:	e7943003 	ldr	r3, [r4, r3]
+    99c4:	e7931185 	ldr	r1, [r3, r5, lsl #3]
+    99c8:	ebfffde1 	bl	9154 <_ZStlsRSt7ostreamm>
+    99cc:	e59f302c 	ldr	r3, [pc, #44]	; 9a00 <_Z7handlerm+0x78>
+    99d0:	e7941003 	ldr	r1, [r4, r3]
+    99d4:	ebfffe02 	bl	91e4 <_ZStlsRSt7ostreamPFS0_S0_E>
+    99d8:	e1a00006 	mov	r0, r6
+    99dc:	ebfffc3d 	bl	8ad8 <_ZN2os4sync8spinlock7releaseEv>
+    99e0:	e8bd4070 	pop	{r4, r5, r6, lr}
+    99e4:	e3a00ffa 	mov	r0, #1000	; 0x3e8
+    99e8:	eafffcbb 	b	8cdc <_ZN2os5timer3setEm>
+    99ec:	00002674 	.word	0x00002674
+    99f0:	00000010 	.word	0x00000010
+    99f4:	00000054 	.word	0x00000054
+    99f8:	00001808 	.word	0x00001808
+    99fc:	00000040 	.word	0x00000040
+    9a00:	00000000 	.word	0x00000000
 
-00009308 <_ZSt4endlRSt7ostream>:
-    9308:	e92d4010 	push	{r4, lr}
-    930c:	e1a04000 	mov	r4, r0
-    9310:	e3a0000a 	mov	r0, #10, 0
-    9314:	ebfffc5c 	bl	848c <_ZN2os7console4putcEc>
-    9318:	e1a00004 	mov	r0, r4
-    931c:	e8bd8010 	pop	{r4, pc}
-
-00009320 <_Z13second_threadv>:
-    9320:	e59f30bc 	ldr	r3, [pc, #188]	; 93e4 <_Z13second_threadv+0xc4>
-    9324:	e92d4ff0 	push	{r4, r5, r6, r7, r8, r9, sl, fp, lr}
-    9328:	e3a0a000 	mov	sl, #0, 0
-    932c:	e08f3003 	add	r3, pc, r3
-    9330:	e30896a0 	movw	r9, #34464	; 0x86a0
-    9334:	e59f00ac 	ldr	r0, [pc, #172]	; 93e8 <_Z13second_threadv+0xc8>
-    9338:	e24dd00c 	sub	sp, sp, #12, 0
-    933c:	e59f10a8 	ldr	r1, [pc, #168]	; 93ec <_Z13second_threadv+0xcc>
-    9340:	e1a0800a 	mov	r8, sl
-    9344:	e59f20a4 	ldr	r2, [pc, #164]	; 93f0 <_Z13second_threadv+0xd0>
-    9348:	e59f50a4 	ldr	r5, [pc, #164]	; 93f4 <_Z13second_threadv+0xd4>
-    934c:	e7934000 	ldr	r4, [r3, r0]
-    9350:	e7937001 	ldr	r7, [r3, r1]
-    9354:	e7936002 	ldr	r6, [r3, r2]
-    9358:	e3409001 	movt	r9, #1
-    935c:	e08f5005 	add	r5, pc, r5
-    9360:	e58d8004 	str	r8, [sp, #4]
-    9364:	e59d3004 	ldr	r3, [sp, #4]
-    9368:	e1530009 	cmp	r3, r9
-    936c:	2a000005 	bcs	9388 <_Z13second_threadv+0x68>
-    9370:	e59d3004 	ldr	r3, [sp, #4]
-    9374:	e2833001 	add	r3, r3, #1, 0
-    9378:	e58d3004 	str	r3, [sp, #4]
-    937c:	e59d3004 	ldr	r3, [sp, #4]
-    9380:	e1530009 	cmp	r3, r9
-    9384:	3afffff9 	bcc	9370 <_Z13second_threadv+0x50>
-    9388:	e1a00004 	mov	r0, r4
-    938c:	ebfffdc8 	bl	8ab4 <_ZN2os4sync8spinlock7acquireEv>
-    9390:	e1a01005 	mov	r1, r5
-    9394:	e1a00007 	mov	r0, r7
-    9398:	ebffffd3 	bl	92ec <_ZStlsRSt7ostreamPKc>
-    939c:	e1a0100a 	mov	r1, sl
-    93a0:	e28aa001 	add	sl, sl, #1, 0
-    93a4:	ebffffb2 	bl	9274 <_ZStlsRSt7ostreamm>
-    93a8:	e3a01020 	mov	r1, #32, 0
-    93ac:	ebffffc8 	bl	92d4 <_ZStlsRSt7ostreamc>
-    93b0:	e1a0b000 	mov	fp, r0
-    93b4:	ebffff81 	bl	91c0 <get_sp>
-    93b8:	e1a01000 	mov	r1, r0
-    93bc:	e1a0000b 	mov	r0, fp
-    93c0:	ebffffab 	bl	9274 <_ZStlsRSt7ostreamm>
-    93c4:	e1a01006 	mov	r1, r6
-    93c8:	ebffffcd 	bl	9304 <_ZStlsRSt7ostreamPFS0_S0_E>
-    93cc:	e1a00004 	mov	r0, r4
-    93d0:	ebfffdc0 	bl	8ad8 <_ZN2os4sync8spinlock7releaseEv>
-    93d4:	e35a0015 	cmp	sl, #21, 0
-    93d8:	1affffe0 	bne	9360 <_Z13second_threadv+0x40>
-    93dc:	e28dd00c 	add	sp, sp, #12, 0
-    93e0:	e8bd8ff0 	pop	{r4, r5, r6, r7, r8, r9, sl, fp, pc}
-    93e4:	00002ce0 	.word	0x00002ce0
-    93e8:	00000010 	.word	0x00000010
-    93ec:	00000058 	.word	0x00000058
-    93f0:	00000000 	.word	0x00000000
-    93f4:	00001e30 	.word	0x00001e30
-
-000093f8 <_Z12third_threadv>:
-    93f8:	e59f30e0 	ldr	r3, [pc, #224]	; 94e0 <_Z12third_threadv+0xe8>
-    93fc:	e59f20e0 	ldr	r2, [pc, #224]	; 94e4 <_Z12third_threadv+0xec>
-    9400:	e08f3003 	add	r3, pc, r3
-    9404:	e92d43f0 	push	{r4, r5, r6, r7, r8, r9, lr}
-    9408:	e24dd01c 	sub	sp, sp, #28, 0
-    940c:	e7932002 	ldr	r2, [r3, r2]
-    9410:	e3a05000 	mov	r5, #0, 0
-    9414:	e59f10cc 	ldr	r1, [pc, #204]	; 94e8 <_Z12third_threadv+0xf0>
-    9418:	e30846a0 	movw	r4, #34464	; 0x86a0
-    941c:	e58d2008 	str	r2, [sp, #8]
-    9420:	e1a08005 	mov	r8, r5
-    9424:	e59f20c0 	ldr	r2, [pc, #192]	; 94ec <_Z12third_threadv+0xf4>
-    9428:	e7931001 	ldr	r1, [r3, r1]
-    942c:	e59f70bc 	ldr	r7, [pc, #188]	; 94f0 <_Z12third_threadv+0xf8>
-    9430:	e58d100c 	str	r1, [sp, #12]
-    9434:	e3404001 	movt	r4, #1
-    9438:	e7936002 	ldr	r6, [r3, r2]
-    943c:	e08f7007 	add	r7, pc, r7
-    9440:	e58d8014 	str	r8, [sp, #20]
-    9444:	e59d3014 	ldr	r3, [sp, #20]
-    9448:	e1530004 	cmp	r3, r4
-    944c:	2a000005 	bcs	9468 <_Z12third_threadv+0x70>
-    9450:	e59d3014 	ldr	r3, [sp, #20]
-    9454:	e2833001 	add	r3, r3, #1, 0
-    9458:	e58d3014 	str	r3, [sp, #20]
-    945c:	e59d3014 	ldr	r3, [sp, #20]
-    9460:	e1530004 	cmp	r3, r4
-    9464:	3afffff9 	bcc	9450 <_Z12third_threadv+0x58>
-    9468:	e1a00006 	mov	r0, r6
-    946c:	ebfffd90 	bl	8ab4 <_ZN2os4sync8spinlock7acquireEv>
-    9470:	e59d0008 	ldr	r0, [sp, #8]
-    9474:	e1a01007 	mov	r1, r7
-    9478:	ebffff9b 	bl	92ec <_ZStlsRSt7ostreamPKc>
-    947c:	e1a01005 	mov	r1, r5
-    9480:	e2855001 	add	r5, r5, #1, 0
-    9484:	ebffff7a 	bl	9274 <_ZStlsRSt7ostreamm>
-    9488:	e3a01020 	mov	r1, #32, 0
-    948c:	ebffff90 	bl	92d4 <_ZStlsRSt7ostreamc>
-    9490:	e58d0004 	str	r0, [sp, #4]
-    9494:	e1a09000 	mov	r9, r0
-    9498:	ebffff48 	bl	91c0 <get_sp>
-    949c:	e1a01000 	mov	r1, r0
-    94a0:	e1a00009 	mov	r0, r9
-    94a4:	ebffff72 	bl	9274 <_ZStlsRSt7ostreamm>
-    94a8:	e59d100c 	ldr	r1, [sp, #12]
-    94ac:	ebffff94 	bl	9304 <_ZStlsRSt7ostreamPFS0_S0_E>
-    94b0:	e1a00006 	mov	r0, r6
-    94b4:	ebfffd87 	bl	8ad8 <_ZN2os4sync8spinlock7releaseEv>
-    94b8:	e3550015 	cmp	r5, #21, 0
-    94bc:	1affffdf 	bne	9440 <_Z12third_threadv+0x48>
-    94c0:	e59f102c 	ldr	r1, [pc, #44]	; 94f4 <_Z12third_threadv+0xfc>
-    94c4:	e59d0008 	ldr	r0, [sp, #8]
-    94c8:	e08f1001 	add	r1, pc, r1
-    94cc:	ebffff86 	bl	92ec <_ZStlsRSt7ostreamPKc>
-    94d0:	e59d100c 	ldr	r1, [sp, #12]
-    94d4:	e28dd01c 	add	sp, sp, #28, 0
-    94d8:	e8bd43f0 	pop	{r4, r5, r6, r7, r8, r9, lr}
-    94dc:	eaffff88 	b	9304 <_ZStlsRSt7ostreamPFS0_S0_E>
-    94e0:	00002c0c 	.word	0x00002c0c
-    94e4:	00000058 	.word	0x00000058
-    94e8:	00000000 	.word	0x00000000
-    94ec:	00000010 	.word	0x00000010
-    94f0:	00001d60 	.word	0x00001d60
-    94f4:	00001ce4 	.word	0x00001ce4
-
-000094f8 <_Z13fourth_threadv>:
-    94f8:	e59f30bc 	ldr	r3, [pc, #188]	; 95bc <_Z13fourth_threadv+0xc4>
-    94fc:	e92d4ff0 	push	{r4, r5, r6, r7, r8, r9, sl, fp, lr}
-    9500:	e3a0a000 	mov	sl, #0, 0
-    9504:	e08f3003 	add	r3, pc, r3
-    9508:	e30896a0 	movw	r9, #34464	; 0x86a0
-    950c:	e59f00ac 	ldr	r0, [pc, #172]	; 95c0 <_Z13fourth_threadv+0xc8>
-    9510:	e24dd00c 	sub	sp, sp, #12, 0
-    9514:	e59f10a8 	ldr	r1, [pc, #168]	; 95c4 <_Z13fourth_threadv+0xcc>
-    9518:	e1a0800a 	mov	r8, sl
-    951c:	e59f20a4 	ldr	r2, [pc, #164]	; 95c8 <_Z13fourth_threadv+0xd0>
-    9520:	e59f50a4 	ldr	r5, [pc, #164]	; 95cc <_Z13fourth_threadv+0xd4>
-    9524:	e7934000 	ldr	r4, [r3, r0]
-    9528:	e7937001 	ldr	r7, [r3, r1]
-    952c:	e7936002 	ldr	r6, [r3, r2]
-    9530:	e3409001 	movt	r9, #1
-    9534:	e08f5005 	add	r5, pc, r5
-    9538:	e58d8004 	str	r8, [sp, #4]
-    953c:	e59d3004 	ldr	r3, [sp, #4]
-    9540:	e1530009 	cmp	r3, r9
-    9544:	2a000005 	bcs	9560 <_Z13fourth_threadv+0x68>
-    9548:	e59d3004 	ldr	r3, [sp, #4]
-    954c:	e2833001 	add	r3, r3, #1, 0
-    9550:	e58d3004 	str	r3, [sp, #4]
-    9554:	e59d3004 	ldr	r3, [sp, #4]
-    9558:	e1530009 	cmp	r3, r9
-    955c:	3afffff9 	bcc	9548 <_Z13fourth_threadv+0x50>
-    9560:	e1a00004 	mov	r0, r4
-    9564:	ebfffd52 	bl	8ab4 <_ZN2os4sync8spinlock7acquireEv>
-    9568:	e1a01005 	mov	r1, r5
-    956c:	e1a00007 	mov	r0, r7
-    9570:	ebffff5d 	bl	92ec <_ZStlsRSt7ostreamPKc>
-    9574:	e1a0100a 	mov	r1, sl
-    9578:	e28aa001 	add	sl, sl, #1, 0
-    957c:	ebffff3c 	bl	9274 <_ZStlsRSt7ostreamm>
-    9580:	e3a01020 	mov	r1, #32, 0
-    9584:	ebffff52 	bl	92d4 <_ZStlsRSt7ostreamc>
-    9588:	e1a0b000 	mov	fp, r0
-    958c:	ebffff0b 	bl	91c0 <get_sp>
-    9590:	e1a01000 	mov	r1, r0
-    9594:	e1a0000b 	mov	r0, fp
-    9598:	ebffff35 	bl	9274 <_ZStlsRSt7ostreamm>
-    959c:	e1a01006 	mov	r1, r6
-    95a0:	ebffff57 	bl	9304 <_ZStlsRSt7ostreamPFS0_S0_E>
-    95a4:	e1a00004 	mov	r0, r4
-    95a8:	ebfffd4a 	bl	8ad8 <_ZN2os4sync8spinlock7releaseEv>
-    95ac:	e35a0015 	cmp	sl, #21, 0
-    95b0:	1affffe0 	bne	9538 <_Z13fourth_threadv+0x40>
-    95b4:	e28dd00c 	add	sp, sp, #12, 0
-    95b8:	e8bd8ff0 	pop	{r4, r5, r6, r7, r8, r9, sl, fp, pc}
-    95bc:	00002b08 	.word	0x00002b08
-    95c0:	00000010 	.word	0x00000010
-    95c4:	00000058 	.word	0x00000058
-    95c8:	00000000 	.word	0x00000000
-    95cc:	00001c8c 	.word	0x00001c8c
-
-000095d0 <_Z11main_threadv>:
-    95d0:	e92d4ff0 	push	{r4, r5, r6, r7, r8, r9, sl, fp, lr}
-    95d4:	e24dd014 	sub	sp, sp, #20, 0
-    95d8:	e59f5408 	ldr	r5, [pc, #1032]	; 99e8 <_Z11main_threadv+0x418>
-    95dc:	ebfffc62 	bl	876c <_ZN2os8this_cpuEv>
-    95e0:	e5906004 	ldr	r6, [r0, #4]
-    95e4:	e08f5005 	add	r5, pc, r5
-    95e8:	e5963084 	ldr	r3, [r6, #132]	; 0x84
-    95ec:	e3530005 	cmp	r3, #5, 0
-    95f0:	0a0000f8 	beq	99d8 <_Z11main_threadv+0x408>
-    95f4:	e2868098 	add	r8, r6, #152, 0	; 0x98
-    95f8:	e286400c 	add	r4, r6, #12, 0
-    95fc:	e1a00008 	mov	r0, r8
-    9600:	e2869084 	add	r9, r6, #132, 0	; 0x84
-    9604:	ebfffd2a 	bl	8ab4 <_ZN2os4sync8spinlock7acquireEv>
-    9608:	ea000002 	b	9618 <_Z11main_threadv+0x48>
-    960c:	e2844018 	add	r4, r4, #24, 0
-    9610:	e1590004 	cmp	r9, r4
-    9614:	0a0000f1 	beq	99e0 <_Z11main_threadv+0x410>
-    9618:	e1a00004 	mov	r0, r4
-    961c:	e1a07004 	mov	r7, r4
-    9620:	ebfffd3e 	bl	8b20 <_ZN2os6thread8thread_t8is_emptyEv>
-    9624:	e3500000 	cmp	r0, #0, 0
-    9628:	0afffff7 	beq	960c <_Z11main_threadv+0x3c>
-    962c:	e59f33b8 	ldr	r3, [pc, #952]	; 99ec <_Z11main_threadv+0x41c>
-    9630:	e3a02003 	mov	r2, #3, 0
-    9634:	e5842004 	str	r2, [r4, #4]
-    9638:	e28d000c 	add	r0, sp, #12, 0
-    963c:	e795c003 	ldr	ip, [r5, r3]
-    9640:	e3012010 	movw	r2, #4112	; 0x1010
-    9644:	e5961094 	ldr	r1, [r6, #148]	; 0x94
-    9648:	e59c3000 	ldr	r3, [ip]
-    964c:	e283e001 	add	lr, r3, #1, 0
-    9650:	e58ce000 	str	lr, [ip]
-    9654:	e5843000 	str	r3, [r4]
-    9658:	ebfffcd7 	bl	89bc <_ZN2os6memory11heap_policy8best_fitclEPNS0_14heap_segment_tEj>
-    965c:	e5902008 	ldr	r2, [r0, #8]
-    9660:	e1a03000 	mov	r3, r0
-    9664:	e2422a01 	sub	r2, r2, #4096	; 0x1000
-    9668:	e2422010 	sub	r2, r2, #16, 0
-    966c:	e3520020 	cmp	r2, #32, 0
-    9670:	9a000008 	bls	9698 <_Z11main_threadv+0xc8>
-    9674:	e590c000 	ldr	ip, [r0]
-    9678:	e2801a01 	add	r1, r0, #4096	; 0x1000
-    967c:	e5810014 	str	r0, [r1, #20]
-    9680:	e3010010 	movw	r0, #4112	; 0x1010
-    9684:	e581c010 	str	ip, [r1, #16]
-    9688:	e083c000 	add	ip, r3, r0
-    968c:	e5830008 	str	r0, [r3, #8]
-    9690:	e583c000 	str	ip, [r3]
-    9694:	e5812018 	str	r2, [r1, #24]
-    9698:	e2830efd 	add	r0, r3, #4048	; 0xfd0
-    969c:	e2833010 	add	r3, r3, #16, 0
-    96a0:	e584300c 	str	r3, [r4, #12]
-    96a4:	e2800008 	add	r0, r0, #8, 0
-    96a8:	e5840008 	str	r0, [r4, #8]
-    96ac:	e3a01038 	mov	r1, #56, 0	; 0x38
-    96b0:	ebfffcae 	bl	8970 <_ZN2os6memory5bzeroEPvj>
-    96b4:	e59f3334 	ldr	r3, [pc, #820]	; 99f0 <_Z11main_threadv+0x420>
-    96b8:	e3a0c013 	mov	ip, #19, 0
-    96bc:	e5962084 	ldr	r2, [r6, #132]	; 0x84
-    96c0:	e1a00008 	mov	r0, r8
-    96c4:	e795e003 	ldr	lr, [r5, r3]
-    96c8:	e5963088 	ldr	r3, [r6, #136]	; 0x88
-    96cc:	e2822001 	add	r2, r2, #1, 0
-    96d0:	e5941008 	ldr	r1, [r4, #8]
-    96d4:	e2833001 	add	r3, r3, #1, 0
-    96d8:	e581e034 	str	lr, [r1, #52]	; 0x34
-    96dc:	e581c030 	str	ip, [r1, #48]	; 0x30
-    96e0:	e1c628f4 	strd	r2, [r6, #132]	; 0x84
-    96e4:	ebfffcfb 	bl	8ad8 <_ZN2os4sync8spinlock7releaseEv>
-    96e8:	ebfffc1f 	bl	876c <_ZN2os8this_cpuEv>
-    96ec:	e5906004 	ldr	r6, [r0, #4]
-    96f0:	e5963084 	ldr	r3, [r6, #132]	; 0x84
-    96f4:	e3530005 	cmp	r3, #5, 0
-    96f8:	0a0000b4 	beq	99d0 <_Z11main_threadv+0x400>
-    96fc:	e2869098 	add	r9, r6, #152, 0	; 0x98
-    9700:	e286400c 	add	r4, r6, #12, 0
-    9704:	e1a00009 	mov	r0, r9
-    9708:	e2868084 	add	r8, r6, #132, 0	; 0x84
-    970c:	ebfffce8 	bl	8ab4 <_ZN2os4sync8spinlock7acquireEv>
-    9710:	ea000002 	b	9720 <_Z11main_threadv+0x150>
-    9714:	e2844018 	add	r4, r4, #24, 0
-    9718:	e1580004 	cmp	r8, r4
-    971c:	0a0000af 	beq	99e0 <_Z11main_threadv+0x410>
-    9720:	e1a00004 	mov	r0, r4
-    9724:	e1a0a004 	mov	sl, r4
-    9728:	ebfffcfc 	bl	8b20 <_ZN2os6thread8thread_t8is_emptyEv>
-    972c:	e3500000 	cmp	r0, #0, 0
-    9730:	0afffff7 	beq	9714 <_Z11main_threadv+0x144>
-    9734:	e59f32b0 	ldr	r3, [pc, #688]	; 99ec <_Z11main_threadv+0x41c>
-    9738:	e3a02003 	mov	r2, #3, 0
-    973c:	e5842004 	str	r2, [r4, #4]
-    9740:	e28d000c 	add	r0, sp, #12, 0
-    9744:	e795c003 	ldr	ip, [r5, r3]
-    9748:	e3012010 	movw	r2, #4112	; 0x1010
-    974c:	e5961094 	ldr	r1, [r6, #148]	; 0x94
-    9750:	e59c3000 	ldr	r3, [ip]
-    9754:	e283e001 	add	lr, r3, #1, 0
-    9758:	e58ce000 	str	lr, [ip]
-    975c:	e5843000 	str	r3, [r4]
-    9760:	ebfffc95 	bl	89bc <_ZN2os6memory11heap_policy8best_fitclEPNS0_14heap_segment_tEj>
-    9764:	e5902008 	ldr	r2, [r0, #8]
-    9768:	e1a03000 	mov	r3, r0
-    976c:	e2422a01 	sub	r2, r2, #4096	; 0x1000
-    9770:	e2422010 	sub	r2, r2, #16, 0
-    9774:	e3520020 	cmp	r2, #32, 0
-    9778:	9a000008 	bls	97a0 <_Z11main_threadv+0x1d0>
-    977c:	e590c000 	ldr	ip, [r0]
-    9780:	e2801a01 	add	r1, r0, #4096	; 0x1000
-    9784:	e5810014 	str	r0, [r1, #20]
-    9788:	e3010010 	movw	r0, #4112	; 0x1010
-    978c:	e581c010 	str	ip, [r1, #16]
-    9790:	e083c000 	add	ip, r3, r0
-    9794:	e5830008 	str	r0, [r3, #8]
-    9798:	e583c000 	str	ip, [r3]
-    979c:	e5812018 	str	r2, [r1, #24]
-    97a0:	e2830efd 	add	r0, r3, #4048	; 0xfd0
-    97a4:	e2833010 	add	r3, r3, #16, 0
-    97a8:	e584300c 	str	r3, [r4, #12]
-    97ac:	e2800008 	add	r0, r0, #8, 0
-    97b0:	e5840008 	str	r0, [r4, #8]
-    97b4:	e3a01038 	mov	r1, #56, 0	; 0x38
-    97b8:	ebfffc6c 	bl	8970 <_ZN2os6memory5bzeroEPvj>
-    97bc:	e59f3230 	ldr	r3, [pc, #560]	; 99f4 <_Z11main_threadv+0x424>
-    97c0:	e3a0c013 	mov	ip, #19, 0
-    97c4:	e5962084 	ldr	r2, [r6, #132]	; 0x84
-    97c8:	e1a00009 	mov	r0, r9
-    97cc:	e795e003 	ldr	lr, [r5, r3]
-    97d0:	e5963088 	ldr	r3, [r6, #136]	; 0x88
-    97d4:	e2822001 	add	r2, r2, #1, 0
-    97d8:	e5941008 	ldr	r1, [r4, #8]
-    97dc:	e2833001 	add	r3, r3, #1, 0
-    97e0:	e581e034 	str	lr, [r1, #52]	; 0x34
-    97e4:	e581c030 	str	ip, [r1, #48]	; 0x30
-    97e8:	e1c628f4 	strd	r2, [r6, #132]	; 0x84
-    97ec:	ebfffcb9 	bl	8ad8 <_ZN2os4sync8spinlock7releaseEv>
-    97f0:	ebfffbdd 	bl	876c <_ZN2os8this_cpuEv>
-    97f4:	e5906004 	ldr	r6, [r0, #4]
-    97f8:	e5963084 	ldr	r3, [r6, #132]	; 0x84
-    97fc:	e3530005 	cmp	r3, #5, 0
-    9800:	0a00006f 	beq	99c4 <_Z11main_threadv+0x3f4>
-    9804:	e286b098 	add	fp, r6, #152, 0	; 0x98
-    9808:	e286400c 	add	r4, r6, #12, 0
-    980c:	e1a0000b 	mov	r0, fp
-    9810:	e2868084 	add	r8, r6, #132, 0	; 0x84
-    9814:	ebfffca6 	bl	8ab4 <_ZN2os4sync8spinlock7acquireEv>
-    9818:	ea000002 	b	9828 <_Z11main_threadv+0x258>
-    981c:	e2844018 	add	r4, r4, #24, 0
-    9820:	e1580004 	cmp	r8, r4
-    9824:	0a00006d 	beq	99e0 <_Z11main_threadv+0x410>
-    9828:	e58d4004 	str	r4, [sp, #4]
-    982c:	e1a00004 	mov	r0, r4
-    9830:	ebfffcba 	bl	8b20 <_ZN2os6thread8thread_t8is_emptyEv>
-    9834:	e3500000 	cmp	r0, #0, 0
-    9838:	0afffff7 	beq	981c <_Z11main_threadv+0x24c>
-    983c:	e59f31a8 	ldr	r3, [pc, #424]	; 99ec <_Z11main_threadv+0x41c>
-    9840:	e3a02003 	mov	r2, #3, 0
-    9844:	e5842004 	str	r2, [r4, #4]
-    9848:	e28d000c 	add	r0, sp, #12, 0
-    984c:	e795c003 	ldr	ip, [r5, r3]
-    9850:	e3012010 	movw	r2, #4112	; 0x1010
-    9854:	e5961094 	ldr	r1, [r6, #148]	; 0x94
-    9858:	e59c3000 	ldr	r3, [ip]
-    985c:	e283e001 	add	lr, r3, #1, 0
-    9860:	e58ce000 	str	lr, [ip]
-    9864:	e5843000 	str	r3, [r4]
-    9868:	ebfffc53 	bl	89bc <_ZN2os6memory11heap_policy8best_fitclEPNS0_14heap_segment_tEj>
-    986c:	e5902008 	ldr	r2, [r0, #8]
-    9870:	e1a03000 	mov	r3, r0
-    9874:	e2422a01 	sub	r2, r2, #4096	; 0x1000
-    9878:	e2422010 	sub	r2, r2, #16, 0
-    987c:	e3520020 	cmp	r2, #32, 0
-    9880:	9a000008 	bls	98a8 <_Z11main_threadv+0x2d8>
-    9884:	e590c000 	ldr	ip, [r0]
-    9888:	e2801a01 	add	r1, r0, #4096	; 0x1000
-    988c:	e5810014 	str	r0, [r1, #20]
-    9890:	e3010010 	movw	r0, #4112	; 0x1010
-    9894:	e581c010 	str	ip, [r1, #16]
-    9898:	e083c000 	add	ip, r3, r0
-    989c:	e5830008 	str	r0, [r3, #8]
-    98a0:	e583c000 	str	ip, [r3]
-    98a4:	e5812018 	str	r2, [r1, #24]
-    98a8:	e2830efd 	add	r0, r3, #4048	; 0xfd0
-    98ac:	e2833010 	add	r3, r3, #16, 0
-    98b0:	e584300c 	str	r3, [r4, #12]
-    98b4:	e2800008 	add	r0, r0, #8, 0
-    98b8:	e5840008 	str	r0, [r4, #8]
-    98bc:	e3a01038 	mov	r1, #56, 0	; 0x38
-    98c0:	ebfffc2a 	bl	8970 <_ZN2os6memory5bzeroEPvj>
-    98c4:	e59f312c 	ldr	r3, [pc, #300]	; 99f8 <_Z11main_threadv+0x428>
-    98c8:	e3a01013 	mov	r1, #19, 0
-    98cc:	e5962084 	ldr	r2, [r6, #132]	; 0x84
-    98d0:	e1a0000b 	mov	r0, fp
-    98d4:	e795e003 	ldr	lr, [r5, r3]
-    98d8:	e5963088 	ldr	r3, [r6, #136]	; 0x88
-    98dc:	e2822001 	add	r2, r2, #1, 0
-    98e0:	e594c008 	ldr	ip, [r4, #8]
-    98e4:	e2833001 	add	r3, r3, #1, 0
-    98e8:	e58ce034 	str	lr, [ip, #52]	; 0x34
-    98ec:	e58c1030 	str	r1, [ip, #48]	; 0x30
-    98f0:	e1c628f4 	strd	r2, [r6, #132]	; 0x84
-    98f4:	ebfffc77 	bl	8ad8 <_ZN2os4sync8spinlock7releaseEv>
-    98f8:	e59f80fc 	ldr	r8, [pc, #252]	; 99fc <_Z11main_threadv+0x42c>
-    98fc:	e1a00007 	mov	r0, r7
-    9900:	e3a0b000 	mov	fp, #0, 0
-    9904:	ebfffcb8 	bl	8bec <_ZN2os6thread8thread_t4joinEv>
-    9908:	e08f8008 	add	r8, pc, r8
-    990c:	e1a0000a 	mov	r0, sl
-    9910:	e308a6a0 	movw	sl, #34464	; 0x86a0
-    9914:	ebfffcb4 	bl	8bec <_ZN2os6thread8thread_t4joinEv>
-    9918:	e59f10e0 	ldr	r1, [pc, #224]	; 9a00 <_Z11main_threadv+0x430>
-    991c:	e1a0700b 	mov	r7, fp
-    9920:	e59f20dc 	ldr	r2, [pc, #220]	; 9a04 <_Z11main_threadv+0x434>
-    9924:	e59f30dc 	ldr	r3, [pc, #220]	; 9a08 <_Z11main_threadv+0x438>
-    9928:	e7954001 	ldr	r4, [r5, r1]
-    992c:	e7956002 	ldr	r6, [r5, r2]
-    9930:	e340a001 	movt	sl, #1
-    9934:	e7955003 	ldr	r5, [r5, r3]
-    9938:	e58d700c 	str	r7, [sp, #12]
-    993c:	e59d300c 	ldr	r3, [sp, #12]
-    9940:	e153000a 	cmp	r3, sl
-    9944:	2a000005 	bcs	9960 <_Z11main_threadv+0x390>
-    9948:	e59d300c 	ldr	r3, [sp, #12]
-    994c:	e2833001 	add	r3, r3, #1, 0
-    9950:	e58d300c 	str	r3, [sp, #12]
-    9954:	e59d300c 	ldr	r3, [sp, #12]
-    9958:	e153000a 	cmp	r3, sl
-    995c:	3afffff9 	bcc	9948 <_Z11main_threadv+0x378>
-    9960:	e1a00004 	mov	r0, r4
-    9964:	ebfffc52 	bl	8ab4 <_ZN2os4sync8spinlock7acquireEv>
-    9968:	e1a01008 	mov	r1, r8
-    996c:	e1a00006 	mov	r0, r6
-    9970:	ebfffe5d 	bl	92ec <_ZStlsRSt7ostreamPKc>
-    9974:	e1a0100b 	mov	r1, fp
-    9978:	e28bb001 	add	fp, fp, #1, 0
-    997c:	ebfffe3c 	bl	9274 <_ZStlsRSt7ostreamm>
-    9980:	e3a01020 	mov	r1, #32, 0
-    9984:	ebfffe52 	bl	92d4 <_ZStlsRSt7ostreamc>
-    9988:	e1a09000 	mov	r9, r0
-    998c:	ebfffe0b 	bl	91c0 <get_sp>
-    9990:	e1a01000 	mov	r1, r0
-    9994:	e1a00009 	mov	r0, r9
-    9998:	ebfffe35 	bl	9274 <_ZStlsRSt7ostreamm>
-    999c:	e1a01005 	mov	r1, r5
-    99a0:	ebfffe57 	bl	9304 <_ZStlsRSt7ostreamPFS0_S0_E>
-    99a4:	e1a00004 	mov	r0, r4
-    99a8:	ebfffc4a 	bl	8ad8 <_ZN2os4sync8spinlock7releaseEv>
-    99ac:	e35b0029 	cmp	fp, #41, 0	; 0x29
-    99b0:	1affffe0 	bne	9938 <_Z11main_threadv+0x368>
-    99b4:	e59d0004 	ldr	r0, [sp, #4]
-    99b8:	ebfffc8b 	bl	8bec <_ZN2os6thread8thread_t4joinEv>
-    99bc:	e28dd014 	add	sp, sp, #20, 0
-    99c0:	e8bd8ff0 	pop	{r4, r5, r6, r7, r8, r9, sl, fp, pc}
-    99c4:	e3a03000 	mov	r3, #0, 0
-    99c8:	e58d3004 	str	r3, [sp, #4]
-    99cc:	eaffffc9 	b	98f8 <_Z11main_threadv+0x328>
-    99d0:	e3a0a000 	mov	sl, #0, 0
-    99d4:	eaffff85 	b	97f0 <_Z11main_threadv+0x220>
-    99d8:	e3a07000 	mov	r7, #0, 0
-    99dc:	eaffff41 	b	96e8 <_Z11main_threadv+0x118>
-    99e0:	e5800004 	str	r0, [r0, #4]
-    99e4:	e7f000f0 	udf	#0
-    99e8:	00002a28 	.word	0x00002a28
-    99ec:	00000028 	.word	0x00000028
-    99f0:	0000005c 	.word	0x0000005c
-    99f4:	00000034 	.word	0x00000034
-    99f8:	00000030 	.word	0x00000030
-    99fc:	000018c8 	.word	0x000018c8
-    9a00:	00000010 	.word	0x00000010
-    9a04:	00000058 	.word	0x00000058
-    9a08:	00000000 	.word	0x00000000
-
-00009a0c <_Z11core0_entrymi>:
-    9a0c:	e92d4070 	push	{r4, r5, r6, lr}
-    9a10:	e1a06001 	mov	r6, r1
-    9a14:	e59f4090 	ldr	r4, [pc, #144]	; 9aac <_Z11core0_entrymi+0xa0>
-    9a18:	e1a05000 	mov	r5, r0
-    9a1c:	ebfffb44 	bl	8734 <_ZN2os8cpu_initEm>
-    9a20:	e08f4004 	add	r4, pc, r4
-    9a24:	e3a01000 	mov	r1, #0, 0
-    9a28:	e1a02006 	mov	r2, r6
-    9a2c:	e1a00001 	mov	r0, r1
-    9a30:	ebfffd58 	bl	8f98 <_ZN2os6kernel4initEiii>
-    9a34:	ebfffb6d 	bl	87f0 <_ZN2os10interrupts4initEv>
-    9a38:	e59f3070 	ldr	r3, [pc, #112]	; 9ab0 <_Z11core0_entrymi+0xa4>
-    9a3c:	e7940003 	ldr	r0, [r4, r3]
-    9a40:	ebfffc2a 	bl	8af0 <_ZN2os4sync10signallock6signalEv>
-    9a44:	e59f3068 	ldr	r3, [pc, #104]	; 9ab4 <_Z11core0_entrymi+0xa8>
-    9a48:	e7940003 	ldr	r0, [r4, r3]
-    9a4c:	ebfffc27 	bl	8af0 <_ZN2os4sync10signallock6signalEv>
-    9a50:	e59f3060 	ldr	r3, [pc, #96]	; 9ab8 <_Z11core0_entrymi+0xac>
-    9a54:	e7940003 	ldr	r0, [r4, r3]
-    9a58:	ebfffc24 	bl	8af0 <_ZN2os4sync10signallock6signalEv>
-    9a5c:	e59f3058 	ldr	r3, [pc, #88]	; 9abc <_Z11core0_entrymi+0xb0>
-    9a60:	e7946003 	ldr	r6, [r4, r3]
-    9a64:	e1a00006 	mov	r0, r6
-    9a68:	ebfffc11 	bl	8ab4 <_ZN2os4sync8spinlock7acquireEv>
-    9a6c:	e59f304c 	ldr	r3, [pc, #76]	; 9ac0 <_Z11core0_entrymi+0xb4>
-    9a70:	e59f104c 	ldr	r1, [pc, #76]	; 9ac4 <_Z11core0_entrymi+0xb8>
-    9a74:	e7940003 	ldr	r0, [r4, r3]
-    9a78:	e08f1001 	add	r1, pc, r1
-    9a7c:	ebfffe1a 	bl	92ec <_ZStlsRSt7ostreamPKc>
-    9a80:	e1a01005 	mov	r1, r5
-    9a84:	ebfffdfa 	bl	9274 <_ZStlsRSt7ostreamm>
-    9a88:	e59f1038 	ldr	r1, [pc, #56]	; 9ac8 <_Z11core0_entrymi+0xbc>
-    9a8c:	e08f1001 	add	r1, pc, r1
-    9a90:	ebfffe15 	bl	92ec <_ZStlsRSt7ostreamPKc>
-    9a94:	e59f3030 	ldr	r3, [pc, #48]	; 9acc <_Z11core0_entrymi+0xc0>
-    9a98:	e7941003 	ldr	r1, [r4, r3]
-    9a9c:	ebfffe18 	bl	9304 <_ZStlsRSt7ostreamPFS0_S0_E>
-    9aa0:	e1a00006 	mov	r0, r6
-    9aa4:	e8bd4070 	pop	{r4, r5, r6, lr}
-    9aa8:	eafffc0a 	b	8ad8 <_ZN2os4sync8spinlock7releaseEv>
-    9aac:	000025ec 	.word	0x000025ec
-    9ab0:	0000002c 	.word	0x0000002c
-    9ab4:	00000060 	.word	0x00000060
-    9ab8:	00000044 	.word	0x00000044
-    9abc:	00000010 	.word	0x00000010
-    9ac0:	00000058 	.word	0x00000058
-    9ac4:	00001768 	.word	0x00001768
-    9ac8:	0000175c 	.word	0x0000175c
-    9acc:	00000000 	.word	0x00000000
-
-00009ad0 <_Z7handlerm>:
-    9ad0:	e92d4070 	push	{r4, r5, r6, lr}
-    9ad4:	e1a05000 	mov	r5, r0
-    9ad8:	e59f4054 	ldr	r4, [pc, #84]	; 9b34 <_Z7handlerm+0x64>
-    9adc:	e59f3054 	ldr	r3, [pc, #84]	; 9b38 <_Z7handlerm+0x68>
-    9ae0:	e08f4004 	add	r4, pc, r4
-    9ae4:	e7946003 	ldr	r6, [r4, r3]
-    9ae8:	e1a00006 	mov	r0, r6
-    9aec:	ebfffbf0 	bl	8ab4 <_ZN2os4sync8spinlock7acquireEv>
-    9af0:	e59f3044 	ldr	r3, [pc, #68]	; 9b3c <_Z7handlerm+0x6c>
-    9af4:	e59f1044 	ldr	r1, [pc, #68]	; 9b40 <_Z7handlerm+0x70>
-    9af8:	e7940003 	ldr	r0, [r4, r3]
-    9afc:	e08f1001 	add	r1, pc, r1
-    9b00:	ebfffdf9 	bl	92ec <_ZStlsRSt7ostreamPKc>
-    9b04:	e59f3038 	ldr	r3, [pc, #56]	; 9b44 <_Z7handlerm+0x74>
-    9b08:	e7943003 	ldr	r3, [r4, r3]
-    9b0c:	e7931185 	ldr	r1, [r3, r5, lsl #3]
-    9b10:	ebfffdd7 	bl	9274 <_ZStlsRSt7ostreamm>
-    9b14:	e59f302c 	ldr	r3, [pc, #44]	; 9b48 <_Z7handlerm+0x78>
-    9b18:	e7941003 	ldr	r1, [r4, r3]
-    9b1c:	ebfffdf8 	bl	9304 <_ZStlsRSt7ostreamPFS0_S0_E>
-    9b20:	e1a00006 	mov	r0, r6
-    9b24:	ebfffbeb 	bl	8ad8 <_ZN2os4sync8spinlock7releaseEv>
-    9b28:	e8bd4070 	pop	{r4, r5, r6, lr}
-    9b2c:	e3a00ffa 	mov	r0, #1000	; 0x3e8
-    9b30:	eafffc8f 	b	8d74 <_ZN2os5timer3setEm>
-    9b34:	0000252c 	.word	0x0000252c
-    9b38:	00000010 	.word	0x00000010
-    9b3c:	00000058 	.word	0x00000058
-    9b40:	000016f8 	.word	0x000016f8
-    9b44:	0000003c 	.word	0x0000003c
-    9b48:	00000000 	.word	0x00000000
-
-00009b4c <_Z11core1_entrym>:
-    9b4c:	e92d4ff0 	push	{r4, r5, r6, r7, r8, r9, sl, fp, lr}
-    9b50:	e24dd0b4 	sub	sp, sp, #180, 0	; 0xb4
-    9b54:	e59f7490 	ldr	r7, [pc, #1168]	; 9fec <_Z11core1_entrym+0x4a0>
-    9b58:	e1a05000 	mov	r5, r0
-    9b5c:	e28da0ac 	add	sl, sp, #172, 0	; 0xac
-    9b60:	ebfffaf3 	bl	8734 <_ZN2os8cpu_initEm>
-    9b64:	e08f7007 	add	r7, pc, r7
-    9b68:	e28d8020 	add	r8, sp, #32, 0
-    9b6c:	e59f347c 	ldr	r3, [pc, #1148]	; 9ff0 <_Z11core1_entrym+0x4a4>
-    9b70:	e3a09000 	mov	r9, #0, 0
-    9b74:	e1a0b009 	mov	fp, r9
-    9b78:	e7970003 	ldr	r0, [r7, r3]
-    9b7c:	ebfffbde 	bl	8afc <_ZN2os4sync10signallock4waitEv>
-    9b80:	e59f346c 	ldr	r3, [pc, #1132]	; 9ff4 <_Z11core1_entrym+0x4a8>
-    9b84:	e7976003 	ldr	r6, [r7, r3]
-    9b88:	e1a00006 	mov	r0, r6
-    9b8c:	ebfffbc8 	bl	8ab4 <_ZN2os4sync8spinlock7acquireEv>
-    9b90:	e59f3460 	ldr	r3, [pc, #1120]	; 9ff8 <_Z11core1_entrym+0x4ac>
-    9b94:	e59f1460 	ldr	r1, [pc, #1120]	; 9ffc <_Z11core1_entrym+0x4b0>
-    9b98:	e7974003 	ldr	r4, [r7, r3]
-    9b9c:	e08f1001 	add	r1, pc, r1
-    9ba0:	e1a00004 	mov	r0, r4
-    9ba4:	ebfffdd0 	bl	92ec <_ZStlsRSt7ostreamPKc>
-    9ba8:	e1a01005 	mov	r1, r5
-    9bac:	ebfffdb0 	bl	9274 <_ZStlsRSt7ostreamm>
-    9bb0:	e59f1448 	ldr	r1, [pc, #1096]	; a000 <_Z11core1_entrym+0x4b4>
-    9bb4:	e08f1001 	add	r1, pc, r1
-    9bb8:	ebfffdcb 	bl	92ec <_ZStlsRSt7ostreamPKc>
-    9bbc:	e59f3440 	ldr	r3, [pc, #1088]	; a004 <_Z11core1_entrym+0x4b8>
-    9bc0:	e7975003 	ldr	r5, [r7, r3]
-    9bc4:	e1a01005 	mov	r1, r5
-    9bc8:	ebfffdcd 	bl	9304 <_ZStlsRSt7ostreamPFS0_S0_E>
-    9bcc:	e1a00006 	mov	r0, r6
-    9bd0:	ebfffbc0 	bl	8ad8 <_ZN2os4sync8spinlock7releaseEv>
-    9bd4:	ebfffb6f 	bl	8998 <_ZN2os6memory14get_kernel_endEv>
-    9bd8:	e1a06000 	mov	r6, r0
-    9bdc:	ebfffb74 	bl	89b4 <_ZN2os6memory15get_memory_sizeEv>
-    9be0:	e1a02000 	mov	r2, r0
-    9be4:	e3a01010 	mov	r1, #16, 0
-    9be8:	e58d2000 	str	r2, [sp]
-    9bec:	e1a00006 	mov	r0, r6
-    9bf0:	ebfffb5e 	bl	8970 <_ZN2os6memory5bzeroEPvj>
-    9bf4:	e59d2000 	ldr	r2, [sp]
-    9bf8:	e1a0000a 	mov	r0, sl
-    9bfc:	e59f3404 	ldr	r3, [pc, #1028]	; a008 <_Z11core1_entrym+0x4bc>
-    9c00:	e5862008 	str	r2, [r6, #8]
-    9c04:	e3a02032 	mov	r2, #50, 0	; 0x32
-    9c08:	e7973003 	ldr	r3, [r7, r3]
-    9c0c:	e58d60a8 	str	r6, [sp, #168]	; 0xa8
-    9c10:	e28d6014 	add	r6, sp, #20, 0
-    9c14:	e58d20a4 	str	r2, [sp, #164]	; 0xa4
-    9c18:	e2833008 	add	r3, r3, #8, 0
-    9c1c:	e58d3014 	str	r3, [sp, #20]
-    9c20:	ebfffb9d 	bl	8a9c <_ZN2os4sync8spinlockC1Ev>
-    9c24:	e58d90a0 	str	r9, [sp, #160]	; 0xa0
-    9c28:	e1a00008 	mov	r0, r8
-    9c2c:	e58d909c 	str	r9, [sp, #156]	; 0x9c
-    9c30:	e3a01078 	mov	r1, #120, 0	; 0x78
-    9c34:	e58d9098 	str	r9, [sp, #152]	; 0x98
-    9c38:	ebfffb4c 	bl	8970 <_ZN2os6memory5bzeroEPvj>
-    9c3c:	e28d3098 	add	r3, sp, #152, 0	; 0x98
-    9c40:	e58d3000 	str	r3, [sp]
-    9c44:	e1a03008 	mov	r3, r8
-    9c48:	e59d2000 	ldr	r2, [sp]
-    9c4c:	e2833018 	add	r3, r3, #24, 0
-    9c50:	e503b014 	str	fp, [r3, #-20]	; 0xffffffec
-    9c54:	e1530002 	cmp	r3, r2
-    9c58:	1afffffa 	bne	9c48 <_Z11core1_entrym+0xfc>
-    9c5c:	ebfffac2 	bl	876c <_ZN2os8this_cpuEv>
-    9c60:	e59d3098 	ldr	r3, [sp, #152]	; 0x98
-    9c64:	e5806004 	str	r6, [r0, #4]
-    9c68:	e3530005 	cmp	r3, #5, 0
-    9c6c:	0a0000dc 	beq	9fe4 <_Z11core1_entrym+0x498>
-    9c70:	e1a0000a 	mov	r0, sl
-    9c74:	e1a09008 	mov	r9, r8
-    9c78:	ebfffb8d 	bl	8ab4 <_ZN2os4sync8spinlock7acquireEv>
-    9c7c:	e59db000 	ldr	fp, [sp]
-    9c80:	ea000002 	b	9c90 <_Z11core1_entrym+0x144>
-    9c84:	e2899018 	add	r9, r9, #24, 0
-    9c88:	e15b0009 	cmp	fp, r9
-    9c8c:	0a0000d2 	beq	9fdc <_Z11core1_entrym+0x490>
-    9c90:	e1a00009 	mov	r0, r9
-    9c94:	ebfffba1 	bl	8b20 <_ZN2os6thread8thread_t8is_emptyEv>
-    9c98:	e3500000 	cmp	r0, #0, 0
-    9c9c:	0afffff8 	beq	9c84 <_Z11core1_entrym+0x138>
-    9ca0:	e59f1364 	ldr	r1, [pc, #868]	; a00c <_Z11core1_entrym+0x4c0>
-    9ca4:	e3a02003 	mov	r2, #3, 0
-    9ca8:	e5892004 	str	r2, [r9, #4]
-    9cac:	e28d0010 	add	r0, sp, #16, 0
-    9cb0:	e797e001 	ldr	lr, [r7, r1]
-    9cb4:	e3012010 	movw	r2, #4112	; 0x1010
-    9cb8:	e59d10a8 	ldr	r1, [sp, #168]	; 0xa8
-    9cbc:	e59ec000 	ldr	ip, [lr]
-    9cc0:	e589c000 	str	ip, [r9]
-    9cc4:	e28cc001 	add	ip, ip, #1, 0
-    9cc8:	e58ec000 	str	ip, [lr]
-    9ccc:	ebfffb3a 	bl	89bc <_ZN2os6memory11heap_policy8best_fitclEPNS0_14heap_segment_tEj>
-    9cd0:	e1a02000 	mov	r2, r0
-    9cd4:	e5900008 	ldr	r0, [r0, #8]
-    9cd8:	e2400a01 	sub	r0, r0, #4096	; 0x1000
-    9cdc:	e2400010 	sub	r0, r0, #16, 0
-    9ce0:	e3500020 	cmp	r0, #32, 0
-    9ce4:	9a000008 	bls	9d0c <_Z11core1_entrym+0x1c0>
-    9ce8:	e592e000 	ldr	lr, [r2]
-    9cec:	e2821a01 	add	r1, r2, #4096	; 0x1000
-    9cf0:	e301c010 	movw	ip, #4112	; 0x1010
-    9cf4:	e581e010 	str	lr, [r1, #16]
-    9cf8:	e082e00c 	add	lr, r2, ip
-    9cfc:	e5812014 	str	r2, [r1, #20]
-    9d00:	e582c008 	str	ip, [r2, #8]
-    9d04:	e582e000 	str	lr, [r2]
-    9d08:	e5810018 	str	r0, [r1, #24]
-    9d0c:	e2820efd 	add	r0, r2, #4048	; 0xfd0
-    9d10:	e2822010 	add	r2, r2, #16, 0
-    9d14:	e589200c 	str	r2, [r9, #12]
-    9d18:	e2800008 	add	r0, r0, #8, 0
-    9d1c:	e5890008 	str	r0, [r9, #8]
-    9d20:	e3a01038 	mov	r1, #56, 0	; 0x38
-    9d24:	e28db01c 	add	fp, sp, #28, 0
-    9d28:	ebfffb10 	bl	8970 <_ZN2os6memory5bzeroEPvj>
-    9d2c:	e59f22dc 	ldr	r2, [pc, #732]	; a010 <_Z11core1_entrym+0x4c4>
-    9d30:	e3a0c013 	mov	ip, #19, 0
-    9d34:	e5991008 	ldr	r1, [r9, #8]
-    9d38:	e1a0000a 	mov	r0, sl
-    9d3c:	e7972002 	ldr	r2, [r7, r2]
-    9d40:	e581c030 	str	ip, [r1, #48]	; 0x30
-    9d44:	e5812034 	str	r2, [r1, #52]	; 0x34
-    9d48:	e59d1098 	ldr	r1, [sp, #152]	; 0x98
-    9d4c:	e59d209c 	ldr	r2, [sp, #156]	; 0x9c
-    9d50:	e2811001 	add	r1, r1, #1, 0
-    9d54:	e58d1098 	str	r1, [sp, #152]	; 0x98
-    9d58:	e2822001 	add	r2, r2, #1, 0
-    9d5c:	e58d209c 	str	r2, [sp, #156]	; 0x9c
-    9d60:	ebfffb5c 	bl	8ad8 <_ZN2os4sync8spinlock7releaseEv>
-    9d64:	e59f22a8 	ldr	r2, [pc, #680]	; a014 <_Z11core1_entrym+0x4c8>
-    9d68:	e3a01002 	mov	r1, #2, 0
-    9d6c:	e58d9018 	str	r9, [sp, #24]
-    9d70:	e5891004 	str	r1, [r9, #4]
-    9d74:	e59d10a4 	ldr	r1, [sp, #164]	; 0xa4
-    9d78:	e7970002 	ldr	r0, [r7, r2]
-    9d7c:	ebfffc15 	bl	8dd8 <_ZN2os5timer4initEPFvmEm>
-    9d80:	e2891008 	add	r1, r9, #8, 0
-    9d84:	e1a0000b 	mov	r0, fp
-    9d88:	ebfffce7 	bl	912c <first_context_switch_main_thread>
-    9d8c:	e59d3098 	ldr	r3, [sp, #152]	; 0x98
-    9d90:	e3530000 	cmp	r3, #0, 0
-    9d94:	0a00007a 	beq	9f84 <_Z11core1_entrym+0x438>
-    9d98:	e59f3278 	ldr	r3, [pc, #632]	; a018 <_Z11core1_entrym+0x4cc>
-    9d9c:	e58d800c 	str	r8, [sp, #12]
-    9da0:	e08f3003 	add	r3, pc, r3
-    9da4:	e58d3004 	str	r3, [sp, #4]
-    9da8:	e59f326c 	ldr	r3, [pc, #620]	; a01c <_Z11core1_entrym+0x4d0>
-    9dac:	e08f3003 	add	r3, pc, r3
-    9db0:	e58d3008 	str	r3, [sp, #8]
-    9db4:	ebfffa77 	bl	8798 <_ZN2os10interrupts18disable_interruptsEv>
-    9db8:	e59d9018 	ldr	r9, [sp, #24]
-    9dbc:	e3a03004 	mov	r3, #4, 0
-    9dc0:	e599200c 	ldr	r2, [r9, #12]
-    9dc4:	e5893004 	str	r3, [r9, #4]
-    9dc8:	e512300c 	ldr	r3, [r2, #-12]
-    9dcc:	e2421010 	sub	r1, r2, #16, 0
-    9dd0:	e5122010 	ldr	r2, [r2, #-16]
+00009a04 <_Z11core1_entrym>:
+    9a04:	e92d4ff0 	push	{r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    9a08:	e24dd0ac 	sub	sp, sp, #172, 0	; 0xac
+    9a0c:	e59f443c 	ldr	r4, [pc, #1084]	; 9e50 <_Z11core1_entrym+0x44c>
+    9a10:	e1a07000 	mov	r7, r0
+    9a14:	e28da0a4 	add	sl, sp, #164, 0	; 0xa4
+    9a18:	ebfffb45 	bl	8734 <_ZN2os8cpu_initEm>
+    9a1c:	e08f4004 	add	r4, pc, r4
+    9a20:	e28d6018 	add	r6, sp, #24, 0
+    9a24:	e59f3428 	ldr	r3, [pc, #1064]	; 9e54 <_Z11core1_entrym+0x450>
+    9a28:	e3a09000 	mov	r9, #0, 0
+    9a2c:	e1a0b009 	mov	fp, r9
+    9a30:	e7940003 	ldr	r0, [r4, r3]
+    9a34:	ebfffc30 	bl	8afc <_ZN2os4sync10signallock4waitEv>
+    9a38:	e59f3418 	ldr	r3, [pc, #1048]	; 9e58 <_Z11core1_entrym+0x454>
+    9a3c:	e7948003 	ldr	r8, [r4, r3]
+    9a40:	e1a00008 	mov	r0, r8
+    9a44:	ebfffc1a 	bl	8ab4 <_ZN2os4sync8spinlock7acquireEv>
+    9a48:	e59f340c 	ldr	r3, [pc, #1036]	; 9e5c <_Z11core1_entrym+0x458>
+    9a4c:	e59f140c 	ldr	r1, [pc, #1036]	; 9e60 <_Z11core1_entrym+0x45c>
+    9a50:	e7945003 	ldr	r5, [r4, r3]
+    9a54:	e08f1001 	add	r1, pc, r1
+    9a58:	e1a00005 	mov	r0, r5
+    9a5c:	ebfffdda 	bl	91cc <_ZStlsRSt7ostreamPKc>
+    9a60:	e1a01007 	mov	r1, r7
+    9a64:	ebfffdba 	bl	9154 <_ZStlsRSt7ostreamm>
+    9a68:	e59f13f4 	ldr	r1, [pc, #1012]	; 9e64 <_Z11core1_entrym+0x460>
+    9a6c:	e08f1001 	add	r1, pc, r1
+    9a70:	ebfffdd5 	bl	91cc <_ZStlsRSt7ostreamPKc>
+    9a74:	e59f33ec 	ldr	r3, [pc, #1004]	; 9e68 <_Z11core1_entrym+0x464>
+    9a78:	e7947003 	ldr	r7, [r4, r3]
+    9a7c:	e1a01007 	mov	r1, r7
+    9a80:	ebfffdd7 	bl	91e4 <_ZStlsRSt7ostreamPFS0_S0_E>
+    9a84:	e1a00008 	mov	r0, r8
+    9a88:	ebfffc12 	bl	8ad8 <_ZN2os4sync8spinlock7releaseEv>
+    9a8c:	ebfffbc1 	bl	8998 <_ZN2os6memory14get_kernel_endEv>
+    9a90:	e1a08000 	mov	r8, r0
+    9a94:	ebfffbc6 	bl	89b4 <_ZN2os6memory15get_memory_sizeEv>
+    9a98:	e1a02000 	mov	r2, r0
+    9a9c:	e3a01010 	mov	r1, #16, 0
+    9aa0:	e58d2000 	str	r2, [sp]
+    9aa4:	e1a00008 	mov	r0, r8
+    9aa8:	ebfffbb0 	bl	8970 <_ZN2os6memory5bzeroEPvj>
+    9aac:	e59d2000 	ldr	r2, [sp]
+    9ab0:	e1a0000a 	mov	r0, sl
+    9ab4:	e59f33b0 	ldr	r3, [pc, #944]	; 9e6c <_Z11core1_entrym+0x468>
+    9ab8:	e5882008 	str	r2, [r8, #8]
+    9abc:	e3a0201e 	mov	r2, #30, 0
+    9ac0:	e7943003 	ldr	r3, [r4, r3]
+    9ac4:	e58d209c 	str	r2, [sp, #156]	; 0x9c
+    9ac8:	e58d80a0 	str	r8, [sp, #160]	; 0xa0
+    9acc:	e2833008 	add	r3, r3, #8, 0
+    9ad0:	e58d300c 	str	r3, [sp, #12]
+    9ad4:	ebfffbf0 	bl	8a9c <_ZN2os4sync8spinlockC1Ev>
+    9ad8:	e58d9098 	str	r9, [sp, #152]	; 0x98
+    9adc:	e28d300c 	add	r3, sp, #12, 0
+    9ae0:	e58d9094 	str	r9, [sp, #148]	; 0x94
+    9ae4:	e1a00006 	mov	r0, r6
+    9ae8:	e58d9090 	str	r9, [sp, #144]	; 0x90
+    9aec:	e3a01078 	mov	r1, #120, 0	; 0x78
+    9af0:	e58d3000 	str	r3, [sp]
+    9af4:	e28d9090 	add	r9, sp, #144, 0	; 0x90
+    9af8:	ebfffb9c 	bl	8970 <_ZN2os6memory5bzeroEPvj>
+    9afc:	e1a03006 	mov	r3, r6
+    9b00:	e583b004 	str	fp, [r3, #4]
+    9b04:	e2833018 	add	r3, r3, #24, 0
+    9b08:	e1530009 	cmp	r3, r9
+    9b0c:	1afffffb 	bne	9b00 <_Z11core1_entrym+0xfc>
+    9b10:	ebfffb15 	bl	876c <_ZN2os8this_cpuEv>
+    9b14:	e59d3090 	ldr	r3, [sp, #144]	; 0x90
+    9b18:	e59d2000 	ldr	r2, [sp]
+    9b1c:	e3530005 	cmp	r3, #5, 0
+    9b20:	e5802004 	str	r2, [r0, #4]
+    9b24:	0a0000c7 	beq	9e48 <_Z11core1_entrym+0x444>
+    9b28:	e1a0000a 	mov	r0, sl
+    9b2c:	e1a08006 	mov	r8, r6
+    9b30:	ebfffbdf 	bl	8ab4 <_ZN2os4sync8spinlock7acquireEv>
+    9b34:	ea000002 	b	9b44 <_Z11core1_entrym+0x140>
+    9b38:	e2888018 	add	r8, r8, #24, 0
+    9b3c:	e1590008 	cmp	r9, r8
+    9b40:	0a0000be 	beq	9e40 <_Z11core1_entrym+0x43c>
+    9b44:	e1a00008 	mov	r0, r8
+    9b48:	ebfffbf4 	bl	8b20 <_ZN2os6thread8thread_t8is_emptyEv>
+    9b4c:	e3500000 	cmp	r0, #0, 0
+    9b50:	0afffff8 	beq	9b38 <_Z11core1_entrym+0x134>
+    9b54:	e59f1314 	ldr	r1, [pc, #788]	; 9e70 <_Z11core1_entrym+0x46c>
+    9b58:	e3a02003 	mov	r2, #3, 0
+    9b5c:	e5882004 	str	r2, [r8, #4]
+    9b60:	e28d0008 	add	r0, sp, #8, 0
+    9b64:	e794e001 	ldr	lr, [r4, r1]
+    9b68:	e3012010 	movw	r2, #4112	; 0x1010
+    9b6c:	e59d10a0 	ldr	r1, [sp, #160]	; 0xa0
+    9b70:	e59ec000 	ldr	ip, [lr]
+    9b74:	e588c000 	str	ip, [r8]
+    9b78:	e28cc001 	add	ip, ip, #1, 0
+    9b7c:	e58ec000 	str	ip, [lr]
+    9b80:	ebfffb8d 	bl	89bc <_ZN2os6memory11heap_policy8best_fitclEPNS0_14heap_segment_tEj>
+    9b84:	e1a02000 	mov	r2, r0
+    9b88:	e5900008 	ldr	r0, [r0, #8]
+    9b8c:	e2400a01 	sub	r0, r0, #4096	; 0x1000
+    9b90:	e2400010 	sub	r0, r0, #16, 0
+    9b94:	e3500020 	cmp	r0, #32, 0
+    9b98:	9a000008 	bls	9bc0 <_Z11core1_entrym+0x1bc>
+    9b9c:	e592e000 	ldr	lr, [r2]
+    9ba0:	e2821a01 	add	r1, r2, #4096	; 0x1000
+    9ba4:	e301c010 	movw	ip, #4112	; 0x1010
+    9ba8:	e581e010 	str	lr, [r1, #16]
+    9bac:	e082e00c 	add	lr, r2, ip
+    9bb0:	e5812014 	str	r2, [r1, #20]
+    9bb4:	e582c008 	str	ip, [r2, #8]
+    9bb8:	e582e000 	str	lr, [r2]
+    9bbc:	e5810018 	str	r0, [r1, #24]
+    9bc0:	e2820efd 	add	r0, r2, #4048	; 0xfd0
+    9bc4:	e2822010 	add	r2, r2, #16, 0
+    9bc8:	e588200c 	str	r2, [r8, #12]
+    9bcc:	e2800008 	add	r0, r0, #8, 0
+    9bd0:	e5880008 	str	r0, [r8, #8]
+    9bd4:	e3a01038 	mov	r1, #56, 0	; 0x38
+    9bd8:	e28db010 	add	fp, sp, #16, 0
+    9bdc:	ebfffb63 	bl	8970 <_ZN2os6memory5bzeroEPvj>
+    9be0:	e59f228c 	ldr	r2, [pc, #652]	; 9e74 <_Z11core1_entrym+0x470>
+    9be4:	e3a0c013 	mov	ip, #19, 0
+    9be8:	e5981008 	ldr	r1, [r8, #8]
+    9bec:	e1a0000a 	mov	r0, sl
+    9bf0:	e7942002 	ldr	r2, [r4, r2]
+    9bf4:	e581c030 	str	ip, [r1, #48]	; 0x30
+    9bf8:	e5812034 	str	r2, [r1, #52]	; 0x34
+    9bfc:	e59d1090 	ldr	r1, [sp, #144]	; 0x90
+    9c00:	e59d2094 	ldr	r2, [sp, #148]	; 0x94
+    9c04:	e2811001 	add	r1, r1, #1, 0
+    9c08:	e58d1090 	str	r1, [sp, #144]	; 0x90
+    9c0c:	e2822001 	add	r2, r2, #1, 0
+    9c10:	e58d2094 	str	r2, [sp, #148]	; 0x94
+    9c14:	ebfffbaf 	bl	8ad8 <_ZN2os4sync8spinlock7releaseEv>
+    9c18:	e59f2258 	ldr	r2, [pc, #600]	; 9e78 <_Z11core1_entrym+0x474>
+    9c1c:	e3a01002 	mov	r1, #2, 0
+    9c20:	e58d8014 	str	r8, [sp, #20]
+    9c24:	e5881004 	str	r1, [r8, #4]
+    9c28:	e59d109c 	ldr	r1, [sp, #156]	; 0x9c
+    9c2c:	e7940002 	ldr	r0, [r4, r2]
+    9c30:	ebfffc42 	bl	8d40 <_ZN2os5timer4initEPFvmEm>
+    9c34:	e2881008 	add	r1, r8, #8, 0
+    9c38:	e1a0000b 	mov	r0, fp
+    9c3c:	ebfffd06 	bl	905c <context_switch>
+    9c40:	e59d3090 	ldr	r3, [sp, #144]	; 0x90
+    9c44:	e3530000 	cmp	r3, #0, 0
+    9c48:	0a000063 	beq	9ddc <_Z11core1_entrym+0x3d8>
+    9c4c:	e59fa228 	ldr	sl, [pc, #552]	; 9e7c <_Z11core1_entrym+0x478>
+    9c50:	e3a04000 	mov	r4, #0, 0
+    9c54:	e08fa00a 	add	sl, pc, sl
+    9c58:	ebffface 	bl	8798 <_ZN2os10interrupts18disable_interruptsEv>
+    9c5c:	e1a0100a 	mov	r1, sl
+    9c60:	e1a00005 	mov	r0, r5
+    9c64:	ebfffd58 	bl	91cc <_ZStlsRSt7ostreamPKc>
+    9c68:	e59d0014 	ldr	r0, [sp, #20]
+    9c6c:	e590200c 	ldr	r2, [r0, #12]
+    9c70:	e512300c 	ldr	r3, [r2, #-12]
+    9c74:	e2421010 	sub	r1, r2, #16, 0
+    9c78:	e5122010 	ldr	r2, [r2, #-16]
+    9c7c:	e3530000 	cmp	r3, #0, 0
+    9c80:	1a00000a 	bne	9cb0 <_Z11core1_entrym+0x2ac>
+    9c84:	ea00000c 	b	9cbc <_Z11core1_entrym+0x2b8>
+    9c88:	e593e004 	ldr	lr, [r3, #4]
+    9c8c:	e5911008 	ldr	r1, [r1, #8]
+    9c90:	e593c008 	ldr	ip, [r3, #8]
+    9c94:	e35e0000 	cmp	lr, #0, 0
+    9c98:	e5832000 	str	r2, [r3]
+    9c9c:	e08cc001 	add	ip, ip, r1
+    9ca0:	e1a01003 	mov	r1, r3
+    9ca4:	e583c008 	str	ip, [r3, #8]
+    9ca8:	0a000003 	beq	9cbc <_Z11core1_entrym+0x2b8>
+    9cac:	e1a0300e 	mov	r3, lr
+    9cb0:	e5d3c00c 	ldrb	ip, [r3, #12]
+    9cb4:	e35c0000 	cmp	ip, #0, 0
+    9cb8:	0afffff2 	beq	9c88 <_Z11core1_entrym+0x284>
+    9cbc:	e3520000 	cmp	r2, #0, 0
+    9cc0:	1a000006 	bne	9ce0 <_Z11core1_entrym+0x2dc>
+    9cc4:	ea000008 	b	9cec <_Z11core1_entrym+0x2e8>
+    9cc8:	e5922000 	ldr	r2, [r2]
+    9ccc:	e5913008 	ldr	r3, [r1, #8]
+    9cd0:	e592c008 	ldr	ip, [r2, #8]
+    9cd4:	e5812000 	str	r2, [r1]
+    9cd8:	e083300c 	add	r3, r3, ip
+    9cdc:	e5813008 	str	r3, [r1, #8]
+    9ce0:	e5d2300c 	ldrb	r3, [r2, #12]
+    9ce4:	e3530000 	cmp	r3, #0, 0
+    9ce8:	0afffff6 	beq	9cc8 <_Z11core1_entrym+0x2c4>
+    9cec:	e59d3090 	ldr	r3, [sp, #144]	; 0x90
+    9cf0:	e59d2094 	ldr	r2, [sp, #148]	; 0x94
+    9cf4:	e5c1400c 	strb	r4, [r1, #12]
+    9cf8:	e2433001 	sub	r3, r3, #1, 0
+    9cfc:	e58d3090 	str	r3, [sp, #144]	; 0x90
+    9d00:	e3530000 	cmp	r3, #0, 0
+    9d04:	e2422001 	sub	r2, r2, #1, 0
+    9d08:	e58d2094 	str	r2, [sp, #148]	; 0x94
+    9d0c:	0a000041 	beq	9e18 <_Z11core1_entrym+0x414>
+    9d10:	e2802010 	add	r2, r0, #16, 0
+    9d14:	e1a08006 	mov	r8, r6
+    9d18:	e3a03004 	mov	r3, #4, 0
+    9d1c:	e5803004 	str	r3, [r0, #4]
+    9d20:	e58d2004 	str	r2, [sp, #4]
+    9d24:	e1a00008 	mov	r0, r8
+    9d28:	ebfffb8a 	bl	8b58 <_ZN2os6thread8thread_t11is_sleepingEv>
+    9d2c:	e59d2004 	ldr	r2, [sp, #4]
+    9d30:	e3500000 	cmp	r0, #0, 0
+    9d34:	0a000002 	beq	9d44 <_Z11core1_entrym+0x340>
+    9d38:	e5981014 	ldr	r1, [r8, #20]
+    9d3c:	e1520001 	cmp	r2, r1
+    9d40:	0a000037 	beq	9e24 <_Z11core1_entrym+0x420>
+    9d44:	e2888018 	add	r8, r8, #24, 0
+    9d48:	e1580009 	cmp	r8, r9
+    9d4c:	1afffff3 	bne	9d20 <_Z11core1_entrym+0x31c>
+    9d50:	e59d0098 	ldr	r0, [sp, #152]	; 0x98
+    9d54:	e3a08018 	mov	r8, #24, 0
+    9d58:	ea000005 	b	9d74 <_Z11core1_entrym+0x370>
+    9d5c:	e59d0098 	ldr	r0, [sp, #152]	; 0x98
+    9d60:	e2800001 	add	r0, r0, #1, 0
+    9d64:	e58d0098 	str	r0, [sp, #152]	; 0x98
+    9d68:	e3500005 	cmp	r0, #5, 0
+    9d6c:	058d2098 	streq	r2, [sp, #152]	; 0x98
+    9d70:	01a00002 	moveq	r0, r2
+    9d74:	e59d3000 	ldr	r3, [sp]
+    9d78:	e0203098 	mla	r0, r8, r0, r3
+    9d7c:	e280000c 	add	r0, r0, #12, 0
+    9d80:	ebfffb6f 	bl	8b44 <_ZN2os6thread8thread_t8is_readyEv>
+    9d84:	e2502000 	subs	r2, r0, #0, 0
+    9d88:	0afffff3 	beq	9d5c <_Z11core1_entrym+0x358>
+    9d8c:	e59d1098 	ldr	r1, [sp, #152]	; 0x98
+    9d90:	e3a02002 	mov	r2, #2, 0
+    9d94:	e59dc000 	ldr	ip, [sp]
+    9d98:	e0030198 	mul	r3, r8, r1
+    9d9c:	e59d009c 	ldr	r0, [sp, #156]	; 0x9c
+    9da0:	e28d10a8 	add	r1, sp, #168, 0	; 0xa8
+    9da4:	e0811003 	add	r1, r1, r3
+    9da8:	e283300c 	add	r3, r3, #12, 0
+    9dac:	e08c3003 	add	r3, ip, r3
+    9db0:	e501208c 	str	r2, [r1, #-140]	; 0xffffff74
+    9db4:	e58d3014 	str	r3, [sp, #20]
+    9db8:	ebfffbc7 	bl	8cdc <_ZN2os5timer3setEm>
+    9dbc:	ebfffa7c 	bl	87b4 <_ZN2os10interrupts17enable_interruptsEv>
+    9dc0:	e59d1014 	ldr	r1, [sp, #20]
+    9dc4:	e1a0000b 	mov	r0, fp
+    9dc8:	e2811008 	add	r1, r1, #8, 0
+    9dcc:	ebfffca2 	bl	905c <context_switch>
+    9dd0:	e59d3090 	ldr	r3, [sp, #144]	; 0x90
     9dd4:	e3530000 	cmp	r3, #0, 0
-    9dd8:	1a00000a 	bne	9e08 <_Z11core1_entrym+0x2bc>
-    9ddc:	ea00000c 	b	9e14 <_Z11core1_entrym+0x2c8>
-    9de0:	e593c004 	ldr	ip, [r3, #4]
-    9de4:	e5911008 	ldr	r1, [r1, #8]
-    9de8:	e5930008 	ldr	r0, [r3, #8]
-    9dec:	e35c0000 	cmp	ip, #0, 0
-    9df0:	e5832000 	str	r2, [r3]
-    9df4:	e0800001 	add	r0, r0, r1
-    9df8:	e1a01003 	mov	r1, r3
-    9dfc:	e5830008 	str	r0, [r3, #8]
-    9e00:	0a000003 	beq	9e14 <_Z11core1_entrym+0x2c8>
-    9e04:	e1a0300c 	mov	r3, ip
-    9e08:	e5d3000c 	ldrb	r0, [r3, #12]
-    9e0c:	e3500000 	cmp	r0, #0, 0
-    9e10:	0afffff2 	beq	9de0 <_Z11core1_entrym+0x294>
-    9e14:	e3520000 	cmp	r2, #0, 0
-    9e18:	1a000006 	bne	9e38 <_Z11core1_entrym+0x2ec>
-    9e1c:	ea000008 	b	9e44 <_Z11core1_entrym+0x2f8>
-    9e20:	e5922000 	ldr	r2, [r2]
-    9e24:	e5913008 	ldr	r3, [r1, #8]
-    9e28:	e5920008 	ldr	r0, [r2, #8]
-    9e2c:	e5812000 	str	r2, [r1]
-    9e30:	e0833000 	add	r3, r3, r0
-    9e34:	e5813008 	str	r3, [r1, #8]
-    9e38:	e5d2300c 	ldrb	r3, [r2, #12]
-    9e3c:	e3530000 	cmp	r3, #0, 0
-    9e40:	0afffff6 	beq	9e20 <_Z11core1_entrym+0x2d4>
-    9e44:	e59d209c 	ldr	r2, [sp, #156]	; 0x9c
-    9e48:	e2899010 	add	r9, r9, #16, 0
-    9e4c:	e59d3098 	ldr	r3, [sp, #152]	; 0x98
-    9e50:	e3a00000 	mov	r0, #0, 0
-    9e54:	e59d700c 	ldr	r7, [sp, #12]
-    9e58:	e2422001 	sub	r2, r2, #1, 0
-    9e5c:	e5c1000c 	strb	r0, [r1, #12]
-    9e60:	e2433001 	sub	r3, r3, #1, 0
-    9e64:	e58d209c 	str	r2, [sp, #156]	; 0x9c
-    9e68:	e58d3098 	str	r3, [sp, #152]	; 0x98
-    9e6c:	e1a00007 	mov	r0, r7
-    9e70:	ebfffb38 	bl	8b58 <_ZN2os6thread8thread_t11is_sleepingEv>
-    9e74:	e3500000 	cmp	r0, #0, 0
-    9e78:	0a000002 	beq	9e88 <_Z11core1_entrym+0x33c>
-    9e7c:	e5973014 	ldr	r3, [r7, #20]
-    9e80:	e1590003 	cmp	r9, r3
-    9e84:	0a00004c 	beq	9fbc <_Z11core1_entrym+0x470>
-    9e88:	e59d3000 	ldr	r3, [sp]
-    9e8c:	e2877018 	add	r7, r7, #24, 0
-    9e90:	e1570003 	cmp	r7, r3
-    9e94:	1afffff4 	bne	9e6c <_Z11core1_entrym+0x320>
-    9e98:	e1a09006 	mov	r9, r6
-    9e9c:	e3a07000 	mov	r7, #0, 0
-    9ea0:	e3a0105b 	mov	r1, #91, 0	; 0x5b
-    9ea4:	e1a00004 	mov	r0, r4
-    9ea8:	e1a0a009 	mov	sl, r9
-    9eac:	ebfffd08 	bl	92d4 <_ZStlsRSt7ostreamc>
-    9eb0:	e1a01007 	mov	r1, r7
-    9eb4:	e2877001 	add	r7, r7, #1, 0
-    9eb8:	e2899018 	add	r9, r9, #24, 0
-    9ebc:	ebfffcec 	bl	9274 <_ZStlsRSt7ostreamm>
-    9ec0:	e59d1004 	ldr	r1, [sp, #4]
-    9ec4:	ebfffd08 	bl	92ec <_ZStlsRSt7ostreamPKc>
-    9ec8:	e5ba100c 	ldr	r1, [sl, #12]!
-    9ecc:	ebfffce8 	bl	9274 <_ZStlsRSt7ostreamm>
-    9ed0:	e59d1008 	ldr	r1, [sp, #8]
-    9ed4:	ebfffd04 	bl	92ec <_ZStlsRSt7ostreamPKc>
-    9ed8:	e1a08000 	mov	r8, r0
-    9edc:	e1a0000a 	mov	r0, sl
-    9ee0:	ebfffb4a 	bl	8c10 <_ZN2os6thread8thread_t13get_state_strEv>
-    9ee4:	e1a01000 	mov	r1, r0
-    9ee8:	e1a00008 	mov	r0, r8
-    9eec:	ebfffcfe 	bl	92ec <_ZStlsRSt7ostreamPKc>
-    9ef0:	e1a01005 	mov	r1, r5
-    9ef4:	ebfffd02 	bl	9304 <_ZStlsRSt7ostreamPFS0_S0_E>
-    9ef8:	e3570005 	cmp	r7, #5, 0
-    9efc:	1affffe7 	bne	9ea0 <_Z11core1_entrym+0x354>
-    9f00:	e59d00a0 	ldr	r0, [sp, #160]	; 0xa0
-    9f04:	e3a07018 	mov	r7, #24, 0
-    9f08:	ea000005 	b	9f24 <_Z11core1_entrym+0x3d8>
-    9f0c:	e59d00a0 	ldr	r0, [sp, #160]	; 0xa0
-    9f10:	e2800001 	add	r0, r0, #1, 0
-    9f14:	e58d00a0 	str	r0, [sp, #160]	; 0xa0
-    9f18:	e3500005 	cmp	r0, #5, 0
-    9f1c:	058d30a0 	streq	r3, [sp, #160]	; 0xa0
-    9f20:	01a00003 	moveq	r0, r3
-    9f24:	e0206097 	mla	r0, r7, r0, r6
-    9f28:	e280000c 	add	r0, r0, #12, 0
-    9f2c:	ebfffb04 	bl	8b44 <_ZN2os6thread8thread_t8is_readyEv>
-    9f30:	e2503000 	subs	r3, r0, #0, 0
-    9f34:	0afffff4 	beq	9f0c <_Z11core1_entrym+0x3c0>
-    9f38:	e59d20a0 	ldr	r2, [sp, #160]	; 0xa0
-    9f3c:	e3a03002 	mov	r3, #2, 0
-    9f40:	e59d00a4 	ldr	r0, [sp, #164]	; 0xa4
-    9f44:	e0070297 	mul	r7, r7, r2
-    9f48:	e28d20b0 	add	r2, sp, #176, 0	; 0xb0
-    9f4c:	e0822007 	add	r2, r2, r7
-    9f50:	e287700c 	add	r7, r7, #12, 0
-    9f54:	e0867007 	add	r7, r6, r7
-    9f58:	e502308c 	str	r3, [r2, #-140]	; 0xffffff74
-    9f5c:	e58d7018 	str	r7, [sp, #24]
-    9f60:	ebfffb83 	bl	8d74 <_ZN2os5timer3setEm>
-    9f64:	ebfffa12 	bl	87b4 <_ZN2os10interrupts17enable_interruptsEv>
-    9f68:	e59d1018 	ldr	r1, [sp, #24]
-    9f6c:	e1a0000b 	mov	r0, fp
-    9f70:	e2811008 	add	r1, r1, #8, 0
-    9f74:	ebfffc60 	bl	90fc <context_switch>
-    9f78:	e59d3098 	ldr	r3, [sp, #152]	; 0x98
-    9f7c:	e3530000 	cmp	r3, #0, 0
-    9f80:	1affff8b 	bne	9db4 <_Z11core1_entrym+0x268>
-    9f84:	e59f1094 	ldr	r1, [pc, #148]	; a020 <_Z11core1_entrym+0x4d4>
-    9f88:	e1a00004 	mov	r0, r4
-    9f8c:	e08f1001 	add	r1, pc, r1
-    9f90:	ebfffcd5 	bl	92ec <_ZStlsRSt7ostreamPKc>
-    9f94:	e1a01005 	mov	r1, r5
-    9f98:	ebfffcd9 	bl	9304 <_ZStlsRSt7ostreamPFS0_S0_E>
-    9f9c:	e59f1080 	ldr	r1, [pc, #128]	; a024 <_Z11core1_entrym+0x4d8>
-    9fa0:	e1a00004 	mov	r0, r4
-    9fa4:	e08f1001 	add	r1, pc, r1
-    9fa8:	ebfffccf 	bl	92ec <_ZStlsRSt7ostreamPKc>
-    9fac:	e1a01005 	mov	r1, r5
-    9fb0:	ebfffcd3 	bl	9304 <_ZStlsRSt7ostreamPFS0_S0_E>
-    9fb4:	e28dd0b4 	add	sp, sp, #180, 0	; 0xb4
-    9fb8:	e8bd8ff0 	pop	{r4, r5, r6, r7, r8, r9, sl, fp, pc}
-    9fbc:	e59d309c 	ldr	r3, [sp, #156]	; 0x9c
-    9fc0:	e3a02003 	mov	r2, #3, 0
-    9fc4:	e5872004 	str	r2, [r7, #4]
-    9fc8:	e3a01000 	mov	r1, #0, 0
-    9fcc:	e5871014 	str	r1, [r7, #20]
-    9fd0:	e2833001 	add	r3, r3, #1, 0
-    9fd4:	e58d309c 	str	r3, [sp, #156]	; 0x9c
-    9fd8:	eaffffae 	b	9e98 <_Z11core1_entrym+0x34c>
-    9fdc:	e5800004 	str	r0, [r0, #4]
-    9fe0:	e7f000f0 	udf	#0
-    9fe4:	e58bb004 	str	fp, [fp, #4]
-    9fe8:	e7f000f0 	udf	#0
-    9fec:	000024a8 	.word	0x000024a8
-    9ff0:	0000002c 	.word	0x0000002c
-    9ff4:	00000010 	.word	0x00000010
-    9ff8:	00000058 	.word	0x00000058
-    9ffc:	00001644 	.word	0x00001644
-    a000:	00001634 	.word	0x00001634
-    a004:	00000000 	.word	0x00000000
-    a008:	00000004 	.word	0x00000004
-    a00c:	00000028 	.word	0x00000028
-    a010:	00000018 	.word	0x00000018
-    a014:	00000050 	.word	0x00000050
-    a018:	0000149c 	.word	0x0000149c
-    a01c:	00001498 	.word	0x00001498
-    a020:	00001278 	.word	0x00001278
-    a024:	00001278 	.word	0x00001278
+    9dd8:	1affff9e 	bne	9c58 <_Z11core1_entrym+0x254>
+    9ddc:	ebfffbe1 	bl	8d68 <_ZN2os5timer7disableEv>
+    9de0:	e59f1098 	ldr	r1, [pc, #152]	; 9e80 <_Z11core1_entrym+0x47c>
+    9de4:	e1a00005 	mov	r0, r5
+    9de8:	e08f1001 	add	r1, pc, r1
+    9dec:	ebfffcf6 	bl	91cc <_ZStlsRSt7ostreamPKc>
+    9df0:	e1a01007 	mov	r1, r7
+    9df4:	ebfffcfa 	bl	91e4 <_ZStlsRSt7ostreamPFS0_S0_E>
+    9df8:	e59f1084 	ldr	r1, [pc, #132]	; 9e84 <_Z11core1_entrym+0x480>
+    9dfc:	e1a00005 	mov	r0, r5
+    9e00:	e08f1001 	add	r1, pc, r1
+    9e04:	ebfffcf0 	bl	91cc <_ZStlsRSt7ostreamPKc>
+    9e08:	e1a01007 	mov	r1, r7
+    9e0c:	ebfffcf4 	bl	91e4 <_ZStlsRSt7ostreamPFS0_S0_E>
+    9e10:	e28dd0ac 	add	sp, sp, #172, 0	; 0xac
+    9e14:	e8bd8ff0 	pop	{r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    9e18:	e5803004 	str	r3, [r0, #4]
+    9e1c:	ebfffa64 	bl	87b4 <_ZN2os10interrupts17enable_interruptsEv>
+    9e20:	eaffffea 	b	9dd0 <_Z11core1_entrym+0x3cc>
+    9e24:	e59d2094 	ldr	r2, [sp, #148]	; 0x94
+    9e28:	e3a01003 	mov	r1, #3, 0
+    9e2c:	e5884014 	str	r4, [r8, #20]
+    9e30:	e5881004 	str	r1, [r8, #4]
+    9e34:	e2823001 	add	r3, r2, #1, 0
+    9e38:	e58d3094 	str	r3, [sp, #148]	; 0x94
+    9e3c:	eaffffc3 	b	9d50 <_Z11core1_entrym+0x34c>
+    9e40:	e5800004 	str	r0, [r0, #4]
+    9e44:	e7f000f0 	udf	#0
+    9e48:	e58bb004 	str	fp, [fp, #4]
+    9e4c:	e7f000f0 	udf	#0
+    9e50:	000025f0 	.word	0x000025f0
+    9e54:	00000030 	.word	0x00000030
+    9e58:	00000010 	.word	0x00000010
+    9e5c:	00000054 	.word	0x00000054
+    9e60:	00001754 	.word	0x00001754
+    9e64:	00001744 	.word	0x00001744
+    9e68:	00000000 	.word	0x00000000
+    9e6c:	00000004 	.word	0x00000004
+    9e70:	0000002c 	.word	0x0000002c
+    9e74:	00000018 	.word	0x00000018
+    9e78:	0000001c 	.word	0x0000001c
+    9e7c:	00001578 	.word	0x00001578
+    9e80:	000013f4 	.word	0x000013f4
+    9e84:	000013f4 	.word	0x000013f4
 
-0000a028 <_Z11core2_entrym>:
-    a028:	e92d4070 	push	{r4, r5, r6, lr}
-    a02c:	e1a05000 	mov	r5, r0
-    a030:	e59f4060 	ldr	r4, [pc, #96]	; a098 <_Z11core2_entrym+0x70>
-    a034:	ebfff9be 	bl	8734 <_ZN2os8cpu_initEm>
-    a038:	e59f305c 	ldr	r3, [pc, #92]	; a09c <_Z11core2_entrym+0x74>
-    a03c:	e08f4004 	add	r4, pc, r4
-    a040:	e7940003 	ldr	r0, [r4, r3]
-    a044:	ebfffaac 	bl	8afc <_ZN2os4sync10signallock4waitEv>
-    a048:	e59f3050 	ldr	r3, [pc, #80]	; a0a0 <_Z11core2_entrym+0x78>
-    a04c:	e7946003 	ldr	r6, [r4, r3]
-    a050:	e1a00006 	mov	r0, r6
-    a054:	ebfffa96 	bl	8ab4 <_ZN2os4sync8spinlock7acquireEv>
-    a058:	e59f3044 	ldr	r3, [pc, #68]	; a0a4 <_Z11core2_entrym+0x7c>
-    a05c:	e59f1044 	ldr	r1, [pc, #68]	; a0a8 <_Z11core2_entrym+0x80>
-    a060:	e7940003 	ldr	r0, [r4, r3]
-    a064:	e08f1001 	add	r1, pc, r1
-    a068:	ebfffc9f 	bl	92ec <_ZStlsRSt7ostreamPKc>
-    a06c:	e1a01005 	mov	r1, r5
-    a070:	ebfffc7f 	bl	9274 <_ZStlsRSt7ostreamm>
-    a074:	e59f1030 	ldr	r1, [pc, #48]	; a0ac <_Z11core2_entrym+0x84>
-    a078:	e08f1001 	add	r1, pc, r1
-    a07c:	ebfffc9a 	bl	92ec <_ZStlsRSt7ostreamPKc>
-    a080:	e59f3028 	ldr	r3, [pc, #40]	; a0b0 <_Z11core2_entrym+0x88>
-    a084:	e7941003 	ldr	r1, [r4, r3]
-    a088:	ebfffc9d 	bl	9304 <_ZStlsRSt7ostreamPFS0_S0_E>
-    a08c:	e1a00006 	mov	r0, r6
-    a090:	e8bd4070 	pop	{r4, r5, r6, lr}
-    a094:	eafffa8f 	b	8ad8 <_ZN2os4sync8spinlock7releaseEv>
-    a098:	00001fd0 	.word	0x00001fd0
-    a09c:	00000060 	.word	0x00000060
-    a0a0:	00000010 	.word	0x00000010
-    a0a4:	00000058 	.word	0x00000058
-    a0a8:	0000117c 	.word	0x0000117c
-    a0ac:	00001170 	.word	0x00001170
-    a0b0:	00000000 	.word	0x00000000
+00009e88 <_Z11core2_entrym>:
+    9e88:	e92d4070 	push	{r4, r5, r6, lr}
+    9e8c:	e1a05000 	mov	r5, r0
+    9e90:	e59f4060 	ldr	r4, [pc, #96]	; 9ef8 <_Z11core2_entrym+0x70>
+    9e94:	ebfffa26 	bl	8734 <_ZN2os8cpu_initEm>
+    9e98:	e59f305c 	ldr	r3, [pc, #92]	; 9efc <_Z11core2_entrym+0x74>
+    9e9c:	e08f4004 	add	r4, pc, r4
+    9ea0:	e7940003 	ldr	r0, [r4, r3]
+    9ea4:	ebfffb14 	bl	8afc <_ZN2os4sync10signallock4waitEv>
+    9ea8:	e59f3050 	ldr	r3, [pc, #80]	; 9f00 <_Z11core2_entrym+0x78>
+    9eac:	e7946003 	ldr	r6, [r4, r3]
+    9eb0:	e1a00006 	mov	r0, r6
+    9eb4:	ebfffafe 	bl	8ab4 <_ZN2os4sync8spinlock7acquireEv>
+    9eb8:	e59f3044 	ldr	r3, [pc, #68]	; 9f04 <_Z11core2_entrym+0x7c>
+    9ebc:	e59f1044 	ldr	r1, [pc, #68]	; 9f08 <_Z11core2_entrym+0x80>
+    9ec0:	e7940003 	ldr	r0, [r4, r3]
+    9ec4:	e08f1001 	add	r1, pc, r1
+    9ec8:	ebfffcbf 	bl	91cc <_ZStlsRSt7ostreamPKc>
+    9ecc:	e1a01005 	mov	r1, r5
+    9ed0:	ebfffc9f 	bl	9154 <_ZStlsRSt7ostreamm>
+    9ed4:	e59f1030 	ldr	r1, [pc, #48]	; 9f0c <_Z11core2_entrym+0x84>
+    9ed8:	e08f1001 	add	r1, pc, r1
+    9edc:	ebfffcba 	bl	91cc <_ZStlsRSt7ostreamPKc>
+    9ee0:	e59f3028 	ldr	r3, [pc, #40]	; 9f10 <_Z11core2_entrym+0x88>
+    9ee4:	e7941003 	ldr	r1, [r4, r3]
+    9ee8:	ebfffcbd 	bl	91e4 <_ZStlsRSt7ostreamPFS0_S0_E>
+    9eec:	e1a00006 	mov	r0, r6
+    9ef0:	e8bd4070 	pop	{r4, r5, r6, lr}
+    9ef4:	eafffaf7 	b	8ad8 <_ZN2os4sync8spinlock7releaseEv>
+    9ef8:	00002170 	.word	0x00002170
+    9efc:	0000005c 	.word	0x0000005c
+    9f00:	00000010 	.word	0x00000010
+    9f04:	00000054 	.word	0x00000054
+    9f08:	000012e4 	.word	0x000012e4
+    9f0c:	000012d8 	.word	0x000012d8
+    9f10:	00000000 	.word	0x00000000
 
-0000a0b4 <_Z11core3_entrym>:
-    a0b4:	e92d4070 	push	{r4, r5, r6, lr}
-    a0b8:	e1a05000 	mov	r5, r0
-    a0bc:	e59f4060 	ldr	r4, [pc, #96]	; a124 <_Z11core3_entrym+0x70>
-    a0c0:	ebfff99b 	bl	8734 <_ZN2os8cpu_initEm>
-    a0c4:	e59f305c 	ldr	r3, [pc, #92]	; a128 <_Z11core3_entrym+0x74>
-    a0c8:	e08f4004 	add	r4, pc, r4
-    a0cc:	e7940003 	ldr	r0, [r4, r3]
-    a0d0:	ebfffa89 	bl	8afc <_ZN2os4sync10signallock4waitEv>
-    a0d4:	e59f3050 	ldr	r3, [pc, #80]	; a12c <_Z11core3_entrym+0x78>
-    a0d8:	e7946003 	ldr	r6, [r4, r3]
-    a0dc:	e1a00006 	mov	r0, r6
-    a0e0:	ebfffa73 	bl	8ab4 <_ZN2os4sync8spinlock7acquireEv>
-    a0e4:	e59f3044 	ldr	r3, [pc, #68]	; a130 <_Z11core3_entrym+0x7c>
-    a0e8:	e59f1044 	ldr	r1, [pc, #68]	; a134 <_Z11core3_entrym+0x80>
-    a0ec:	e7940003 	ldr	r0, [r4, r3]
-    a0f0:	e08f1001 	add	r1, pc, r1
-    a0f4:	ebfffc7c 	bl	92ec <_ZStlsRSt7ostreamPKc>
-    a0f8:	e1a01005 	mov	r1, r5
-    a0fc:	ebfffc5c 	bl	9274 <_ZStlsRSt7ostreamm>
-    a100:	e59f1030 	ldr	r1, [pc, #48]	; a138 <_Z11core3_entrym+0x84>
-    a104:	e08f1001 	add	r1, pc, r1
-    a108:	ebfffc77 	bl	92ec <_ZStlsRSt7ostreamPKc>
-    a10c:	e59f3028 	ldr	r3, [pc, #40]	; a13c <_Z11core3_entrym+0x88>
-    a110:	e7941003 	ldr	r1, [r4, r3]
-    a114:	ebfffc7a 	bl	9304 <_ZStlsRSt7ostreamPFS0_S0_E>
-    a118:	e1a00006 	mov	r0, r6
-    a11c:	e8bd4070 	pop	{r4, r5, r6, lr}
-    a120:	eafffa6c 	b	8ad8 <_ZN2os4sync8spinlock7releaseEv>
-    a124:	00001f44 	.word	0x00001f44
-    a128:	00000044 	.word	0x00000044
-    a12c:	00000010 	.word	0x00000010
-    a130:	00000058 	.word	0x00000058
-    a134:	000010f0 	.word	0x000010f0
-    a138:	000010e4 	.word	0x000010e4
-    a13c:	00000000 	.word	0x00000000
+00009f14 <_Z11core3_entrym>:
+    9f14:	e92d4070 	push	{r4, r5, r6, lr}
+    9f18:	e1a05000 	mov	r5, r0
+    9f1c:	e59f4060 	ldr	r4, [pc, #96]	; 9f84 <_Z11core3_entrym+0x70>
+    9f20:	ebfffa03 	bl	8734 <_ZN2os8cpu_initEm>
+    9f24:	e59f305c 	ldr	r3, [pc, #92]	; 9f88 <_Z11core3_entrym+0x74>
+    9f28:	e08f4004 	add	r4, pc, r4
+    9f2c:	e7940003 	ldr	r0, [r4, r3]
+    9f30:	ebfffaf1 	bl	8afc <_ZN2os4sync10signallock4waitEv>
+    9f34:	e59f3050 	ldr	r3, [pc, #80]	; 9f8c <_Z11core3_entrym+0x78>
+    9f38:	e7946003 	ldr	r6, [r4, r3]
+    9f3c:	e1a00006 	mov	r0, r6
+    9f40:	ebfffadb 	bl	8ab4 <_ZN2os4sync8spinlock7acquireEv>
+    9f44:	e59f3044 	ldr	r3, [pc, #68]	; 9f90 <_Z11core3_entrym+0x7c>
+    9f48:	e59f1044 	ldr	r1, [pc, #68]	; 9f94 <_Z11core3_entrym+0x80>
+    9f4c:	e7940003 	ldr	r0, [r4, r3]
+    9f50:	e08f1001 	add	r1, pc, r1
+    9f54:	ebfffc9c 	bl	91cc <_ZStlsRSt7ostreamPKc>
+    9f58:	e1a01005 	mov	r1, r5
+    9f5c:	ebfffc7c 	bl	9154 <_ZStlsRSt7ostreamm>
+    9f60:	e59f1030 	ldr	r1, [pc, #48]	; 9f98 <_Z11core3_entrym+0x84>
+    9f64:	e08f1001 	add	r1, pc, r1
+    9f68:	ebfffc97 	bl	91cc <_ZStlsRSt7ostreamPKc>
+    9f6c:	e59f3028 	ldr	r3, [pc, #40]	; 9f9c <_Z11core3_entrym+0x88>
+    9f70:	e7941003 	ldr	r1, [r4, r3]
+    9f74:	ebfffc9a 	bl	91e4 <_ZStlsRSt7ostreamPFS0_S0_E>
+    9f78:	e1a00006 	mov	r0, r6
+    9f7c:	e8bd4070 	pop	{r4, r5, r6, lr}
+    9f80:	eafffad4 	b	8ad8 <_ZN2os4sync8spinlock7releaseEv>
+    9f84:	000020e4 	.word	0x000020e4
+    9f88:	00000048 	.word	0x00000048
+    9f8c:	00000010 	.word	0x00000010
+    9f90:	00000054 	.word	0x00000054
+    9f94:	00001258 	.word	0x00001258
+    9f98:	0000124c 	.word	0x0000124c
+    9f9c:	00000000 	.word	0x00000000
 
-0000a140 <entry>:
-    a140:	e3510003 	cmp	r1, #3, 0
-    a144:	908ff101 	addls	pc, pc, r1, lsl #2
-    a148:	ea00000c 	b	a180 <entry+0x40>
-    a14c:	ea000004 	b	a164 <entry+0x24>
-    a150:	ea000006 	b	a170 <entry+0x30>
-    a154:	ea000007 	b	a178 <entry+0x38>
-    a158:	eaffffff 	b	a15c <entry+0x1c>
-    a15c:	e3a00003 	mov	r0, #3, 0
-    a160:	eaffffd3 	b	a0b4 <_Z11core3_entrym>
-    a164:	e1a01002 	mov	r1, r2
-    a168:	e3a00000 	mov	r0, #0, 0
-    a16c:	eafffe26 	b	9a0c <_Z11core0_entrymi>
-    a170:	e3a00001 	mov	r0, #1, 0
-    a174:	eafffe74 	b	9b4c <_Z11core1_entrym>
-    a178:	e3a00002 	mov	r0, #2, 0
-    a17c:	eaffffa9 	b	a028 <_Z11core2_entrym>
-    a180:	e12fff1e 	bx	lr
+00009fa0 <entry>:
+    9fa0:	e3510003 	cmp	r1, #3, 0
+    9fa4:	908ff101 	addls	pc, pc, r1, lsl #2
+    9fa8:	ea00000c 	b	9fe0 <entry+0x40>
+    9fac:	ea000004 	b	9fc4 <entry+0x24>
+    9fb0:	ea000006 	b	9fd0 <entry+0x30>
+    9fb4:	ea000007 	b	9fd8 <entry+0x38>
+    9fb8:	eaffffff 	b	9fbc <entry+0x1c>
+    9fbc:	e3a00003 	mov	r0, #3, 0
+    9fc0:	eaffffd3 	b	9f14 <_Z11core3_entrym>
+    9fc4:	e1a01002 	mov	r1, r2
+    9fc8:	e3a00000 	mov	r0, #0, 0
+    9fcc:	eafffe3c 	b	98c4 <_Z11core0_entrymi>
+    9fd0:	e3a00001 	mov	r0, #1, 0
+    9fd4:	eafffe8a 	b	9a04 <_Z11core1_entrym>
+    9fd8:	e3a00002 	mov	r0, #2, 0
+    9fdc:	eaffffa9 	b	9e88 <_Z11core2_entrym>
+    9fe0:	e12fff1e 	bx	lr
 
 Disassembly of section .text.startup:
 
-0000a184 <_GLOBAL__sub_I_console.cpp>:
-    a184:	e92d4010 	push	{r4, lr}
-    a188:	e59f4040 	ldr	r4, [pc, #64]	; a1d0 <_GLOBAL__sub_I_console.cpp+0x4c>
-    a18c:	e59f3040 	ldr	r3, [pc, #64]	; a1d4 <_GLOBAL__sub_I_console.cpp+0x50>
-    a190:	e08f4004 	add	r4, pc, r4
-    a194:	e7940003 	ldr	r0, [r4, r3]
-    a198:	ebfffa3f 	bl	8a9c <_ZN2os4sync8spinlockC1Ev>
-    a19c:	e59f3034 	ldr	r3, [pc, #52]	; a1d8 <_GLOBAL__sub_I_console.cpp+0x54>
-    a1a0:	e7940003 	ldr	r0, [r4, r3]
-    a1a4:	ebfffa3c 	bl	8a9c <_ZN2os4sync8spinlockC1Ev>
-    a1a8:	e59f302c 	ldr	r3, [pc, #44]	; a1dc <_GLOBAL__sub_I_console.cpp+0x58>
-    a1ac:	e7940003 	ldr	r0, [r4, r3]
-    a1b0:	ebfffa39 	bl	8a9c <_ZN2os4sync8spinlockC1Ev>
-    a1b4:	e59f3024 	ldr	r3, [pc, #36]	; a1e0 <_GLOBAL__sub_I_console.cpp+0x5c>
-    a1b8:	e7940003 	ldr	r0, [r4, r3]
-    a1bc:	ebfffa36 	bl	8a9c <_ZN2os4sync8spinlockC1Ev>
-    a1c0:	e59f301c 	ldr	r3, [pc, #28]	; a1e4 <_GLOBAL__sub_I_console.cpp+0x60>
-    a1c4:	e7940003 	ldr	r0, [r4, r3]
-    a1c8:	e8bd4010 	pop	{r4, lr}
-    a1cc:	eafffa32 	b	8a9c <_ZN2os4sync8spinlockC1Ev>
-    a1d0:	00001e7c 	.word	0x00001e7c
-    a1d4:	00000048 	.word	0x00000048
-    a1d8:	00000054 	.word	0x00000054
-    a1dc:	00000008 	.word	0x00000008
-    a1e0:	00000040 	.word	0x00000040
-    a1e4:	00000020 	.word	0x00000020
+00009fe4 <_GLOBAL__sub_I_console.cpp>:
+    9fe4:	e92d4010 	push	{r4, lr}
+    9fe8:	e59f4040 	ldr	r4, [pc, #64]	; a030 <_GLOBAL__sub_I_console.cpp+0x4c>
+    9fec:	e59f3040 	ldr	r3, [pc, #64]	; a034 <_GLOBAL__sub_I_console.cpp+0x50>
+    9ff0:	e08f4004 	add	r4, pc, r4
+    9ff4:	e7940003 	ldr	r0, [r4, r3]
+    9ff8:	ebfffaa7 	bl	8a9c <_ZN2os4sync8spinlockC1Ev>
+    9ffc:	e59f3034 	ldr	r3, [pc, #52]	; a038 <_GLOBAL__sub_I_console.cpp+0x54>
+    a000:	e7940003 	ldr	r0, [r4, r3]
+    a004:	ebfffaa4 	bl	8a9c <_ZN2os4sync8spinlockC1Ev>
+    a008:	e59f302c 	ldr	r3, [pc, #44]	; a03c <_GLOBAL__sub_I_console.cpp+0x58>
+    a00c:	e7940003 	ldr	r0, [r4, r3]
+    a010:	ebfffaa1 	bl	8a9c <_ZN2os4sync8spinlockC1Ev>
+    a014:	e59f3024 	ldr	r3, [pc, #36]	; a040 <_GLOBAL__sub_I_console.cpp+0x5c>
+    a018:	e7940003 	ldr	r0, [r4, r3]
+    a01c:	ebfffa9e 	bl	8a9c <_ZN2os4sync8spinlockC1Ev>
+    a020:	e59f301c 	ldr	r3, [pc, #28]	; a044 <_GLOBAL__sub_I_console.cpp+0x60>
+    a024:	e7940003 	ldr	r0, [r4, r3]
+    a028:	e8bd4010 	pop	{r4, lr}
+    a02c:	eafffa9a 	b	8a9c <_ZN2os4sync8spinlockC1Ev>
+    a030:	0000201c 	.word	0x0000201c
+    a034:	0000004c 	.word	0x0000004c
+    a038:	00000050 	.word	0x00000050
+    a03c:	00000008 	.word	0x00000008
+    a040:	00000044 	.word	0x00000044
+    a044:	00000024 	.word	0x00000024
 
-0000a1e8 <_GLOBAL__sub_I_uart.cpp>:
-    a1e8:	e59f300c 	ldr	r3, [pc, #12]	; a1fc <_GLOBAL__sub_I_uart.cpp+0x14>
-    a1ec:	e59f200c 	ldr	r2, [pc, #12]	; a200 <_GLOBAL__sub_I_uart.cpp+0x18>
-    a1f0:	e08f3003 	add	r3, pc, r3
-    a1f4:	e7930002 	ldr	r0, [r3, r2]
-    a1f8:	eafffa27 	b	8a9c <_ZN2os4sync8spinlockC1Ev>
-    a1fc:	00001e1c 	.word	0x00001e1c
-    a200:	0000001c 	.word	0x0000001c
+0000a048 <_GLOBAL__sub_I_uart.cpp>:
+    a048:	e59f300c 	ldr	r3, [pc, #12]	; a05c <_GLOBAL__sub_I_uart.cpp+0x14>
+    a04c:	e59f200c 	ldr	r2, [pc, #12]	; a060 <_GLOBAL__sub_I_uart.cpp+0x18>
+    a050:	e08f3003 	add	r3, pc, r3
+    a054:	e7930002 	ldr	r0, [r3, r2]
+    a058:	eafffa8f 	b	8a9c <_ZN2os4sync8spinlockC1Ev>
+    a05c:	00001fbc 	.word	0x00001fbc
+    a060:	00000020 	.word	0x00000020
 
-0000a204 <_GLOBAL__sub_I_kernel.cpp>:
-    a204:	e59f300c 	ldr	r3, [pc, #12]	; a218 <_GLOBAL__sub_I_kernel.cpp+0x14>
-    a208:	e59f200c 	ldr	r2, [pc, #12]	; a21c <_GLOBAL__sub_I_kernel.cpp+0x18>
-    a20c:	e08f3003 	add	r3, pc, r3
-    a210:	e7930002 	ldr	r0, [r3, r2]
-    a214:	eafffa20 	b	8a9c <_ZN2os4sync8spinlockC1Ev>
-    a218:	00001e00 	.word	0x00001e00
-    a21c:	0000000c 	.word	0x0000000c
+0000a064 <_GLOBAL__sub_I_kernel.cpp>:
+    a064:	e59f300c 	ldr	r3, [pc, #12]	; a078 <_GLOBAL__sub_I_kernel.cpp+0x14>
+    a068:	e59f200c 	ldr	r2, [pc, #12]	; a07c <_GLOBAL__sub_I_kernel.cpp+0x18>
+    a06c:	e08f3003 	add	r3, pc, r3
+    a070:	e7930002 	ldr	r0, [r3, r2]
+    a074:	eafffa88 	b	8a9c <_ZN2os4sync8spinlockC1Ev>
+    a078:	00001fa0 	.word	0x00001fa0
+    a07c:	0000000c 	.word	0x0000000c
 
-0000a220 <_GLOBAL__sub_I_code.cpp>:
-    a220:	e92d4010 	push	{r4, lr}
-    a224:	e59f4034 	ldr	r4, [pc, #52]	; a260 <_GLOBAL__sub_I_code.cpp+0x40>
-    a228:	e59f3034 	ldr	r3, [pc, #52]	; a264 <_GLOBAL__sub_I_code.cpp+0x44>
-    a22c:	e08f4004 	add	r4, pc, r4
-    a230:	e7940003 	ldr	r0, [r4, r3]
-    a234:	ebfffa2a 	bl	8ae4 <_ZN2os4sync10signallockC1Ev>
-    a238:	e59f3028 	ldr	r3, [pc, #40]	; a268 <_GLOBAL__sub_I_code.cpp+0x48>
-    a23c:	e7940003 	ldr	r0, [r4, r3]
-    a240:	ebfffa27 	bl	8ae4 <_ZN2os4sync10signallockC1Ev>
-    a244:	e59f3020 	ldr	r3, [pc, #32]	; a26c <_GLOBAL__sub_I_code.cpp+0x4c>
-    a248:	e7940003 	ldr	r0, [r4, r3]
-    a24c:	ebfffa24 	bl	8ae4 <_ZN2os4sync10signallockC1Ev>
-    a250:	e59f3018 	ldr	r3, [pc, #24]	; a270 <_GLOBAL__sub_I_code.cpp+0x50>
-    a254:	e7940003 	ldr	r0, [r4, r3]
-    a258:	e8bd4010 	pop	{r4, lr}
-    a25c:	eafffa0e 	b	8a9c <_ZN2os4sync8spinlockC1Ev>
-    a260:	00001de0 	.word	0x00001de0
-    a264:	0000002c 	.word	0x0000002c
-    a268:	00000060 	.word	0x00000060
-    a26c:	00000044 	.word	0x00000044
-    a270:	00000010 	.word	0x00000010
-
-Disassembly of section .text._ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE11grim_reaperEv:
-
-0000a274 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE11grim_reaperEv>:
-    a274:	e92d4070 	push	{r4, r5, r6, lr}
-    a278:	e1a04000 	mov	r4, r0
-    a27c:	e59f5048 	ldr	r5, [pc, #72]	; a2cc <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE11grim_reaperEv+0x58>
-    a280:	ebfffade 	bl	8e00 <_ZN2os5timer7disableEv>
-    a284:	e59f2044 	ldr	r2, [pc, #68]	; a2d0 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE11grim_reaperEv+0x5c>
-    a288:	e08f5005 	add	r5, pc, r5
-    a28c:	e59f1040 	ldr	r1, [pc, #64]	; a2d4 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE11grim_reaperEv+0x60>
-    a290:	e1a03005 	mov	r3, r5
-    a294:	e7950002 	ldr	r0, [r5, r2]
-    a298:	e08f1001 	add	r1, pc, r1
-    a29c:	ebfffc12 	bl	92ec <_ZStlsRSt7ostreamPKc>
-    a2a0:	e5943084 	ldr	r3, [r4, #132]	; 0x84
-    a2a4:	e5942088 	ldr	r2, [r4, #136]	; 0x88
-    a2a8:	e2433001 	sub	r3, r3, #1, 0
-    a2ac:	e5843084 	str	r3, [r4, #132]	; 0x84
-    a2b0:	e3530000 	cmp	r3, #0, 0
-    a2b4:	e2423001 	sub	r3, r2, #1, 0
-    a2b8:	e5843088 	str	r3, [r4, #136]	; 0x88
-    a2bc:	18bd8070 	popne	{r4, r5, r6, pc}
-    a2c0:	e2840008 	add	r0, r4, #8, 0
-    a2c4:	e8bd4070 	pop	{r4, r5, r6, lr}
-    a2c8:	eafffbb6 	b	91a8 <context_load>
-    a2cc:	00001d84 	.word	0x00001d84
-    a2d0:	00000058 	.word	0x00000058
-    a2d4:	00000f94 	.word	0x00000f94
+0000a080 <_GLOBAL__sub_I_code.cpp>:
+    a080:	e92d4010 	push	{r4, lr}
+    a084:	e59f4034 	ldr	r4, [pc, #52]	; a0c0 <_GLOBAL__sub_I_code.cpp+0x40>
+    a088:	e59f3034 	ldr	r3, [pc, #52]	; a0c4 <_GLOBAL__sub_I_code.cpp+0x44>
+    a08c:	e08f4004 	add	r4, pc, r4
+    a090:	e7940003 	ldr	r0, [r4, r3]
+    a094:	ebfffa92 	bl	8ae4 <_ZN2os4sync10signallockC1Ev>
+    a098:	e59f3028 	ldr	r3, [pc, #40]	; a0c8 <_GLOBAL__sub_I_code.cpp+0x48>
+    a09c:	e7940003 	ldr	r0, [r4, r3]
+    a0a0:	ebfffa8f 	bl	8ae4 <_ZN2os4sync10signallockC1Ev>
+    a0a4:	e59f3020 	ldr	r3, [pc, #32]	; a0cc <_GLOBAL__sub_I_code.cpp+0x4c>
+    a0a8:	e7940003 	ldr	r0, [r4, r3]
+    a0ac:	ebfffa8c 	bl	8ae4 <_ZN2os4sync10signallockC1Ev>
+    a0b0:	e59f3018 	ldr	r3, [pc, #24]	; a0d0 <_GLOBAL__sub_I_code.cpp+0x50>
+    a0b4:	e7940003 	ldr	r0, [r4, r3]
+    a0b8:	e8bd4010 	pop	{r4, lr}
+    a0bc:	eafffa76 	b	8a9c <_ZN2os4sync8spinlockC1Ev>
+    a0c0:	00001f80 	.word	0x00001f80
+    a0c4:	00000030 	.word	0x00000030
+    a0c8:	0000005c 	.word	0x0000005c
+    a0cc:	00000048 	.word	0x00000048
+    a0d0:	00000010 	.word	0x00000010
 
 Disassembly of section .text._ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE8wake_allEPNS_6thread15sleep_channel_tE:
 
-0000a2d8 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE8wake_allEPNS_6thread15sleep_channel_tE>:
-    a2d8:	e92d43f0 	push	{r4, r5, r6, r7, r8, r9, lr}
-    a2dc:	e1a05000 	mov	r5, r0
-    a2e0:	e24dd00c 	sub	sp, sp, #12, 0
-    a2e4:	e1a07001 	mov	r7, r1
-    a2e8:	e280400c 	add	r4, r0, #12, 0
-    a2ec:	e2806084 	add	r6, r0, #132, 0	; 0x84
-    a2f0:	e58d1004 	str	r1, [sp, #4]
-    a2f4:	e3a09000 	mov	r9, #0, 0
-    a2f8:	e3a08003 	mov	r8, #3, 0
-    a2fc:	e1a00004 	mov	r0, r4
-    a300:	ebfffa14 	bl	8b58 <_ZN2os6thread8thread_t11is_sleepingEv>
-    a304:	e3500000 	cmp	r0, #0, 0
-    a308:	0a000006 	beq	a328 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE8wake_allEPNS_6thread15sleep_channel_tE+0x50>
-    a30c:	e5943014 	ldr	r3, [r4, #20]
-    a310:	e1530007 	cmp	r3, r7
-    a314:	05953088 	ldreq	r3, [r5, #136]	; 0x88
-    a318:	05849014 	streq	r9, [r4, #20]
-    a31c:	05848004 	streq	r8, [r4, #4]
-    a320:	02833001 	addeq	r3, r3, #1, 0
-    a324:	05853088 	streq	r3, [r5, #136]	; 0x88
-    a328:	e2844018 	add	r4, r4, #24, 0
-    a32c:	e1560004 	cmp	r6, r4
-    a330:	1afffff1 	bne	a2fc <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE8wake_allEPNS_6thread15sleep_channel_tE+0x24>
-    a334:	e28dd00c 	add	sp, sp, #12, 0
-    a338:	e8bd83f0 	pop	{r4, r5, r6, r7, r8, r9, pc}
+0000a0d4 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE8wake_allEPNS_6thread15sleep_channel_tE>:
+    a0d4:	e92d47f0 	push	{r4, r5, r6, r7, r8, r9, sl, lr}
+    a0d8:	e1a05000 	mov	r5, r0
+    a0dc:	e1a07001 	mov	r7, r1
+    a0e0:	e280400c 	add	r4, r0, #12, 0
+    a0e4:	e2806084 	add	r6, r0, #132, 0	; 0x84
+    a0e8:	e3a09000 	mov	r9, #0, 0
+    a0ec:	e3a08003 	mov	r8, #3, 0
+    a0f0:	e1a00004 	mov	r0, r4
+    a0f4:	ebfffa97 	bl	8b58 <_ZN2os6thread8thread_t11is_sleepingEv>
+    a0f8:	e3500000 	cmp	r0, #0, 0
+    a0fc:	0a000006 	beq	a11c <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE8wake_allEPNS_6thread15sleep_channel_tE+0x48>
+    a100:	e5943014 	ldr	r3, [r4, #20]
+    a104:	e1530007 	cmp	r3, r7
+    a108:	05953088 	ldreq	r3, [r5, #136]	; 0x88
+    a10c:	05849014 	streq	r9, [r4, #20]
+    a110:	05848004 	streq	r8, [r4, #4]
+    a114:	02833001 	addeq	r3, r3, #1, 0
+    a118:	05853088 	streq	r3, [r5, #136]	; 0x88
+    a11c:	e2844018 	add	r4, r4, #24, 0
+    a120:	e1560004 	cmp	r6, r4
+    a124:	1afffff1 	bne	a0f0 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE8wake_allEPNS_6thread15sleep_channel_tE+0x1c>
+    a128:	e8bd87f0 	pop	{r4, r5, r6, r7, r8, r9, sl, pc}
 
 Disassembly of section .text._ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE8wake_oneEPNS_6thread15sleep_channel_tE:
 
-0000a33c <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE8wake_oneEPNS_6thread15sleep_channel_tE>:
-    a33c:	e92d41f0 	push	{r4, r5, r6, r7, r8, lr}
-    a340:	e1a06000 	mov	r6, r0
-    a344:	e1a07001 	mov	r7, r1
-    a348:	e280400c 	add	r4, r0, #12, 0
-    a34c:	e2805084 	add	r5, r0, #132, 0	; 0x84
-    a350:	ea000002 	b	a360 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE8wake_oneEPNS_6thread15sleep_channel_tE+0x24>
-    a354:	e2844018 	add	r4, r4, #24, 0
-    a358:	e1540005 	cmp	r4, r5
-    a35c:	08bd81f0 	popeq	{r4, r5, r6, r7, r8, pc}
-    a360:	e1a00004 	mov	r0, r4
-    a364:	ebfff9fb 	bl	8b58 <_ZN2os6thread8thread_t11is_sleepingEv>
-    a368:	e3500000 	cmp	r0, #0, 0
-    a36c:	0afffff8 	beq	a354 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE8wake_oneEPNS_6thread15sleep_channel_tE+0x18>
-    a370:	e5943014 	ldr	r3, [r4, #20]
-    a374:	e1530007 	cmp	r3, r7
-    a378:	1afffff5 	bne	a354 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE8wake_oneEPNS_6thread15sleep_channel_tE+0x18>
-    a37c:	e5963088 	ldr	r3, [r6, #136]	; 0x88
-    a380:	e3a02000 	mov	r2, #0, 0
-    a384:	e5842014 	str	r2, [r4, #20]
-    a388:	e3a02003 	mov	r2, #3, 0
-    a38c:	e5842004 	str	r2, [r4, #4]
-    a390:	e2833001 	add	r3, r3, #1, 0
-    a394:	e5863088 	str	r3, [r6, #136]	; 0x88
-    a398:	e8bd81f0 	pop	{r4, r5, r6, r7, r8, pc}
-
-Disassembly of section .text._ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE11thread_exitEv:
-
-0000a39c <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE11thread_exitEv>:
-    a39c:	e92d4ff8 	push	{r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
-    a3a0:	e1a04000 	mov	r4, r0
-    a3a4:	e59f722c 	ldr	r7, [pc, #556]	; a5d8 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE11thread_exitEv+0x23c>
-    a3a8:	ebfff8fa 	bl	8798 <_ZN2os10interrupts18disable_interruptsEv>
-    a3ac:	e5941004 	ldr	r1, [r4, #4]
-    a3b0:	e3a03004 	mov	r3, #4, 0
-    a3b4:	e08f7007 	add	r7, pc, r7
-    a3b8:	e591200c 	ldr	r2, [r1, #12]
-    a3bc:	e5813004 	str	r3, [r1, #4]
-    a3c0:	e512300c 	ldr	r3, [r2, #-12]
-    a3c4:	e2420010 	sub	r0, r2, #16, 0
-    a3c8:	e5122010 	ldr	r2, [r2, #-16]
-    a3cc:	e3530000 	cmp	r3, #0, 0
-    a3d0:	1a00000a 	bne	a400 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE11thread_exitEv+0x64>
-    a3d4:	ea00000c 	b	a40c <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE11thread_exitEv+0x70>
-    a3d8:	e593e004 	ldr	lr, [r3, #4]
-    a3dc:	e5900008 	ldr	r0, [r0, #8]
-    a3e0:	e593c008 	ldr	ip, [r3, #8]
-    a3e4:	e35e0000 	cmp	lr, #0, 0
-    a3e8:	e5832000 	str	r2, [r3]
-    a3ec:	e08cc000 	add	ip, ip, r0
-    a3f0:	e1a00003 	mov	r0, r3
-    a3f4:	e583c008 	str	ip, [r3, #8]
-    a3f8:	0a000003 	beq	a40c <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE11thread_exitEv+0x70>
-    a3fc:	e1a0300e 	mov	r3, lr
-    a400:	e5d3c00c 	ldrb	ip, [r3, #12]
-    a404:	e35c0000 	cmp	ip, #0, 0
-    a408:	0afffff2 	beq	a3d8 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE11thread_exitEv+0x3c>
-    a40c:	e3520000 	cmp	r2, #0, 0
-    a410:	1a000006 	bne	a430 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE11thread_exitEv+0x94>
-    a414:	ea000008 	b	a43c <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE11thread_exitEv+0xa0>
-    a418:	e5922000 	ldr	r2, [r2]
-    a41c:	e5903008 	ldr	r3, [r0, #8]
-    a420:	e592c008 	ldr	ip, [r2, #8]
-    a424:	e5802000 	str	r2, [r0]
-    a428:	e083300c 	add	r3, r3, ip
-    a42c:	e5803008 	str	r3, [r0, #8]
-    a430:	e5d2300c 	ldrb	r3, [r2, #12]
-    a434:	e3530000 	cmp	r3, #0, 0
-    a438:	0afffff6 	beq	a418 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE11thread_exitEv+0x7c>
-    a43c:	e5943088 	ldr	r3, [r4, #136]	; 0x88
-    a440:	e3a0c000 	mov	ip, #0, 0
-    a444:	e5942084 	ldr	r2, [r4, #132]	; 0x84
-    a448:	e2818010 	add	r8, r1, #16, 0
-    a44c:	e5c0c00c 	strb	ip, [r0, #12]
-    a450:	e2430001 	sub	r0, r3, #1, 0
-    a454:	e5941000 	ldr	r1, [r4]
-    a458:	e2422001 	sub	r2, r2, #1, 0
-    a45c:	e59f3178 	ldr	r3, [pc, #376]	; a5dc <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE11thread_exitEv+0x240>
-    a460:	e5842084 	str	r2, [r4, #132]	; 0x84
-    a464:	e5840088 	str	r0, [r4, #136]	; 0x88
-    a468:	e5912008 	ldr	r2, [r1, #8]
-    a46c:	e7973003 	ldr	r3, [r7, r3]
-    a470:	e1520003 	cmp	r2, r3
-    a474:	1a00004a 	bne	a5a4 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE11thread_exitEv+0x208>
-    a478:	e284500c 	add	r5, r4, #12, 0
-    a47c:	e2849084 	add	r9, r4, #132, 0	; 0x84
-    a480:	e1a06005 	mov	r6, r5
-    a484:	e1a00006 	mov	r0, r6
-    a488:	ebfff9b2 	bl	8b58 <_ZN2os6thread8thread_t11is_sleepingEv>
-    a48c:	e3500000 	cmp	r0, #0, 0
-    a490:	0a000002 	beq	a4a0 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE11thread_exitEv+0x104>
-    a494:	e5963014 	ldr	r3, [r6, #20]
-    a498:	e1580003 	cmp	r8, r3
-    a49c:	0a000045 	beq	a5b8 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE11thread_exitEv+0x21c>
-    a4a0:	e2866018 	add	r6, r6, #24, 0
-    a4a4:	e1560009 	cmp	r6, r9
-    a4a8:	1afffff5 	bne	a484 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE11thread_exitEv+0xe8>
-    a4ac:	e59f212c 	ldr	r2, [pc, #300]	; a5e0 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE11thread_exitEv+0x244>
-    a4b0:	e3a06000 	mov	r6, #0, 0
-    a4b4:	e59f3128 	ldr	r3, [pc, #296]	; a5e4 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE11thread_exitEv+0x248>
-    a4b8:	e59f9128 	ldr	r9, [pc, #296]	; a5e8 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE11thread_exitEv+0x24c>
-    a4bc:	e59f8128 	ldr	r8, [pc, #296]	; a5ec <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE11thread_exitEv+0x250>
-    a4c0:	e797a002 	ldr	sl, [r7, r2]
-    a4c4:	e797b003 	ldr	fp, [r7, r3]
-    a4c8:	e08f9009 	add	r9, pc, r9
-    a4cc:	e08f8008 	add	r8, pc, r8
-    a4d0:	e3a0105b 	mov	r1, #91, 0	; 0x5b
-    a4d4:	e1a0000a 	mov	r0, sl
-    a4d8:	ebfffb7d 	bl	92d4 <_ZStlsRSt7ostreamc>
-    a4dc:	e1a01006 	mov	r1, r6
-    a4e0:	e2866001 	add	r6, r6, #1, 0
-    a4e4:	ebfffb62 	bl	9274 <_ZStlsRSt7ostreamm>
-    a4e8:	e1a01009 	mov	r1, r9
-    a4ec:	ebfffb7e 	bl	92ec <_ZStlsRSt7ostreamPKc>
-    a4f0:	e5951000 	ldr	r1, [r5]
-    a4f4:	ebfffb5e 	bl	9274 <_ZStlsRSt7ostreamm>
-    a4f8:	e1a01008 	mov	r1, r8
-    a4fc:	ebfffb7a 	bl	92ec <_ZStlsRSt7ostreamPKc>
-    a500:	e1a07000 	mov	r7, r0
-    a504:	e1a00005 	mov	r0, r5
-    a508:	e2855018 	add	r5, r5, #24, 0
-    a50c:	ebfff9bf 	bl	8c10 <_ZN2os6thread8thread_t13get_state_strEv>
-    a510:	e1a01000 	mov	r1, r0
-    a514:	e1a00007 	mov	r0, r7
-    a518:	ebfffb73 	bl	92ec <_ZStlsRSt7ostreamPKc>
-    a51c:	e1a0100b 	mov	r1, fp
-    a520:	ebfffb77 	bl	9304 <_ZStlsRSt7ostreamPFS0_S0_E>
-    a524:	e3560005 	cmp	r6, #5, 0
-    a528:	1affffe8 	bne	a4d0 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE11thread_exitEv+0x134>
-    a52c:	e594008c 	ldr	r0, [r4, #140]	; 0x8c
-    a530:	e3a05018 	mov	r5, #24, 0
-    a534:	ea000005 	b	a550 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE11thread_exitEv+0x1b4>
-    a538:	e594008c 	ldr	r0, [r4, #140]	; 0x8c
-    a53c:	e2800001 	add	r0, r0, #1, 0
-    a540:	e584008c 	str	r0, [r4, #140]	; 0x8c
-    a544:	e3500005 	cmp	r0, #5, 0
-    a548:	0584308c 	streq	r3, [r4, #140]	; 0x8c
-    a54c:	01a00003 	moveq	r0, r3
-    a550:	e0204095 	mla	r0, r5, r0, r4
-    a554:	e280000c 	add	r0, r0, #12, 0
-    a558:	ebfff979 	bl	8b44 <_ZN2os6thread8thread_t8is_readyEv>
-    a55c:	e2503000 	subs	r3, r0, #0, 0
-    a560:	0afffff4 	beq	a538 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE11thread_exitEv+0x19c>
-    a564:	e594308c 	ldr	r3, [r4, #140]	; 0x8c
-    a568:	e3a02002 	mov	r2, #2, 0
-    a56c:	e0050395 	mul	r5, r5, r3
-    a570:	e0843005 	add	r3, r4, r5
-    a574:	e285500c 	add	r5, r5, #12, 0
-    a578:	e0845005 	add	r5, r4, r5
-    a57c:	e5845004 	str	r5, [r4, #4]
-    a580:	e5832010 	str	r2, [r3, #16]
-    a584:	e5940090 	ldr	r0, [r4, #144]	; 0x90
-    a588:	ebfff9f9 	bl	8d74 <_ZN2os5timer3setEm>
-    a58c:	ebfff888 	bl	87b4 <_ZN2os10interrupts17enable_interruptsEv>
-    a590:	e5941004 	ldr	r1, [r4, #4]
-    a594:	e2840008 	add	r0, r4, #8, 0
-    a598:	e8bd4ff8 	pop	{r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
-    a59c:	e2811008 	add	r1, r1, #8, 0
-    a5a0:	eafffad5 	b	90fc <context_switch>
-    a5a4:	e1a01008 	mov	r1, r8
-    a5a8:	e1a00004 	mov	r0, r4
-    a5ac:	e284500c 	add	r5, r4, #12, 0
-    a5b0:	e12fff32 	blx	r2
-    a5b4:	eaffffbc 	b	a4ac <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE11thread_exitEv+0x110>
-    a5b8:	e5943088 	ldr	r3, [r4, #136]	; 0x88
-    a5bc:	e3a02000 	mov	r2, #0, 0
-    a5c0:	e5862014 	str	r2, [r6, #20]
-    a5c4:	e3a02003 	mov	r2, #3, 0
-    a5c8:	e5862004 	str	r2, [r6, #4]
-    a5cc:	e2833001 	add	r3, r3, #1, 0
-    a5d0:	e5843088 	str	r3, [r4, #136]	; 0x88
-    a5d4:	eaffffb4 	b	a4ac <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE11thread_exitEv+0x110>
-    a5d8:	00001c58 	.word	0x00001c58
-    a5dc:	0000004c 	.word	0x0000004c
-    a5e0:	00000058 	.word	0x00000058
-    a5e4:	00000000 	.word	0x00000000
-    a5e8:	00000d74 	.word	0x00000d74
-    a5ec:	00000d78 	.word	0x00000d78
-
-Disassembly of section .text._ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE10dispatcherEv:
-
-0000a5f0 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE10dispatcherEv>:
-    a5f0:	e92d4ff8 	push	{r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
-    a5f4:	e1a04000 	mov	r4, r0
-    a5f8:	e59f5114 	ldr	r5, [pc, #276]	; a714 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE10dispatcherEv+0x124>
-    a5fc:	e280700c 	add	r7, r0, #12, 0
-    a600:	e5900090 	ldr	r0, [r0, #144]	; 0x90
-    a604:	e3a06000 	mov	r6, #0, 0
-    a608:	e08f5005 	add	r5, pc, r5
-    a60c:	ebfff9d8 	bl	8d74 <_ZN2os5timer3setEm>
-    a610:	e59f9100 	ldr	r9, [pc, #256]	; a718 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE10dispatcherEv+0x128>
-    a614:	e59f8100 	ldr	r8, [pc, #256]	; a71c <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE10dispatcherEv+0x12c>
-    a618:	e59f2100 	ldr	r2, [pc, #256]	; a720 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE10dispatcherEv+0x130>
-    a61c:	e59f3100 	ldr	r3, [pc, #256]	; a724 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE10dispatcherEv+0x134>
-    a620:	e08f9009 	add	r9, pc, r9
-    a624:	e08f8008 	add	r8, pc, r8
-    a628:	e795a002 	ldr	sl, [r5, r2]
-    a62c:	e795b003 	ldr	fp, [r5, r3]
-    a630:	e3a0105b 	mov	r1, #91, 0	; 0x5b
-    a634:	e1a0000a 	mov	r0, sl
-    a638:	ebfffb25 	bl	92d4 <_ZStlsRSt7ostreamc>
-    a63c:	e1a01006 	mov	r1, r6
-    a640:	e2866001 	add	r6, r6, #1, 0
-    a644:	ebfffb0a 	bl	9274 <_ZStlsRSt7ostreamm>
-    a648:	e1a01009 	mov	r1, r9
-    a64c:	ebfffb26 	bl	92ec <_ZStlsRSt7ostreamPKc>
-    a650:	e5971000 	ldr	r1, [r7]
-    a654:	ebfffb06 	bl	9274 <_ZStlsRSt7ostreamm>
-    a658:	e1a01008 	mov	r1, r8
-    a65c:	ebfffb22 	bl	92ec <_ZStlsRSt7ostreamPKc>
-    a660:	e1a05000 	mov	r5, r0
-    a664:	e1a00007 	mov	r0, r7
-    a668:	e2877018 	add	r7, r7, #24, 0
-    a66c:	ebfff967 	bl	8c10 <_ZN2os6thread8thread_t13get_state_strEv>
-    a670:	e1a01000 	mov	r1, r0
-    a674:	e1a00005 	mov	r0, r5
-    a678:	ebfffb1b 	bl	92ec <_ZStlsRSt7ostreamPKc>
-    a67c:	e1a0100b 	mov	r1, fp
-    a680:	ebfffb1f 	bl	9304 <_ZStlsRSt7ostreamPFS0_S0_E>
-    a684:	e3560005 	cmp	r6, #5, 0
-    a688:	1affffe8 	bne	a630 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE10dispatcherEv+0x40>
-    a68c:	e5943088 	ldr	r3, [r4, #136]	; 0x88
-    a690:	e3530001 	cmp	r3, #1, 0
-    a694:	98bd8ff8 	popls	{r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
-    a698:	e5946004 	ldr	r6, [r4, #4]
-    a69c:	e3a05018 	mov	r5, #24, 0
-    a6a0:	e594008c 	ldr	r0, [r4, #140]	; 0x8c
-    a6a4:	ea000005 	b	a6c0 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE10dispatcherEv+0xd0>
-    a6a8:	e594008c 	ldr	r0, [r4, #140]	; 0x8c
-    a6ac:	e2800001 	add	r0, r0, #1, 0
-    a6b0:	e584008c 	str	r0, [r4, #140]	; 0x8c
-    a6b4:	e3500005 	cmp	r0, #5, 0
-    a6b8:	0584308c 	streq	r3, [r4, #140]	; 0x8c
-    a6bc:	01a00003 	moveq	r0, r3
-    a6c0:	e0204095 	mla	r0, r5, r0, r4
-    a6c4:	e280000c 	add	r0, r0, #12, 0
-    a6c8:	ebfff91d 	bl	8b44 <_ZN2os6thread8thread_t8is_readyEv>
-    a6cc:	e2503000 	subs	r3, r0, #0, 0
-    a6d0:	0afffff4 	beq	a6a8 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE10dispatcherEv+0xb8>
-    a6d4:	e594308c 	ldr	r3, [r4, #140]	; 0x8c
-    a6d8:	e3a01003 	mov	r1, #3, 0
-    a6dc:	e3a02002 	mov	r2, #2, 0
-    a6e0:	e0050395 	mul	r5, r5, r3
-    a6e4:	e0843005 	add	r3, r4, r5
-    a6e8:	e285500c 	add	r5, r5, #12, 0
-    a6ec:	e0845005 	add	r5, r4, r5
-    a6f0:	e5845004 	str	r5, [r4, #4]
-    a6f4:	e5861004 	str	r1, [r6, #4]
-    a6f8:	e5832010 	str	r2, [r3, #16]
-    a6fc:	ebfff82c 	bl	87b4 <_ZN2os10interrupts17enable_interruptsEv>
-    a700:	e5941004 	ldr	r1, [r4, #4]
-    a704:	e2860008 	add	r0, r6, #8, 0
-    a708:	e8bd4ff8 	pop	{r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
-    a70c:	e2811008 	add	r1, r1, #8, 0
-    a710:	eafffa79 	b	90fc <context_switch>
-    a714:	00001a04 	.word	0x00001a04
-    a718:	00000c1c 	.word	0x00000c1c
-    a71c:	00000c20 	.word	0x00000c20
-    a720:	00000058 	.word	0x00000058
-    a724:	00000000 	.word	0x00000000
+0000a12c <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE8wake_oneEPNS_6thread15sleep_channel_tE>:
+    a12c:	e92d41f0 	push	{r4, r5, r6, r7, r8, lr}
+    a130:	e1a06000 	mov	r6, r0
+    a134:	e1a07001 	mov	r7, r1
+    a138:	e280400c 	add	r4, r0, #12, 0
+    a13c:	e2805084 	add	r5, r0, #132, 0	; 0x84
+    a140:	ea000002 	b	a150 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE8wake_oneEPNS_6thread15sleep_channel_tE+0x24>
+    a144:	e2844018 	add	r4, r4, #24, 0
+    a148:	e1540005 	cmp	r4, r5
+    a14c:	08bd81f0 	popeq	{r4, r5, r6, r7, r8, pc}
+    a150:	e1a00004 	mov	r0, r4
+    a154:	ebfffa7f 	bl	8b58 <_ZN2os6thread8thread_t11is_sleepingEv>
+    a158:	e3500000 	cmp	r0, #0, 0
+    a15c:	0afffff8 	beq	a144 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE8wake_oneEPNS_6thread15sleep_channel_tE+0x18>
+    a160:	e5943014 	ldr	r3, [r4, #20]
+    a164:	e1530007 	cmp	r3, r7
+    a168:	1afffff5 	bne	a144 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE8wake_oneEPNS_6thread15sleep_channel_tE+0x18>
+    a16c:	e5963088 	ldr	r3, [r6, #136]	; 0x88
+    a170:	e3a02000 	mov	r2, #0, 0
+    a174:	e5842014 	str	r2, [r4, #20]
+    a178:	e3a02003 	mov	r2, #3, 0
+    a17c:	e5842004 	str	r2, [r4, #4]
+    a180:	e2833001 	add	r3, r3, #1, 0
+    a184:	e5863088 	str	r3, [r6, #136]	; 0x88
+    a188:	e8bd81f0 	pop	{r4, r5, r6, r7, r8, pc}
 
 Disassembly of section .text._ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE5sleepEPNS_6thread15sleep_channel_tE:
 
-0000a728 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE5sleepEPNS_6thread15sleep_channel_tE>:
-    a728:	e92d4ff0 	push	{r4, r5, r6, r7, r8, r9, sl, fp, lr}
-    a72c:	e2515000 	subs	r5, r1, #0, 0
-    a730:	e59f713c 	ldr	r7, [pc, #316]	; a874 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE5sleepEPNS_6thread15sleep_channel_tE+0x14c>
-    a734:	e24dd00c 	sub	sp, sp, #12, 0
-    a738:	e08f7007 	add	r7, pc, r7
-    a73c:	0a00004a 	beq	a86c <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE5sleepEPNS_6thread15sleep_channel_tE+0x144>
-    a740:	e59f8130 	ldr	r8, [pc, #304]	; a878 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE5sleepEPNS_6thread15sleep_channel_tE+0x150>
-    a744:	e1a04000 	mov	r4, r0
-    a748:	e59f912c 	ldr	r9, [pc, #300]	; a87c <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE5sleepEPNS_6thread15sleep_channel_tE+0x154>
-    a74c:	ebfff811 	bl	8798 <_ZN2os10interrupts18disable_interruptsEv>
-    a750:	e5943004 	ldr	r3, [r4, #4]
-    a754:	e3a00001 	mov	r0, #1, 0
-    a758:	e5941088 	ldr	r1, [r4, #136]	; 0x88
-    a75c:	e284600c 	add	r6, r4, #12, 0
-    a760:	e5835014 	str	r5, [r3, #20]
-    a764:	e3a05000 	mov	r5, #0, 0
-    a768:	e5830004 	str	r0, [r3, #4]
-    a76c:	e2411001 	sub	r1, r1, #1, 0
-    a770:	e59f2108 	ldr	r2, [pc, #264]	; a880 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE5sleepEPNS_6thread15sleep_channel_tE+0x158>
-    a774:	e59f3108 	ldr	r3, [pc, #264]	; a884 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE5sleepEPNS_6thread15sleep_channel_tE+0x15c>
-    a778:	e5841088 	str	r1, [r4, #136]	; 0x88
-    a77c:	e08f8008 	add	r8, pc, r8
-    a780:	e797a002 	ldr	sl, [r7, r2]
-    a784:	e797b003 	ldr	fp, [r7, r3]
-    a788:	e08f9009 	add	r9, pc, r9
-    a78c:	e3a0105b 	mov	r1, #91, 0	; 0x5b
-    a790:	e1a0000a 	mov	r0, sl
-    a794:	ebffface 	bl	92d4 <_ZStlsRSt7ostreamc>
-    a798:	e1a01005 	mov	r1, r5
-    a79c:	e2855001 	add	r5, r5, #1, 0
-    a7a0:	ebfffab3 	bl	9274 <_ZStlsRSt7ostreamm>
-    a7a4:	e1a01008 	mov	r1, r8
-    a7a8:	ebfffacf 	bl	92ec <_ZStlsRSt7ostreamPKc>
-    a7ac:	e5961000 	ldr	r1, [r6]
-    a7b0:	ebfffaaf 	bl	9274 <_ZStlsRSt7ostreamm>
-    a7b4:	e1a01009 	mov	r1, r9
-    a7b8:	ebfffacb 	bl	92ec <_ZStlsRSt7ostreamPKc>
-    a7bc:	e58d0004 	str	r0, [sp, #4]
-    a7c0:	e1a00006 	mov	r0, r6
-    a7c4:	e59d7004 	ldr	r7, [sp, #4]
-    a7c8:	ebfff910 	bl	8c10 <_ZN2os6thread8thread_t13get_state_strEv>
-    a7cc:	e1a01000 	mov	r1, r0
-    a7d0:	e2866018 	add	r6, r6, #24, 0
-    a7d4:	e1a00007 	mov	r0, r7
-    a7d8:	ebfffac3 	bl	92ec <_ZStlsRSt7ostreamPKc>
-    a7dc:	e1a0100b 	mov	r1, fp
-    a7e0:	ebfffac7 	bl	9304 <_ZStlsRSt7ostreamPFS0_S0_E>
-    a7e4:	e3550005 	cmp	r5, #5, 0
-    a7e8:	1affffe7 	bne	a78c <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE5sleepEPNS_6thread15sleep_channel_tE+0x64>
-    a7ec:	e5946004 	ldr	r6, [r4, #4]
-    a7f0:	e3a05018 	mov	r5, #24, 0
-    a7f4:	e594008c 	ldr	r0, [r4, #140]	; 0x8c
-    a7f8:	ea000005 	b	a814 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE5sleepEPNS_6thread15sleep_channel_tE+0xec>
-    a7fc:	e594008c 	ldr	r0, [r4, #140]	; 0x8c
-    a800:	e2800001 	add	r0, r0, #1, 0
-    a804:	e584008c 	str	r0, [r4, #140]	; 0x8c
-    a808:	e3500005 	cmp	r0, #5, 0
-    a80c:	0584308c 	streq	r3, [r4, #140]	; 0x8c
-    a810:	01a00003 	moveq	r0, r3
-    a814:	e0204095 	mla	r0, r5, r0, r4
-    a818:	e280000c 	add	r0, r0, #12, 0
-    a81c:	ebfff8c8 	bl	8b44 <_ZN2os6thread8thread_t8is_readyEv>
-    a820:	e2503000 	subs	r3, r0, #0, 0
-    a824:	0afffff4 	beq	a7fc <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE5sleepEPNS_6thread15sleep_channel_tE+0xd4>
-    a828:	e594308c 	ldr	r3, [r4, #140]	; 0x8c
-    a82c:	e3a02002 	mov	r2, #2, 0
-    a830:	e0050395 	mul	r5, r5, r3
-    a834:	e0843005 	add	r3, r4, r5
-    a838:	e285500c 	add	r5, r5, #12, 0
-    a83c:	e0845005 	add	r5, r4, r5
-    a840:	e5845004 	str	r5, [r4, #4]
-    a844:	e5832010 	str	r2, [r3, #16]
-    a848:	e5940090 	ldr	r0, [r4, #144]	; 0x90
-    a84c:	ebfff948 	bl	8d74 <_ZN2os5timer3setEm>
-    a850:	ebfff7d7 	bl	87b4 <_ZN2os10interrupts17enable_interruptsEv>
-    a854:	e5941004 	ldr	r1, [r4, #4]
-    a858:	e2860008 	add	r0, r6, #8, 0
-    a85c:	e2811008 	add	r1, r1, #8, 0
-    a860:	e28dd00c 	add	sp, sp, #12, 0
-    a864:	e8bd4ff0 	pop	{r4, r5, r6, r7, r8, r9, sl, fp, lr}
-    a868:	eafffa23 	b	90fc <context_switch>
-    a86c:	e28dd00c 	add	sp, sp, #12, 0
-    a870:	e8bd8ff0 	pop	{r4, r5, r6, r7, r8, r9, sl, fp, pc}
-    a874:	000018d4 	.word	0x000018d4
-    a878:	00000ac0 	.word	0x00000ac0
-    a87c:	00000abc 	.word	0x00000abc
-    a880:	00000058 	.word	0x00000058
-    a884:	00000000 	.word	0x00000000
+0000a18c <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE5sleepEPNS_6thread15sleep_channel_tE>:
+    a18c:	e92d41f0 	push	{r4, r5, r6, r7, r8, lr}
+    a190:	e2517000 	subs	r7, r1, #0, 0
+    a194:	08bd81f0 	popeq	{r4, r5, r6, r7, r8, pc}
+    a198:	e1a04000 	mov	r4, r0
+    a19c:	ebfff97d 	bl	8798 <_ZN2os10interrupts18disable_interruptsEv>
+    a1a0:	e3a02001 	mov	r2, #1, 0
+    a1a4:	e3a05018 	mov	r5, #24, 0
+    a1a8:	e5943088 	ldr	r3, [r4, #136]	; 0x88
+    a1ac:	e5946008 	ldr	r6, [r4, #8]
+    a1b0:	e594008c 	ldr	r0, [r4, #140]	; 0x8c
+    a1b4:	e2433001 	sub	r3, r3, #1, 0
+    a1b8:	e5867014 	str	r7, [r6, #20]
+    a1bc:	e5862004 	str	r2, [r6, #4]
+    a1c0:	e5843088 	str	r3, [r4, #136]	; 0x88
+    a1c4:	ea000005 	b	a1e0 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE5sleepEPNS_6thread15sleep_channel_tE+0x54>
+    a1c8:	e594008c 	ldr	r0, [r4, #140]	; 0x8c
+    a1cc:	e2800001 	add	r0, r0, #1, 0
+    a1d0:	e584008c 	str	r0, [r4, #140]	; 0x8c
+    a1d4:	e3500005 	cmp	r0, #5, 0
+    a1d8:	0584308c 	streq	r3, [r4, #140]	; 0x8c
+    a1dc:	01a00003 	moveq	r0, r3
+    a1e0:	e0204095 	mla	r0, r5, r0, r4
+    a1e4:	e280000c 	add	r0, r0, #12, 0
+    a1e8:	ebfffa55 	bl	8b44 <_ZN2os6thread8thread_t8is_readyEv>
+    a1ec:	e2503000 	subs	r3, r0, #0, 0
+    a1f0:	0afffff4 	beq	a1c8 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE5sleepEPNS_6thread15sleep_channel_tE+0x3c>
+    a1f4:	e594308c 	ldr	r3, [r4, #140]	; 0x8c
+    a1f8:	e3a02002 	mov	r2, #2, 0
+    a1fc:	e0050395 	mul	r5, r5, r3
+    a200:	e0843005 	add	r3, r4, r5
+    a204:	e285500c 	add	r5, r5, #12, 0
+    a208:	e0845005 	add	r5, r4, r5
+    a20c:	e5845008 	str	r5, [r4, #8]
+    a210:	e5832010 	str	r2, [r3, #16]
+    a214:	e5940090 	ldr	r0, [r4, #144]	; 0x90
+    a218:	ebfffaaf 	bl	8cdc <_ZN2os5timer3setEm>
+    a21c:	ebfff964 	bl	87b4 <_ZN2os10interrupts17enable_interruptsEv>
+    a220:	e5941008 	ldr	r1, [r4, #8]
+    a224:	e2860008 	add	r0, r6, #8, 0
+    a228:	e8bd41f0 	pop	{r4, r5, r6, r7, r8, lr}
+    a22c:	e2811008 	add	r1, r1, #8, 0
+    a230:	eafffb89 	b	905c <context_switch>
+
+Disassembly of section .text._ZN2os11concurrency10dispatcherINS0_12rr_schedulerILm5ENS_6memory4heapINS3_11heap_policy8best_fitEEEEEEEvm:
+
+0000a234 <_ZN2os11concurrency10dispatcherINS0_12rr_schedulerILm5ENS_6memory4heapINS3_11heap_policy8best_fitEEEEEEEvm>:
+    a234:	e92d4ff0 	push	{r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    a238:	e24dd00c 	sub	sp, sp, #12, 0
+    a23c:	e59f71c8 	ldr	r7, [pc, #456]	; a40c <_ZN2os11concurrency10dispatcherINS0_12rr_schedulerILm5ENS_6memory4heapINS3_11heap_policy8best_fitEEEEEEEvm+0x1d8>
+    a240:	e59f21c8 	ldr	r2, [pc, #456]	; a410 <_ZN2os11concurrency10dispatcherINS0_12rr_schedulerILm5ENS_6memory4heapINS3_11heap_policy8best_fitEEEEEEEvm+0x1dc>
+    a244:	e08f7007 	add	r7, pc, r7
+    a248:	e7973002 	ldr	r3, [r7, r2]
+    a24c:	e0833180 	add	r3, r3, r0, lsl #3
+    a250:	e5934004 	ldr	r4, [r3, #4]
+    a254:	e5943088 	ldr	r3, [r4, #136]	; 0x88
+    a258:	e3530001 	cmp	r3, #1, 0
+    a25c:	9a000045 	bls	a378 <_ZN2os11concurrency10dispatcherINS0_12rr_schedulerILm5ENS_6memory4heapINS3_11heap_policy8best_fitEEEEEEEvm+0x144>
+    a260:	e5943008 	ldr	r3, [r4, #8]
+    a264:	e3a05018 	mov	r5, #24, 0
+    a268:	e594008c 	ldr	r0, [r4, #140]	; 0x8c
+    a26c:	e58d3004 	str	r3, [sp, #4]
+    a270:	ea000005 	b	a28c <_ZN2os11concurrency10dispatcherINS0_12rr_schedulerILm5ENS_6memory4heapINS3_11heap_policy8best_fitEEEEEEEvm+0x58>
+    a274:	e594008c 	ldr	r0, [r4, #140]	; 0x8c
+    a278:	e2800001 	add	r0, r0, #1, 0
+    a27c:	e584008c 	str	r0, [r4, #140]	; 0x8c
+    a280:	e3500005 	cmp	r0, #5, 0
+    a284:	0584308c 	streq	r3, [r4, #140]	; 0x8c
+    a288:	01a00003 	moveq	r0, r3
+    a28c:	e0204095 	mla	r0, r5, r0, r4
+    a290:	e280000c 	add	r0, r0, #12, 0
+    a294:	ebfffa2a 	bl	8b44 <_ZN2os6thread8thread_t8is_readyEv>
+    a298:	e2503000 	subs	r3, r0, #0, 0
+    a29c:	0afffff4 	beq	a274 <_ZN2os11concurrency10dispatcherINS0_12rr_schedulerILm5ENS_6memory4heapINS3_11heap_policy8best_fitEEEEEEEvm+0x40>
+    a2a0:	e594308c 	ldr	r3, [r4, #140]	; 0x8c
+    a2a4:	e3a0c003 	mov	ip, #3, 0
+    a2a8:	e59f2164 	ldr	r2, [pc, #356]	; a414 <_ZN2os11concurrency10dispatcherINS0_12rr_schedulerILm5ENS_6memory4heapINS3_11heap_policy8best_fitEEEEEEEvm+0x1e0>
+    a2ac:	e3a00002 	mov	r0, #2, 0
+    a2b0:	e0050395 	mul	r5, r5, r3
+    a2b4:	e59de004 	ldr	lr, [sp, #4]
+    a2b8:	e284800c 	add	r8, r4, #12, 0
+    a2bc:	e0841005 	add	r1, r4, r5
+    a2c0:	e285500c 	add	r5, r5, #12, 0
+    a2c4:	e59f314c 	ldr	r3, [pc, #332]	; a418 <_ZN2os11concurrency10dispatcherINS0_12rr_schedulerILm5ENS_6memory4heapINS3_11heap_policy8best_fitEEEEEEEvm+0x1e4>
+    a2c8:	e0845005 	add	r5, r4, r5
+    a2cc:	e5845008 	str	r5, [r4, #8]
+    a2d0:	e3a05000 	mov	r5, #0, 0
+    a2d4:	e58ec004 	str	ip, [lr, #4]
+    a2d8:	e59fb13c 	ldr	fp, [pc, #316]	; a41c <_ZN2os11concurrency10dispatcherINS0_12rr_schedulerILm5ENS_6memory4heapINS3_11heap_policy8best_fitEEEEEEEvm+0x1e8>
+    a2dc:	e5810010 	str	r0, [r1, #16]
+    a2e0:	e797a002 	ldr	sl, [r7, r2]
+    a2e4:	e7979003 	ldr	r9, [r7, r3]
+    a2e8:	e59f7130 	ldr	r7, [pc, #304]	; a420 <_ZN2os11concurrency10dispatcherINS0_12rr_schedulerILm5ENS_6memory4heapINS3_11heap_policy8best_fitEEEEEEEvm+0x1ec>
+    a2ec:	e08fb00b 	add	fp, pc, fp
+    a2f0:	e08f7007 	add	r7, pc, r7
+    a2f4:	e3a0105b 	mov	r1, #91, 0	; 0x5b
+    a2f8:	e1a0000a 	mov	r0, sl
+    a2fc:	ebfffbac 	bl	91b4 <_ZStlsRSt7ostreamc>
+    a300:	e1a01005 	mov	r1, r5
+    a304:	e2855001 	add	r5, r5, #1, 0
+    a308:	ebfffb91 	bl	9154 <_ZStlsRSt7ostreamm>
+    a30c:	e1a0100b 	mov	r1, fp
+    a310:	ebfffbad 	bl	91cc <_ZStlsRSt7ostreamPKc>
+    a314:	e5981000 	ldr	r1, [r8]
+    a318:	ebfffb8d 	bl	9154 <_ZStlsRSt7ostreamm>
+    a31c:	e1a01007 	mov	r1, r7
+    a320:	ebfffba9 	bl	91cc <_ZStlsRSt7ostreamPKc>
+    a324:	e1a06000 	mov	r6, r0
+    a328:	e1a00008 	mov	r0, r8
+    a32c:	e2888018 	add	r8, r8, #24, 0
+    a330:	ebfffa36 	bl	8c10 <_ZN2os6thread8thread_t13get_state_strEv>
+    a334:	e1a01000 	mov	r1, r0
+    a338:	e1a00006 	mov	r0, r6
+    a33c:	ebfffba2 	bl	91cc <_ZStlsRSt7ostreamPKc>
+    a340:	e1a01009 	mov	r1, r9
+    a344:	ebfffba6 	bl	91e4 <_ZStlsRSt7ostreamPFS0_S0_E>
+    a348:	e3550005 	cmp	r5, #5, 0
+    a34c:	1affffe8 	bne	a2f4 <_ZN2os11concurrency10dispatcherINS0_12rr_schedulerILm5ENS_6memory4heapINS3_11heap_policy8best_fitEEEEEEEvm+0xc0>
+    a350:	e5940090 	ldr	r0, [r4, #144]	; 0x90
+    a354:	ebfffa60 	bl	8cdc <_ZN2os5timer3setEm>
+    a358:	ebfff915 	bl	87b4 <_ZN2os10interrupts17enable_interruptsEv>
+    a35c:	e5941008 	ldr	r1, [r4, #8]
+    a360:	e59d3004 	ldr	r3, [sp, #4]
+    a364:	e2811008 	add	r1, r1, #8, 0
+    a368:	e2830008 	add	r0, r3, #8, 0
+    a36c:	e28dd00c 	add	sp, sp, #12, 0
+    a370:	e8bd4ff0 	pop	{r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    a374:	eafffb38 	b	905c <context_switch>
+    a378:	e59f2094 	ldr	r2, [pc, #148]	; a414 <_ZN2os11concurrency10dispatcherINS0_12rr_schedulerILm5ENS_6memory4heapINS3_11heap_policy8best_fitEEEEEEEvm+0x1e0>
+    a37c:	e284600c 	add	r6, r4, #12, 0
+    a380:	e59f3090 	ldr	r3, [pc, #144]	; a418 <_ZN2os11concurrency10dispatcherINS0_12rr_schedulerILm5ENS_6memory4heapINS3_11heap_policy8best_fitEEEEEEEvm+0x1e4>
+    a384:	e3a05000 	mov	r5, #0, 0
+    a388:	e59fb094 	ldr	fp, [pc, #148]	; a424 <_ZN2os11concurrency10dispatcherINS0_12rr_schedulerILm5ENS_6memory4heapINS3_11heap_policy8best_fitEEEEEEEvm+0x1f0>
+    a38c:	e59f8094 	ldr	r8, [pc, #148]	; a428 <_ZN2os11concurrency10dispatcherINS0_12rr_schedulerILm5ENS_6memory4heapINS3_11heap_policy8best_fitEEEEEEEvm+0x1f4>
+    a390:	e797a002 	ldr	sl, [r7, r2]
+    a394:	e7979003 	ldr	r9, [r7, r3]
+    a398:	e08fb00b 	add	fp, pc, fp
+    a39c:	e08f8008 	add	r8, pc, r8
+    a3a0:	e3a0105b 	mov	r1, #91, 0	; 0x5b
+    a3a4:	e1a0000a 	mov	r0, sl
+    a3a8:	ebfffb81 	bl	91b4 <_ZStlsRSt7ostreamc>
+    a3ac:	e1a01005 	mov	r1, r5
+    a3b0:	e2855001 	add	r5, r5, #1, 0
+    a3b4:	ebfffb66 	bl	9154 <_ZStlsRSt7ostreamm>
+    a3b8:	e1a0100b 	mov	r1, fp
+    a3bc:	ebfffb82 	bl	91cc <_ZStlsRSt7ostreamPKc>
+    a3c0:	e5961000 	ldr	r1, [r6]
+    a3c4:	ebfffb62 	bl	9154 <_ZStlsRSt7ostreamm>
+    a3c8:	e1a01008 	mov	r1, r8
+    a3cc:	ebfffb7e 	bl	91cc <_ZStlsRSt7ostreamPKc>
+    a3d0:	e1a07000 	mov	r7, r0
+    a3d4:	e1a00006 	mov	r0, r6
+    a3d8:	e2866018 	add	r6, r6, #24, 0
+    a3dc:	ebfffa0b 	bl	8c10 <_ZN2os6thread8thread_t13get_state_strEv>
+    a3e0:	e1a01000 	mov	r1, r0
+    a3e4:	e1a00007 	mov	r0, r7
+    a3e8:	ebfffb77 	bl	91cc <_ZStlsRSt7ostreamPKc>
+    a3ec:	e1a01009 	mov	r1, r9
+    a3f0:	ebfffb7b 	bl	91e4 <_ZStlsRSt7ostreamPFS0_S0_E>
+    a3f4:	e3550005 	cmp	r5, #5, 0
+    a3f8:	1affffe8 	bne	a3a0 <_ZN2os11concurrency10dispatcherINS0_12rr_schedulerILm5ENS_6memory4heapINS3_11heap_policy8best_fitEEEEEEEvm+0x16c>
+    a3fc:	e5940090 	ldr	r0, [r4, #144]	; 0x90
+    a400:	e28dd00c 	add	sp, sp, #12, 0
+    a404:	e8bd4ff0 	pop	{r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    a408:	eafffa33 	b	8cdc <_ZN2os5timer3setEm>
+    a40c:	00001dc8 	.word	0x00001dc8
+    a410:	00000040 	.word	0x00000040
+    a414:	00000054 	.word	0x00000054
+    a418:	00000000 	.word	0x00000000
+    a41c:	00000f18 	.word	0x00000f18
+    a420:	00000f1c 	.word	0x00000f1c
+    a424:	00000e6c 	.word	0x00000e6c
+    a428:	00000e70 	.word	0x00000e70
 
 Disassembly of section .text._ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE4joinEPNS_6thread8thread_tE:
 
-0000a888 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE4joinEPNS_6thread8thread_tE>:
-    a888:	e92d4ff0 	push	{r4, r5, r6, r7, r8, r9, sl, fp, lr}
-    a88c:	e24dd00c 	sub	sp, sp, #12, 0
-    a890:	e59f8164 	ldr	r8, [pc, #356]	; a9fc <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE4joinEPNS_6thread8thread_tE+0x174>
-    a894:	e1a06001 	mov	r6, r1
-    a898:	e58d1004 	str	r1, [sp, #4]
-    a89c:	e1a04000 	mov	r4, r0
-    a8a0:	e08f8008 	add	r8, pc, r8
-    a8a4:	ebfff7bb 	bl	8798 <_ZN2os10interrupts18disable_interruptsEv>
-    a8a8:	e1a00006 	mov	r0, r6
-    a8ac:	ebfff8ae 	bl	8b6c <_ZN2os6thread8thread_t11is_finishedEv>
-    a8b0:	e2505000 	subs	r5, r0, #0, 0
-    a8b4:	1a00004b 	bne	a9e8 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE4joinEPNS_6thread8thread_tE+0x160>
-    a8b8:	e5940004 	ldr	r0, [r4, #4]
-    a8bc:	e2862010 	add	r2, r6, #16, 0
-    a8c0:	e5941088 	ldr	r1, [r4, #136]	; 0x88
-    a8c4:	e3a0c001 	mov	ip, #1, 0
-    a8c8:	e5802014 	str	r2, [r0, #20]
-    a8cc:	e284700c 	add	r7, r4, #12, 0
-    a8d0:	e59f3128 	ldr	r3, [pc, #296]	; aa00 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE4joinEPNS_6thread8thread_tE+0x178>
-    a8d4:	e2411001 	sub	r1, r1, #1, 0
-    a8d8:	e59f2124 	ldr	r2, [pc, #292]	; aa04 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE4joinEPNS_6thread8thread_tE+0x17c>
-    a8dc:	e59fa124 	ldr	sl, [pc, #292]	; aa08 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE4joinEPNS_6thread8thread_tE+0x180>
-    a8e0:	e59f9124 	ldr	r9, [pc, #292]	; aa0c <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE4joinEPNS_6thread8thread_tE+0x184>
-    a8e4:	e580c004 	str	ip, [r0, #4]
-    a8e8:	e08fa00a 	add	sl, pc, sl
-    a8ec:	e5841088 	str	r1, [r4, #136]	; 0x88
-    a8f0:	e08f9009 	add	r9, pc, r9
-    a8f4:	e7983003 	ldr	r3, [r8, r3]
-    a8f8:	e798b002 	ldr	fp, [r8, r2]
-    a8fc:	e58d3004 	str	r3, [sp, #4]
-    a900:	e1a00003 	mov	r0, r3
-    a904:	e3a0105b 	mov	r1, #91, 0	; 0x5b
-    a908:	ebfffa71 	bl	92d4 <_ZStlsRSt7ostreamc>
-    a90c:	e1a01005 	mov	r1, r5
-    a910:	e2855001 	add	r5, r5, #1, 0
-    a914:	ebfffa56 	bl	9274 <_ZStlsRSt7ostreamm>
-    a918:	e1a0100a 	mov	r1, sl
-    a91c:	ebfffa72 	bl	92ec <_ZStlsRSt7ostreamPKc>
-    a920:	e5971000 	ldr	r1, [r7]
-    a924:	ebfffa52 	bl	9274 <_ZStlsRSt7ostreamm>
-    a928:	e1a01009 	mov	r1, r9
-    a92c:	ebfffa6e 	bl	92ec <_ZStlsRSt7ostreamPKc>
-    a930:	e1a08000 	mov	r8, r0
-    a934:	e1a00007 	mov	r0, r7
-    a938:	e2877018 	add	r7, r7, #24, 0
-    a93c:	ebfff8b3 	bl	8c10 <_ZN2os6thread8thread_t13get_state_strEv>
-    a940:	e1a01000 	mov	r1, r0
-    a944:	e1a00008 	mov	r0, r8
-    a948:	ebfffa67 	bl	92ec <_ZStlsRSt7ostreamPKc>
-    a94c:	e1a0100b 	mov	r1, fp
-    a950:	ebfffa6b 	bl	9304 <_ZStlsRSt7ostreamPFS0_S0_E>
-    a954:	e59d3004 	ldr	r3, [sp, #4]
-    a958:	e3550005 	cmp	r5, #5, 0
-    a95c:	1affffe6 	bne	a8fc <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE4joinEPNS_6thread8thread_tE+0x74>
-    a960:	e5947004 	ldr	r7, [r4, #4]
-    a964:	e3a05018 	mov	r5, #24, 0
-    a968:	e594008c 	ldr	r0, [r4, #140]	; 0x8c
-    a96c:	ea000005 	b	a988 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE4joinEPNS_6thread8thread_tE+0x100>
-    a970:	e594008c 	ldr	r0, [r4, #140]	; 0x8c
-    a974:	e2800001 	add	r0, r0, #1, 0
-    a978:	e584008c 	str	r0, [r4, #140]	; 0x8c
-    a97c:	e3500005 	cmp	r0, #5, 0
-    a980:	0584308c 	streq	r3, [r4, #140]	; 0x8c
-    a984:	01a00003 	moveq	r0, r3
-    a988:	e0204095 	mla	r0, r5, r0, r4
-    a98c:	e280000c 	add	r0, r0, #12, 0
-    a990:	ebfff86b 	bl	8b44 <_ZN2os6thread8thread_t8is_readyEv>
-    a994:	e2503000 	subs	r3, r0, #0, 0
-    a998:	0afffff4 	beq	a970 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE4joinEPNS_6thread8thread_tE+0xe8>
-    a99c:	e594308c 	ldr	r3, [r4, #140]	; 0x8c
-    a9a0:	e3a02002 	mov	r2, #2, 0
-    a9a4:	e0050395 	mul	r5, r5, r3
-    a9a8:	e0843005 	add	r3, r4, r5
-    a9ac:	e285500c 	add	r5, r5, #12, 0
-    a9b0:	e0845005 	add	r5, r4, r5
-    a9b4:	e5845004 	str	r5, [r4, #4]
-    a9b8:	e5832010 	str	r2, [r3, #16]
-    a9bc:	e5940090 	ldr	r0, [r4, #144]	; 0x90
-    a9c0:	ebfff8eb 	bl	8d74 <_ZN2os5timer3setEm>
-    a9c4:	ebfff77a 	bl	87b4 <_ZN2os10interrupts17enable_interruptsEv>
-    a9c8:	e5941004 	ldr	r1, [r4, #4]
-    a9cc:	e2870008 	add	r0, r7, #8, 0
-    a9d0:	e2811008 	add	r1, r1, #8, 0
-    a9d4:	ebfff9c8 	bl	90fc <context_switch>
-    a9d8:	e3a03000 	mov	r3, #0, 0
-    a9dc:	e5863004 	str	r3, [r6, #4]
-    a9e0:	e28dd00c 	add	sp, sp, #12, 0
-    a9e4:	e8bd8ff0 	pop	{r4, r5, r6, r7, r8, r9, sl, fp, pc}
-    a9e8:	e3a03000 	mov	r3, #0, 0
-    a9ec:	e5863004 	str	r3, [r6, #4]
-    a9f0:	e28dd00c 	add	sp, sp, #12, 0
-    a9f4:	e8bd4ff0 	pop	{r4, r5, r6, r7, r8, r9, sl, fp, lr}
-    a9f8:	eafff76d 	b	87b4 <_ZN2os10interrupts17enable_interruptsEv>
-    a9fc:	0000176c 	.word	0x0000176c
-    aa00:	00000058 	.word	0x00000058
-    aa04:	00000000 	.word	0x00000000
-    aa08:	00000954 	.word	0x00000954
-    aa0c:	00000954 	.word	0x00000954
+0000a42c <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE4joinEPNS_6thread8thread_tE>:
+    a42c:	e92d4ff0 	push	{r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    a430:	e1a06001 	mov	r6, r1
+    a434:	e59f7168 	ldr	r7, [pc, #360]	; a5a4 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE4joinEPNS_6thread8thread_tE+0x178>
+    a438:	e24dd00c 	sub	sp, sp, #12, 0
+    a43c:	e1a04000 	mov	r4, r0
+    a440:	ebfff8d4 	bl	8798 <_ZN2os10interrupts18disable_interruptsEv>
+    a444:	e08f7007 	add	r7, pc, r7
+    a448:	e1a00006 	mov	r0, r6
+    a44c:	ebfff9c6 	bl	8b6c <_ZN2os6thread8thread_t11is_finishedEv>
+    a450:	e3500000 	cmp	r0, #0, 0
+    a454:	1a00004d 	bne	a590 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE4joinEPNS_6thread8thread_tE+0x164>
+    a458:	e5943088 	ldr	r3, [r4, #136]	; 0x88
+    a45c:	e2862010 	add	r2, r6, #16, 0
+    a460:	e5948008 	ldr	r8, [r4, #8]
+    a464:	e3a05018 	mov	r5, #24, 0
+    a468:	e594008c 	ldr	r0, [r4, #140]	; 0x8c
+    a46c:	e2433001 	sub	r3, r3, #1, 0
+    a470:	e5882014 	str	r2, [r8, #20]
+    a474:	e3a02001 	mov	r2, #1, 0
+    a478:	e5882004 	str	r2, [r8, #4]
+    a47c:	e5843088 	str	r3, [r4, #136]	; 0x88
+    a480:	ea000005 	b	a49c <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE4joinEPNS_6thread8thread_tE+0x70>
+    a484:	e594008c 	ldr	r0, [r4, #140]	; 0x8c
+    a488:	e2800001 	add	r0, r0, #1, 0
+    a48c:	e584008c 	str	r0, [r4, #140]	; 0x8c
+    a490:	e3500005 	cmp	r0, #5, 0
+    a494:	0584308c 	streq	r3, [r4, #140]	; 0x8c
+    a498:	01a00003 	moveq	r0, r3
+    a49c:	e0204095 	mla	r0, r5, r0, r4
+    a4a0:	e280000c 	add	r0, r0, #12, 0
+    a4a4:	ebfff9a6 	bl	8b44 <_ZN2os6thread8thread_t8is_readyEv>
+    a4a8:	e2503000 	subs	r3, r0, #0, 0
+    a4ac:	0afffff4 	beq	a484 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE4joinEPNS_6thread8thread_tE+0x58>
+    a4b0:	e594208c 	ldr	r2, [r4, #140]	; 0x8c
+    a4b4:	e3a00002 	mov	r0, #2, 0
+    a4b8:	e59f30e8 	ldr	r3, [pc, #232]	; a5a8 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE4joinEPNS_6thread8thread_tE+0x17c>
+    a4bc:	e284900c 	add	r9, r4, #12, 0
+    a4c0:	e0050295 	mul	r5, r5, r2
+    a4c4:	e59f20e0 	ldr	r2, [pc, #224]	; a5ac <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE4joinEPNS_6thread8thread_tE+0x180>
+    a4c8:	e0841005 	add	r1, r4, r5
+    a4cc:	e285500c 	add	r5, r5, #12, 0
+    a4d0:	e0845005 	add	r5, r4, r5
+    a4d4:	e5845008 	str	r5, [r4, #8]
+    a4d8:	e3a05000 	mov	r5, #0, 0
+    a4dc:	e5810010 	str	r0, [r1, #16]
+    a4e0:	e59fa0c8 	ldr	sl, [pc, #200]	; a5b0 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE4joinEPNS_6thread8thread_tE+0x184>
+    a4e4:	e7973003 	ldr	r3, [r7, r3]
+    a4e8:	e797b002 	ldr	fp, [r7, r2]
+    a4ec:	e59f70c0 	ldr	r7, [pc, #192]	; a5b4 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE4joinEPNS_6thread8thread_tE+0x188>
+    a4f0:	e08fa00a 	add	sl, pc, sl
+    a4f4:	e08f7007 	add	r7, pc, r7
+    a4f8:	e58d3004 	str	r3, [sp, #4]
+    a4fc:	e1a00003 	mov	r0, r3
+    a500:	e3a0105b 	mov	r1, #91, 0	; 0x5b
+    a504:	ebfffb2a 	bl	91b4 <_ZStlsRSt7ostreamc>
+    a508:	e1a01005 	mov	r1, r5
+    a50c:	e2855001 	add	r5, r5, #1, 0
+    a510:	ebfffb0f 	bl	9154 <_ZStlsRSt7ostreamm>
+    a514:	e1a0100a 	mov	r1, sl
+    a518:	ebfffb2b 	bl	91cc <_ZStlsRSt7ostreamPKc>
+    a51c:	e5991000 	ldr	r1, [r9]
+    a520:	ebfffb0b 	bl	9154 <_ZStlsRSt7ostreamm>
+    a524:	e1a01007 	mov	r1, r7
+    a528:	ebfffb27 	bl	91cc <_ZStlsRSt7ostreamPKc>
+    a52c:	e1a02000 	mov	r2, r0
+    a530:	e1a00009 	mov	r0, r9
+    a534:	e58d2000 	str	r2, [sp]
+    a538:	ebfff9b4 	bl	8c10 <_ZN2os6thread8thread_t13get_state_strEv>
+    a53c:	e59d2000 	ldr	r2, [sp]
+    a540:	e1a01000 	mov	r1, r0
+    a544:	e2899018 	add	r9, r9, #24, 0
+    a548:	e1a00002 	mov	r0, r2
+    a54c:	ebfffb1e 	bl	91cc <_ZStlsRSt7ostreamPKc>
+    a550:	e1a0100b 	mov	r1, fp
+    a554:	ebfffb22 	bl	91e4 <_ZStlsRSt7ostreamPFS0_S0_E>
+    a558:	e59d3004 	ldr	r3, [sp, #4]
+    a55c:	e3550005 	cmp	r5, #5, 0
+    a560:	1affffe4 	bne	a4f8 <_ZN2os11concurrency12rr_schedulerILm5ENS_6memory4heapINS2_11heap_policy8best_fitEEEE4joinEPNS_6thread8thread_tE+0xcc>
+    a564:	e5940090 	ldr	r0, [r4, #144]	; 0x90
+    a568:	ebfff9db 	bl	8cdc <_ZN2os5timer3setEm>
+    a56c:	ebfff890 	bl	87b4 <_ZN2os10interrupts17enable_interruptsEv>
+    a570:	e5941008 	ldr	r1, [r4, #8]
+    a574:	e2880008 	add	r0, r8, #8, 0
+    a578:	e2811008 	add	r1, r1, #8, 0
+    a57c:	ebfffab6 	bl	905c <context_switch>
+    a580:	e3a03000 	mov	r3, #0, 0
+    a584:	e5863004 	str	r3, [r6, #4]
+    a588:	e28dd00c 	add	sp, sp, #12, 0
+    a58c:	e8bd8ff0 	pop	{r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    a590:	e3a03000 	mov	r3, #0, 0
+    a594:	e5863004 	str	r3, [r6, #4]
+    a598:	e28dd00c 	add	sp, sp, #12, 0
+    a59c:	e8bd4ff0 	pop	{r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    a5a0:	eafff883 	b	87b4 <_ZN2os10interrupts17enable_interruptsEv>
+    a5a4:	00001bc8 	.word	0x00001bc8
+    a5a8:	00000054 	.word	0x00000054
+    a5ac:	00000000 	.word	0x00000000
+    a5b0:	00000d14 	.word	0x00000d14
+    a5b4:	00000d18 	.word	0x00000d18
