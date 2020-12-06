@@ -38,6 +38,7 @@ link: ${OS_ELF}
 ${OS_ELF}: ${OS_OBJ_FILES} ${OS_INC_FILES} ${EXT_OBJ_FILES} ${OS_LINKER_FILE}
 	@echo "Linking..."
 	@${CXX} ${ARCHFLAGS} -T ${OS_LINKER_FILE} -o ${OS_ELF} -I${OS_INC_DIR} ${LFLAGS} ${OS_OBJ_FILES} ${EXT_OBJ_FILES}
+	@$(OBJDUMP) -S ${OS_ELF} > os.S
 
 # Compile .cpp Files
 ${OS_OBJ_DIR}/%.o: ${OS_SRC_DIR}/%.cpp

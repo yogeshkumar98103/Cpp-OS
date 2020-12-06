@@ -57,26 +57,10 @@ namespace os::thread {
             case thread_state::sleeping:    return "sleeping";
             case thread_state::finished:    return "finished";
         }
+        return "";
     }
-}
-
-namespace os::concurrency {
-    void dispatcher(uint32_t cpu_id){
-        // switch_stack(os::this_cpu().scheduler->sch_context);
-        os::cpu[cpu_id].scheduler->dispatcher();
-    }
-}
-
-extern "C" void grim_reaper(){
-    using namespace os::concurrency;
-    std::cout << "Outer Grim Reaper\n";
-    switch_stack(os::this_cpu().scheduler->sch_context);
-    os::this_cpu().scheduler->grim_reaper();
 }
 
 extern "C" void thread_exit(){
-    using namespace os::concurrency;
-    std::cout << "Thread Exit\n";
-    switch_stack(os::this_cpu().scheduler->sch_context);
-    os::this_cpu().scheduler->thread_exit();
+    context_load(&os::this_cpu().scheduler->sch_context);
 }

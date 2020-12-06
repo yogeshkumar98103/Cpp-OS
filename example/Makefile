@@ -44,6 +44,9 @@ ${OBJ_DIR}/%.o: ${SRC_DIR}/%.cpp
 run: ${OS_ELF}
 	@${QEMU} -append 'console=ttyS0' -nographic -m 1G -M ${DEVICE_NAME} -serial mon:stdio -kernel ${OS_ELF}
 
+runfs: ${OS_OLF} bin/fs.img
+	@${QEMU} -append 'console=ttyS0' -nographic -m 1G -M ${DEVICE_NAME} -serial mon:stdio -drive file=bin/fs.img,if=sd,format=raw -kernel ${OS_ELF}
+
 ${OS_ELF}: ${BIN_DIR} ${OBJ_DIR} ${OBJ_FILES} ${INC_FILES}
 	@echo Creating ELF
 	@${MAKE} -C ${OS_BUILD_DIR} link

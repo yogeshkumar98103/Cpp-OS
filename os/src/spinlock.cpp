@@ -19,7 +19,7 @@ namespace os::sync {
     }
 
     void spinlock::release(){
-        __atomic_store_n(&lock, 0, __ATOMIC_RELEASE);
+        __atomic_store_n(&lock, 0, __ATOMIC_RELAXED);
         interrupts::enable_interrupts();
     }
 

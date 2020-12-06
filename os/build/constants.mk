@@ -27,6 +27,9 @@ else
 endif
 
 # -march=${MARCH}
+OBJDUMP = arm-none-eabi-objdump
+OBJCOPY = arm-none-eabi-objcopy
+
 ARCHFLAGS = -mcpu=${CPU} -mfpu=${MFPU} -mfloat-abi=hard 
 CXXFLAGS = -std=c++17 -fpic -ffreestanding -fno-rtti -fno-exceptions ${DIRECTIVES}
 CXXSRCFLAGS = -O2 -Wall -Wextra

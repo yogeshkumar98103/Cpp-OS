@@ -43,16 +43,16 @@ using scheduler_t = os::concurrency::rr_scheduler<5, os::memory::best_fit_heap>;
 
 void second_thread(){
     for(uint32_t j = 0; j <= 20; ++j){
-        for(volatile uint32_t i = 0; i < 10000000; ++i);
+        for(volatile uint32_t i = 0; i < 100000; ++i);
         printlock.acquire();
         std::cout << "Second Thread: " << j << ' ' << get_sp() << std::endl;
         printlock.release();
-    } 
+    }
 }
 
 void third_thread(){
     for(uint32_t j = 0; j <= 20; ++j){
-        for(volatile uint32_t i = 0; i < 10000000; ++i);
+        for(volatile uint32_t i = 0; i < 100000; ++i);
         printlock.acquire();
         std::cout << "Third Thread: " << j << ' ' << get_sp() << std::endl;
         printlock.release();
@@ -61,7 +61,7 @@ void third_thread(){
 
 void fourth_thread(){
     for(uint32_t j = 0; j <= 20; ++j){
-        for(volatile uint32_t i = 0; i < 10000000; ++i);
+        for(volatile uint32_t i = 0; i < 100000; ++i);
         printlock.acquire();
         std::cout << "Fourth Thread: " << j << ' ' << get_sp() << std::endl;
         printlock.release();
@@ -77,7 +77,7 @@ void main_thread(){
     third_th->join();
 
     for(uint32_t j = 0; j <= 40; ++j){
-        for(volatile uint32_t i = 0; i < 10000000; ++i);
+        for(volatile uint32_t i = 0; i < 100000; ++i);
         printlock.acquire();
         std::cout << "Main Thread: " << j << ' ' << get_sp() << std::endl;
         printlock.release();
@@ -106,15 +106,10 @@ void core1_entry(uint32_t core_id){
     uint32_t heap_size = os::memory::get_memory_size();
     os::memory::best_fit_heap heap(heap_start, heap_size);
 
-    scheduler_t scheduler(1000, std::move(heap));
+    scheduler_t scheduler(30, std::move(heap));
     scheduler.start(main_thread);
+
     std::cout << "Back to core 1" << std::endl;
-    // os::timer::init(handler, 1000);
-    // while (true){
-    //     for (volatile int i = 0; i < 10000000; ++i);
-    //     os::timer::set(1000);
-    //     // std::cout << "Hello" << std::endl;
-    // }
 }
 
 void core2_entry(uint32_t core_id){
