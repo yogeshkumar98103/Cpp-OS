@@ -9,15 +9,15 @@
 
 _start:
     mrc p15, #0, r1, c0, c0, #5
-    mrs r4, cpsr
-    bic r4, r4, #0x1f
+    @ mrs r4, cpsr
+    @ bic r4, r4, #0x1f
 
-    orr r3, r4, #0x11
-	msr cpsr_c, r3
-	ldr sp, =_start
+    @ orr r3, r4, #0x11
+	@ msr cpsr_c, r3
+	@ ldr sp, =_start
 
-    orr r3, r4, #0x13
-	msr cpsr_c, r3
+    @ orr r3, r4, #0x13
+	@ msr cpsr_c, r3
 
     and r1, r1, #3
     cmp r1, #0

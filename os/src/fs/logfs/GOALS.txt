@@ -1,0 +1,5 @@
+LogFS is optimized for logging.
+
+1. Sequential Write intensive workloads
+2. Smaller file size (daily logs)
+3. Delete older logs (for eg -  greater than 6 months old)

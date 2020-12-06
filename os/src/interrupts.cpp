@@ -98,9 +98,17 @@ extern "C" void __attribute__ ((interrupt ("ABORT"))) data_abort_handler(void) {
     os::console::puts("DATA ABORT HANDLER\n");
     while(1);
 }
-extern "C" void __attribute__ ((interrupt ("UNDEF"))) undefined_instruction_handler(void) {
-    os::console::puts("UNDEFINED INSTRUCTION HANDLER\n");
-    while(1);
+
+extern "C" uint32_t get_undefined_instr();
+
+// __attribute__ ((interrupt ("UNDEF")))
+extern "C" void undefined_instruction_handler(void) {
+    // os::console::puts("UNDEFINED INSTRUCTION HANDLER\n");
+    // os::console::putu32(get_undefined_instr());
+    asm ("sub lr, lr, #4");
+    asm ("mov r0, lr");
+    asm ("bl putu32");
+    // while(1);
 }
 extern "C" void __attribute__ ((interrupt ("SWI"))) software_interrupt_handler(void) {
     os::console::puts("SWI HANDLER\n");

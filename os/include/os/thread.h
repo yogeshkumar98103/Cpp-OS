@@ -79,6 +79,7 @@ extern "C" void switch_stack(os::thread::cpu_context_t*);
 extern "C" void grim_reaper();
 extern "C" void thread_exit();
 extern "C" uint32_t get_sp();
+// extern "C" void thread_func_asm_wrapper(void*);
 
 namespace os::concurrency {
     class scheduler_base{
@@ -88,14 +89,14 @@ namespace os::concurrency {
 
         friend void dispatcher(uint32_t cpu_id);
 
-        virtual void sleep(os::thread::sleep_channel_t* sleep_chan);
-        virtual void join(os::thread::thread_t* thread); 
-        virtual void wake_one(os::thread::sleep_channel_t* sleep_chan);
-        virtual void wake_all(os::thread::sleep_channel_t* sleep_chan);
+        virtual void sleep(os::thread::sleep_channel_t* sleep_chan) = 0;
+        virtual void join(os::thread::thread_t* thread) = 0;
+        virtual void wake_one(os::thread::sleep_channel_t* sleep_chan) = 0;
+        virtual void wake_all(os::thread::sleep_channel_t* sleep_chan) = 0;
 
-        virtual void dispatcher();
-        virtual void grim_reaper();
-        virtual void thread_exit();
+        virtual void dispatcher() = 0;
+        virtual void grim_reaper() = 0;
+        virtual void thread_exit() = 0;
     };
 
     void dispatcher(uint32_t cpu_id);
@@ -135,6 +136,11 @@ namespace os::concurrency {
             os::timer::init(os::concurrency::dispatcher, time_quanta);
 
             first_context_switch_main_thread(&sch_context, &thread->context);
+
+            while(all_thread_count > 0) {
+                thread_exit();
+            }
+
             std::cout << "Returned from switch" << std::endl;
         }
 
@@ -231,18 +237,6 @@ namespace os::concurrency {
             }
         }
 
-    private:
-
-        /// This function chooses next thread to schedule
-        /// This is only called when there are atleast one active thread
-        os::thread::thread_t* get_next(){
-            while(!threads[qidx].is_ready()){
-                qidx = qidx + 1;
-                if(qidx == nthreads) qidx = 0;
-            }
-            return &threads[qidx];
-        }
-
         void dispatcher() override {
             os::timer::set(time_quanta);
             debug_threads();
@@ -289,7 +283,20 @@ namespace os::concurrency {
             os::timer::set(time_quanta);
             os::interrupts::enable_interrupts();
 
-            context_load(&current_thread->context); 
+            context_switch(&sch_context, &current_thread->context);
+            // context_load(&current_thread->context); 
+        }
+
+    private:
+
+        /// This function chooses next thread to schedule
+        /// This is only called when there are atleast one active thread
+        os::thread::thread_t* get_next(){
+            while(!threads[qidx].is_ready()){
+                qidx = qidx + 1;
+                if(qidx == nthreads) qidx = 0;
+            }
+            return &threads[qidx];
         }
 
         os::thread::thread_t* find_slot(){

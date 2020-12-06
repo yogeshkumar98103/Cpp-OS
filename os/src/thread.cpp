@@ -77,6 +77,9 @@ extern "C" void grim_reaper(){
 extern "C" void thread_exit(){
     using namespace os::concurrency;
     std::cout << "Thread Exit\n";
-    switch_stack(os::this_cpu().scheduler->sch_context);
-    os::this_cpu().scheduler->thread_exit();
+    // while(1);
+    context_load(&os::this_cpu().scheduler->sch_context);
+    // context_switch(os::this_cpu().scheduler->current_thread->context, os::this_cpu().scheduler->sch_context);
+    // switch_stack(os::this_cpu().scheduler->sch_context);
+    // os::this_cpu().scheduler->thread_exit();
 }

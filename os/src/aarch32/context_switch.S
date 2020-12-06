@@ -6,6 +6,17 @@
 .global switch_stack
 .global switch_to_thread
 .global get_sp
+.global get_undefined_instr
+@ .global thread_func_asm_wrapper
+
+@ thread_func_asm_wrapper:
+@     mov lr, =thread_exit
+@     mov pc, r0
+
+
+@ get_undefined_instr:
+@     mov r0, lr
+@     bx lr
 
 @ switch_to_thread:
 @     // Save the current thread's state
